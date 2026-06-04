@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1200px;height:630px;overflow:hidden}
+  body{
+    font-family:'Inter',sans-serif;
+    background:radial-gradient(120% 130% at 82% -15%,#16314f 0%,#0f2038 42%,#0a1628 100%);
+    color:#fff;position:relative;
+  }
+  /* glass light streaks */
+  .streak{position:absolute;inset:0;background:
+    linear-gradient(118deg,transparent 38%,rgba(56,189,240,.14) 49%,transparent 58%),
+    linear-gradient(118deg,transparent 60%,rgba(244,183,64,.14) 69%,transparent 77%);}
+  .ring{position:absolute;width:760px;height:760px;border-radius:50%;border:1.5px solid rgba(244,183,64,.16);
+    right:-220px;top:-180px}
+  .ring2{position:absolute;width:520px;height:520px;border-radius:50%;border:1.5px solid rgba(56,189,240,.14);
+    right:-90px;top:-40px}
+  .pad{position:relative;padding:62px 70px;height:100%;display:flex;flex-direction:column}
+  /* brand */
+  .brand{display:flex;align-items:center;gap:18px}
+  .mark{width:74px;height:74px;border-radius:18px;display:grid;place-items:center;
+    background:linear-gradient(135deg,#16314f,#0a1628);color:#f4b740;font-family:'Sora';font-weight:800;font-size:26px;
+    box-shadow:inset 0 0 0 2px rgba(244,183,64,.45)}
+  .bname{font-family:'Sora';font-weight:800;font-size:30px;line-height:1.05}
+  .bsub{font-size:14px;letter-spacing:.26em;text-transform:uppercase;color:#9fb1c4;font-weight:600;margin-top:5px}
+  /* headline */
+  .mid{margin-top:auto;margin-bottom:auto}
+  .eyebrow{display:inline-block;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:15px;
+    color:#f4b740;background:rgba(244,183,64,.12);padding:9px 18px;border-radius:999px;margin-bottom:26px}
+  h1{font-family:'Sora';font-weight:800;font-size:64px;line-height:1.05;letter-spacing:-.02em}
+  h1 .g{color:#f4b740}
+  .sub{font-size:22px;color:#c9d6e5;margin-top:20px;max-width:760px;line-height:1.45}
+  /* trust row */
+  .chips{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .chip{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+    border-radius:999px;padding:11px 20px;font-weight:600;font-size:17px;color:#e6eef7}
+  .chip b{color:#f4b740}
+  /* footer */
+  .foot{display:flex;align-items:center;justify-content:space-between;margin-top:38px}
+  .phone{font-family:'Sora';font-weight:800;font-size:34px;color:#fff}
+  .phone span{color:#f4b740}
+  .loc{font-size:17px;color:#9fb1c4;text-align:right;line-height:1.5}
+</style>
+</head>
+<body>
+  <div class="streak"></div><div class="ring"></div><div class="ring2"></div>
+  <div class="pad">
+    <div class="brand">
+      <div class="mark">FC</div>
+      <div><div class="bname">First Class Auto Glass</div><div class="bsub">Mooresville · Iredell County, NC</div></div>
+    </div>
+    <div class="mid">
+      <span class="eyebrow">AGSC-Certified · 15+ Years</span>
+      <h1>Crystal-Clear Windshields.<br /><span class="g">First-Class Service.</span></h1>
+      <div class="sub">Expert windshield repair, replacement &amp; ADAS recalibration — mobile or in-shop, all insurance accepted.</div>
+      <div class="chips">
+        <div class="chip"><b>✓</b> Lifetime Warranty</div>
+        <div class="chip"><b>✓</b> OEM-Quality Glass</div>
+        <div class="chip"><b>✓</b> Mobile Service</div>
+        <div class="chip"><b>✓</b> We Handle Insurance</div>
+      </div>
+    </div>
+    <div class="foot">
+      <div class="phone">(980) <span>242-8339</span></div>
+      <div class="loc">1892 Charlotte Hwy, Unit 1<br />Mooresville, NC 28115</div>
+    </div>
+  </div>
+</body>
+</html>
