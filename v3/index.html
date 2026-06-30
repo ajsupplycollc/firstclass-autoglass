@@ -69,7 +69,7 @@
     linear-gradient(180deg, rgba(4,6,15,.5) 0%, transparent 24%, transparent 56%, rgba(4,6,15,.96) 100%)}
   /* looping background video for the sections below the hero (lighter, branded Mercedes drone shot) */
   .bgstage{position:fixed;inset:0;z-index:0;overflow:hidden;opacity:0;transition:opacity .6s ease;background:#05081a}
-  .bgstage video{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%) scale(1.04);object-fit:cover}
+  .bgstage video{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover}
   .bgscrim{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .6s ease;
     background:linear-gradient(180deg, rgba(6,10,26,.62) 0%, rgba(6,10,26,.56) 42%, rgba(5,8,22,.76) 100%)}
   .hero{position:relative;z-index:10;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(20px,6vw,80px)}
@@ -289,18 +289,15 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script>
     const v=document.getElementById('hero');
     v.addEventListener('loadedmetadata',()=>{try{v.playbackRate=1.25}catch(e){}});
     const pp=v.play(); if(pp&&pp.catch)pp.catch(()=>{});
 
     gsap.registerPlugin(ScrollTrigger);
-    const lenis=new Lenis({lerp:.09,smoothWheel:true});
-    lenis.on('scroll',ScrollTrigger.update);
-    gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+    // NATIVE scroll (no smooth-scroll library) — hardware-accelerated, no jank/jumping on weak GPUs
     document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-      const id=a.getAttribute('href'); if(id.length>1){e.preventDefault();const el=document.querySelector(id);if(el)lenis.scrollTo(el,{offset:-10});}
+      const id=a.getAttribute('href'); if(id.length>1){e.preventDefault();const el=document.querySelector(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
     }));
 
     const nav=document.getElementById('nav');
@@ -320,7 +317,8 @@
       if(past){ try{v.pause()}catch(e){} const p=bgv.play(); if(p&&p.catch)p.catch(()=>{}); }
       else { try{bgv.pause()}catch(e){} }
     }
-    lenis.on('scroll',({scroll})=>updateBg(scroll));
+    let bgTick=false;
+    window.addEventListener('scroll',()=>{ if(bgTick)return; bgTick=true; requestAnimationFrame(()=>{ updateBg(window.scrollY||window.pageYOffset); bgTick=false; }); },{passive:true});
     updateBg(0);
 
     const sp=new SplitText('#h1',{type:'chars'});
