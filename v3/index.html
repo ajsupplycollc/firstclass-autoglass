@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>First Class Auto Glass — Clarity, Restored.</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&f[]=satoshi@500,700,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --blue:#3b73ff; --green:#45d300; --ink:#f3f6ff; --muted:#9aa6d6;
+    --display:"Clash Display", system-ui, sans-serif;
+    --body:"Satoshi", system-ui, sans-serif;
+    --glass:rgba(255,255,255,.06); --glass-line:rgba(255,255,255,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:auto}
+  body{background:#03040c;color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+  /* ---- hero video bg ---- */
+  .stage{position:fixed;inset:0;z-index:0;background:#03040c;overflow:hidden}
+  .stage video{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;width:auto;height:auto;
+    transform:translate(-50%,-50%) scale(1.04);object-fit:cover;filter:saturate(1.02) contrast(1.04)}
+  /* vignette: lifts text contrast + buries any corner residue */
+  .vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:
+    radial-gradient(130% 100% at 50% 32%, transparent 38%, rgba(3,4,12,.55) 78%, rgba(3,4,12,.92) 100%),
+    linear-gradient(180deg, rgba(3,4,12,.55) 0%, transparent 26%, transparent 60%, rgba(3,4,12,.85) 100%),
+    radial-gradient(40% 40% at 92% 88%, rgba(3,4,12,.9), transparent 70%)}
+
+  /* ---- top nav ---- */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;
+    padding:20px clamp(18px,4vw,46px)}
+  .wordmark{font-family:var(--display);font-weight:700;letter-spacing:.02em;font-size:clamp(15px,1.4vw,18px);
+    mix-blend-mode:difference}
+  .wordmark span{color:var(--blue)}
+  .navloc{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#cdd6ff;mix-blend-mode:difference}
+
+  /* ---- sticky glassmorphic quote CTA ---- */
+  .quote-cta{position:fixed;z-index:50;top:16px;right:clamp(18px,4vw,46px);
+    display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:100px;
+    font-family:var(--display);font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;
+    background:var(--glass);border:1px solid var(--glass-line);
+    -webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.18), 0 10px 30px rgba(0,0,0,.35);
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), background .35s}
+  .quote-cta:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
+  .quote-cta .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+
+  /* ---- hero copy ---- */
+  .hero{position:relative;z-index:10;height:100svh;display:flex;flex-direction:column;justify-content:center;
+    padding:0 clamp(20px,6vw,86px)}
+  .eyebrow{font-size:clamp(11px,1.1vw,13px);letter-spacing:.32em;text-transform:uppercase;color:#c7d2ff;
+    margin-bottom:20px;font-weight:700;opacity:.9}
+  .eyebrow b{color:var(--green)}
+  h1{font-family:var(--display);font-weight:700;line-height:.9;letter-spacing:-.02em;
+    font-size:clamp(58px,12vw,168px);text-shadow:0 8px 60px rgba(0,0,0,.5)}
+  .sub{margin-top:26px;max-width:36ch;font-size:clamp(15px,1.55vw,20px);color:#cdd6f4;line-height:1.5}
+  .scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#aab3e0;display:flex;flex-direction:column;align-items:center;gap:9px}
+  .scrollcue i{width:1px;height:40px;background:linear-gradient(#fff,transparent);animation:cue 1.8s ease-in-out infinite;transform-origin:top}
+  @keyframes cue{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
+
+  /* ---- difference section (taste of the journey) ---- */
+  .diff{position:relative;z-index:10;background:linear-gradient(180deg, transparent 0%, #04060f 14%, #050a1c 100%);
+    padding:18vh clamp(20px,6vw,86px) 16vh;margin-top:100svh}
+  .diff .kicker{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:18px;
+    display:flex;align-items:center;gap:12px}
+  .diff .kicker::before{content:"";width:26px;height:1px;background:var(--green)}
+  .diff h2{font-family:var(--display);font-weight:700;font-size:clamp(34px,5.4vw,72px);line-height:1.0;letter-spacing:-.02em;max-width:16ch}
+  .cards{margin-top:54px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+  .card{padding:26px 24px 30px;border-radius:20px;background:var(--glass);border:1px solid var(--glass-line);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+  .card .n{font-family:var(--display);font-size:13px;color:var(--blue);font-weight:600;letter-spacing:.04em}
+  .card h3{font-family:var(--display);font-weight:600;font-size:22px;margin:14px 0 8px;letter-spacing:-.01em}
+  .card p{font-size:14.5px;color:var(--muted);line-height:1.5}
+  .diff .closer{margin-top:64px;display:flex;flex-wrap:wrap;align-items:center;gap:20px}
+  .btn{font-family:var(--display);font-weight:600;font-size:18px;color:#04060f;background:var(--ink);
+    padding:18px 34px;border-radius:100px;text-decoration:none;display:inline-flex;align-items:center;gap:12px;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s}
+  .btn:hover{transform:translateY(-3px);background:var(--green);color:#04210a}
+  .phone{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.3vw,28px);color:var(--ink);text-decoration:none;
+    border-bottom:2px solid rgba(255,255,255,.18);padding-bottom:3px}
+  .foot{position:relative;z-index:10;background:#050a1c;color:#8fa0dc;font-size:13px;
+    padding:26px clamp(20px,6vw,86px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid rgba(255,255,255,.07)}
+  .foot b{font-family:var(--display);color:#fff}
+
+  @media (max-width:640px){
+    h1{font-size:clamp(54px,17vw,84px)}
+    .quote-cta{top:auto;bottom:18px;left:50%;right:auto;transform:translateX(-50%);padding:15px 26px;font-size:16px}
+    .quote-cta:hover{transform:translateX(-50%)}
+    .scrollcue{display:none}
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <video id="hero" muted playsinline autoplay preload="auto" poster="hero_poster.jpg">
+      <source src="hero.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="vignette"></div>
+
+  <nav class="nav">
+    <div class="wordmark">FIRST&nbsp;CLASS <span>/</span> AUTO&nbsp;GLASS</div>
+    <div class="navloc">Charlotte · NC</div>
+  </nav>
+  <a class="quote-cta" href="#quote"><span class="dot"></span>Get Instant Quote</a>
+
+  <header class="hero">
+    <div class="eyebrow">Windshield replacement · <b>ADAS calibration included</b></div>
+    <h1 id="h1">Clarity,<br>Restored.</h1>
+    <p class="sub">Factory-grade glass, recalibrated to the millimeter, brought to your driveway across Charlotte.</p>
+    <div class="scrollcue">Scroll<i></i></div>
+  </header>
+
+  <section class="diff" id="quote">
+    <div class="kicker">The First Class difference</div>
+    <h2>Most shops replace the glass. We restore the car.</h2>
+    <div class="cards">
+      <div class="card"><h3>Mobile service</h3><p>We come to your home or office anywhere in Charlotte — no waiting room, no tow.</p></div>
+      <div class="card"><h3>OEM-grade glass</h3><p>Factory-spec laminated glass, bonded and cured to manufacturer standards.</p></div>
+      <div class="card"><h3>ADAS calibration</h3><p>Lane-keep, auto-brake and cameras recalibrated so safety systems read true.</p></div>
+      <div class="card"><h3>Lifetime warranty</h3><p>Insurance approved and billed direct. Our workmanship is covered for as long as you own the car.</p></div>
+    </div>
+    <div class="closer">
+      <a class="btn" href="tel:+19802428339">Get your instant quote</a>
+      <a class="phone" href="tel:+19802428339">(980) 242-8339</a>
+    </div>
+  </section>
+  <footer class="foot"><b>First Class Auto Glass</b><span>Charlotte, North Carolina · Windshield replacement &amp; ADAS calibration</span></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script>
+    // play the reform once, slightly quicker, then hold on the flawless windshield
+    const v = document.getElementById('hero');
+    v.addEventListener('loadedmetadata', ()=>{ try{ v.playbackRate = 1.25; }catch(e){} });
+    const p = v.play(); if(p && p.catch) p.catch(()=>{});
+
+    gsap.registerPlugin(ScrollTrigger);
+    const lenis = new Lenis({lerp:0.09, smoothWheel:true});
+    window.__lenis = lenis;
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t=> lenis.raf(t*1000));
+    gsap.ticker.lagSmoothing(0);
+
+    // hero headline reveal
+    const split = new SplitText('#h1', {type:'chars,lines'});
+    gsap.from(split.chars, {yPercent:118, opacity:0, stagger:0.045, duration:1.1, ease:'power4.out', delay:0.5});
+    gsap.from('.eyebrow', {y:18, opacity:0, duration:1, delay:0.35, ease:'power3.out'});
+    gsap.from('.sub', {y:18, opacity:0, duration:1, delay:1.05, ease:'power3.out'});
+    gsap.from('.quote-cta', {y:-14, opacity:0, duration:.9, delay:1.3, ease:'power3.out'});
+
+    // fade the wordmark/location out leaving the hero (sticky quote CTA stays); avoids headline collision
+    gsap.to('.nav', {autoAlpha:0, ease:'none',
+      scrollTrigger:{trigger:'.diff', start:'top 88%', end:'top 58%', scrub:true}});
+
+    // difference section reveals
+    gsap.from('.diff .kicker, .diff h2', {y:32, opacity:0, stagger:0.12, duration:1, ease:'power3.out',
+      scrollTrigger:{trigger:'.diff', start:'top 70%'}});
+    gsap.from('.card', {y:40, opacity:0, stagger:0.1, duration:.9, ease:'power3.out',
+      scrollTrigger:{trigger:'.cards', start:'top 80%'}});
+    gsap.from('.diff .closer', {y:26, opacity:0, duration:.9, ease:'power3.out',
+      scrollTrigger:{trigger:'.diff .closer', start:'top 90%'}});
+  </script>
+</body>
+</html>
