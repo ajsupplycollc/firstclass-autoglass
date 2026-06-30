@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>First Class Auto Glass — Engineered</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&f[]=satoshi@500,700,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --blue:#2f6bff; --blue-deep:#0042dd; --navy:#06092f; --navy-2:#0a0f3d;
+    --green:#45d300; --ink:#f4f7ff; --muted:#9aa6d6;
+    --display:"Clash Display", system-ui, sans-serif;
+    --body:"Satoshi", system-ui, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#03040f;color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden}
+  canvas#gl{position:fixed;inset:0;width:100vw;height:100vh;z-index:1;display:block}
+  .bg{position:fixed;inset:0;z-index:0;background:
+      radial-gradient(120% 90% at 50% 8%, #11183f 0%, #070a24 42%, #03040f 100%);}
+  .grain{position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+  /* top bar */
+  .nav{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;justify-content:space-between;
+    padding:22px clamp(18px,4vw,46px);mix-blend-mode:difference}
+  .wordmark{font-family:var(--display);font-weight:700;letter-spacing:.02em;font-size:clamp(15px,1.4vw,18px)}
+  .wordmark span{color:var(--blue)}
+  .nav .loc{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#cdd6ff}
+
+  /* hero (pinned) */
+  #hero{position:relative;z-index:10;height:100vh;width:100vw}
+  .hero-copy{position:absolute;inset:0;z-index:12;display:flex;flex-direction:column;justify-content:center;
+    padding:0 clamp(20px,6vw,80px);pointer-events:none}
+  .eyebrow{font-size:clamp(11px,1.1vw,13px);letter-spacing:.34em;text-transform:uppercase;color:var(--blue);
+    margin-bottom:18px;font-weight:700}
+  .eyebrow b{color:var(--green)}
+  h1.hero{font-family:var(--display);font-weight:700;line-height:.92;letter-spacing:-.02em;
+    font-size:clamp(52px,11vw,150px);max-width:14ch}
+  h1.hero .l2{color:transparent;-webkit-text-stroke:1.4px rgba(180,200,255,.55)}
+  .sub{margin-top:26px;max-width:30ch;font-size:clamp(15px,1.5vw,19px);color:var(--muted);line-height:1.5}
+  .scrollcue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:13;
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#aab3e0;display:flex;flex-direction:column;
+    align-items:center;gap:9px}
+  .scrollcue i{width:1px;height:42px;background:linear-gradient(var(--blue),transparent);display:block;
+    animation:cue 1.8s ease-in-out infinite}
+  @keyframes cue{0%,100%{transform:scaleY(.4);opacity:.4;transform-origin:top}50%{transform:scaleY(1);opacity:1;transform-origin:top}}
+
+  /* exploded-view labels */
+  .label{position:fixed;z-index:14;pointer-events:none;opacity:0;transform:translate(-50%,-50%);
+    will-change:transform,opacity}
+  .label .ln{width:54px;height:1px;background:linear-gradient(90deg,transparent,var(--blue));margin-bottom:8px}
+  .label .t{font-family:var(--display);font-weight:600;font-size:clamp(13px,1.3vw,16px);white-space:nowrap}
+  .label .d{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .label.green .ln{background:linear-gradient(90deg,transparent,var(--green))}
+  .label.green .t{color:#caffb0}
+
+  /* calibration stamp */
+  .stamp{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.9);z-index:15;text-align:center;
+    opacity:0;pointer-events:none}
+  .stamp::before{content:"";position:absolute;left:50%;top:50%;width:560px;height:320px;transform:translate(-50%,-50%);
+    background:radial-gradient(closest-side, rgba(3,4,15,.86), rgba(3,4,15,.5) 55%, transparent 78%);z-index:-1}
+  .stamp .chk{width:54px;height:54px;border-radius:50%;border:2px solid var(--green);display:grid;place-items:center;
+    margin:0 auto 14px;box-shadow:0 0 34px rgba(69,211,0,.5)}
+  .stamp .chk svg{width:26px;height:26px;stroke:var(--green);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+  .stamp .t{font-family:var(--display);font-weight:600;font-size:clamp(18px,2.4vw,30px)}
+  .stamp .t b{color:var(--green)}
+
+  /* reveal / CTA section */
+  #reveal{position:relative;z-index:20;min-height:118vh;background:
+      linear-gradient(180deg,#03040f 0%, #050a2c 30%, #061a4d 100%);
+    clip-path:inset(0 0 0 0 round 42px 42px 0 0);display:flex;align-items:flex-start;
+    padding:21vh clamp(20px,6vw,90px) 14vh}
+  #reveal .glow{position:absolute;inset:0;z-index:0;pointer-events:none;background:
+      radial-gradient(60% 50% at 78% 22%, rgba(47,107,255,.32),transparent 70%),
+      radial-gradient(50% 40% at 12% 88%, rgba(69,211,0,.16),transparent 70%)}
+  .cta{position:relative;z-index:2;max-width:1100px;margin:0 auto;width:100%}
+  .cta .ey{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:22px;
+    display:flex;align-items:center;gap:12px}
+  .cta .ey::before{content:"";width:26px;height:26px;border-radius:50%;border:1.5px solid var(--green);
+    background:radial-gradient(circle at 50% 50%, var(--green) 0 22%, transparent 26%)}
+  h2.big{font-family:var(--display);font-weight:700;line-height:.96;letter-spacing:-.02em;
+    font-size:clamp(40px,7.6vw,108px);max-width:15ch}
+  .cta .sub2{margin-top:28px;max-width:46ch;font-size:clamp(16px,1.7vw,21px);color:#c4cdf2;line-height:1.55}
+  .row{margin-top:46px;display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+  .btn{font-family:var(--display);font-weight:600;font-size:18px;color:#03040f;background:var(--ink);
+    padding:18px 34px;border-radius:100px;text-decoration:none;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s;
+    display:inline-flex;align-items:center;gap:12px}
+  .btn:hover{transform:translateY(-3px);background:var(--green);color:#04210a}
+  .btn svg{width:18px;height:18px}
+  .phone{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.4vw,30px);color:var(--ink);text-decoration:none;
+    letter-spacing:.01em;border-bottom:2px solid rgba(255,255,255,.18);padding-bottom:3px}
+  .trust{margin-top:54px;display:flex;flex-wrap:wrap;gap:14px 30px;color:var(--muted);font-size:14px}
+  .trust span{display:flex;align-items:center;gap:9px}
+  .trust span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+  .foot{position:relative;z-index:20;background:#061a4d;color:#9fb0e8;font-size:13px;
+    padding:30px clamp(20px,6vw,90px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    border-top:1px solid rgba(255,255,255,.08)}
+  .foot b{font-family:var(--display);color:#fff}
+
+  /* loader */
+  .load{position:fixed;inset:0;z-index:80;background:#03040f;display:grid;place-items:center;transition:opacity .8s ease}
+  .load.done{opacity:0;pointer-events:none}
+  .load .ring{width:46px;height:46px;border-radius:50%;border:2px solid rgba(255,255,255,.12);border-top-color:var(--blue);
+    animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  @media (max-width:600px){
+    h1.hero{font-size:clamp(46px,15vw,72px)}
+    .label .t{font-size:13px}
+    .sub{font-size:15px}
+  }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <canvas id="gl"></canvas>
+  <div class="grain"></div>
+
+  <div class="load" id="load"><div class="ring"></div></div>
+
+  <nav class="nav">
+    <div class="wordmark">FIRST&nbsp;CLASS <span>/</span> AUTO&nbsp;GLASS</div>
+    <div class="loc">Charlotte · NC</div>
+  </nav>
+
+  <!-- exploded-view labels (positioned by JS) -->
+  <div class="label" data-key="outer"><div class="ln"></div><div class="t">Outer glass</div><div class="d">Impact face</div></div>
+  <div class="label" data-key="pvb"><div class="ln"></div><div class="t">PVB laminate</div><div class="d">Safety interlayer</div></div>
+  <div class="label" data-key="inner"><div class="ln"></div><div class="t">Inner glass</div><div class="d">Bonded to frame</div></div>
+  <div class="label green" data-key="adas"><div class="ln"></div><div class="t">ADAS camera</div><div class="d">Factory calibrated</div></div>
+
+  <div class="stamp" id="stamp">
+    <div class="chk"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></div>
+    <div class="t">Calibrated to <b>factory spec</b></div>
+  </div>
+
+  <section id="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">First Class Auto Glass · <b>ADAS calibration included</b></div>
+      <h1 class="hero" id="h1"><span class="l1">More than</span><br><span class="l2">glass.</span></h1>
+      <p class="sub">Scroll to see what really goes into your windshield — and why the calibration matters.</p>
+    </div>
+    <div class="scrollcue">Scroll<i></i></div>
+  </section>
+
+  <section id="reveal">
+    <div class="glow"></div>
+    <div class="cta">
+      <div class="ey">Drive away factory-perfect</div>
+      <h2 class="big" id="h2">Glass is just<br>the beginning.</h2>
+      <p class="sub2">Every First Class install is four engineered layers of safety glass — then we recalibrate your ADAS camera to the millimeter, so lane-keep and auto-braking work exactly as the factory intended.</p>
+      <div class="row">
+        <a class="btn" href="tel:+19802428339"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.24 11.4 11.4 0 003.6.58 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.58 3.6 1 1 0 01-.24 1z"/></svg>Book your install</a>
+        <a class="phone" href="tel:+19802428339">(980) 242-8339</a>
+      </div>
+      <div class="trust">
+        <span>Lifetime workmanship warranty</span>
+        <span>Insurance approved &amp; billed direct</span>
+        <span>Same-day mobile service</span>
+      </div>
+    </div>
+  </section>
+  <footer class="foot"><b>First Class Auto Glass</b><span>Charlotte, North Carolina · Windshield replacement &amp; ADAS calibration</span></footer>
+
+  <!-- libs (free): GSAP 3.13 (+ScrollTrigger, +SplitText now free), Lenis -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <script type="importmap">
+  { "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }}
+  </script>
+
+  <script type="module">
+  import * as THREE from 'three';
+  import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+  import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+  import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+  import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+  const lerp = (a,b,t)=>a+(b-a)*t;
+  const smooth = (e0,e1,x)=>{ const t=Math.min(1,Math.max(0,(x-e0)/(e1-e0))); return t*t*(3-2*t); };
+
+  // ---------- renderer / scene ----------
+  const canvas = document.getElementById('gl');
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+  renderer.setClearColor(0x000000, 0);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.0;
+  const DPR = Math.min(window.devicePixelRatio, window.innerWidth<700 ? 1.6 : 2);
+  renderer.setPixelRatio(DPR);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 100);
+  camera.position.set(0, 0, 9);
+
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+  // lights
+  const key = new THREE.DirectionalLight(0xffffff, 1.35); key.position.set(4,6,8); scene.add(key);
+  const rim = new THREE.DirectionalLight(0x2f6bff, 1.9); rim.position.set(-7,2,-4); scene.add(rim);
+  const fill = new THREE.DirectionalLight(0x45d300, 0.55); fill.position.set(0,-6,3); scene.add(fill);
+  scene.add(new THREE.AmbientLight(0x16205a, 0.55));
+
+  // ---------- windshield geometry (curved, tapered) ----------
+  function windshieldGeo(w,h,segW,segH,curve){
+    const geo = new THREE.PlaneGeometry(w,h,segW,segH);
+    const p = geo.attributes.position;
+    for(let i=0;i<p.count;i++){
+      const x=p.getX(i), y=p.getY(i);
+      const taper = THREE.MathUtils.mapLinear(y, -h/2, h/2, 1.0, 0.80); // narrower at top
+      const nx = x*taper;
+      const z = -curve*Math.pow(nx/(w/2),2) - curve*0.45*Math.pow(y/(h/2),2);
+      p.setX(i, nx); p.setZ(i, z);
+    }
+    geo.computeVertexNormals();
+    return geo;
+  }
+  const W=5.0, H=3.05;
+  const baseGeo = windshieldGeo(W,H,60,40,0.62);
+
+  const group = new THREE.Group();
+  scene.add(group);
+  group.rotation.x = -0.18;
+
+  // black ceramic frit frame (the dark border real windshields have)
+  const frameGeo = windshieldGeo(W*1.045,H*1.05,40,30,0.62);
+  const frame = new THREE.Mesh(frameGeo, new THREE.MeshStandardMaterial({color:0x05060f, roughness:.85, metalness:.1}));
+  frame.position.z = -0.16; group.add(frame);
+
+  function glassMat(tint, opacity){
+    return new THREE.MeshPhysicalMaterial({
+      color:tint, metalness:0, roughness:0.06, transmission:1.0, thickness:0.6,
+      ior:1.52, clearcoat:1, clearcoatRoughness:0.08, transparent:true,
+      opacity:opacity, envMapIntensity:1.1, attenuationColor:tint, attenuationDistance:3.5,
+      side:THREE.DoubleSide
+    });
+  }
+  // three structural layers + laminate
+  const layers = [
+    {key:'outer', z:0.34, mat:glassMat(new THREE.Color(0xbfe0ff),1.0)},
+    {key:'pvb',   z:0.12, mat:new THREE.MeshPhysicalMaterial({color:0x4a7bff, roughness:.25, transmission:.78, thickness:.4, ior:1.48, transparent:true, opacity:.62, envMapIntensity:1.0, side:THREE.DoubleSide})},
+    {key:'inner', z:-0.10, mat:glassMat(new THREE.Color(0xbfe0ff),1.0)},
+  ];
+  const meshes = {};
+  layers.forEach(L=>{
+    const m = new THREE.Mesh(baseGeo, L.mat);
+    m.userData.baseZ = L.z;
+    group.add(m); meshes[L.key]=m;
+  });
+
+  // ADAS camera module (mounted top-center, behind glass)
+  const adas = new THREE.Group();
+  const housingMat = new THREE.MeshStandardMaterial({color:0x0b1024, roughness:.5, metalness:.4});
+  const housing = new THREE.Mesh(new THREE.BoxGeometry(0.9,0.42,0.5), housingMat);
+  const shroud = new THREE.Mesh(new THREE.ConeGeometry(0.34,0.6,4), new THREE.MeshStandardMaterial({color:0x070b1a, roughness:.6}));
+  shroud.rotation.z=Math.PI/4; shroud.rotation.x=Math.PI/2.1; shroud.position.set(0,-0.16,0.28); shroud.scale.set(1,1,.6);
+  const lens = new THREE.Mesh(new THREE.CylinderGeometry(0.12,0.14,0.16,24), new THREE.MeshStandardMaterial({color:0x0a1230, roughness:.15, metalness:.8}));
+  lens.rotation.x=Math.PI/2; lens.position.set(0,-0.18,0.42);
+  const led = new THREE.Mesh(new THREE.SphereGeometry(0.05,16,16), new THREE.MeshStandardMaterial({color:0x45d300, emissive:0x45d300, emissiveIntensity:3}));
+  led.position.set(0.3,0.08,0.27);
+  adas.add(housing,shroud,lens,led);
+  adas.position.set(0, H*0.30, -0.02);
+  adas.userData.baseZ = -0.02;
+  group.add(adas);
+
+  // ---------- post (bloom) ----------
+  const composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene,camera));
+  const bloom = new UnrealBloomPass(new THREE.Vector2(1,1), 0.34, 0.4, 0.92);
+  composer.addPass(bloom);
+
+  function resize(){
+    const w=window.innerWidth, h=window.innerHeight;
+    renderer.setSize(w,h,false); composer.setSize(w,h);
+    camera.aspect=w/h; camera.updateProjectionMatrix();
+  }
+  window.addEventListener('resize', resize); resize();
+
+  // ---------- labels projection ----------
+  const labelEls = {};
+  document.querySelectorAll('.label').forEach(el=> labelEls[el.dataset.key]=el);
+  const anchor = new THREE.Vector3();
+  function projectLabels(explodeVis){
+    const w=window.innerWidth, h=window.innerHeight;
+    function place(el, obj, ox){
+      obj.getWorldPosition(anchor); anchor.x += ox;
+      anchor.project(camera);
+      const x=(anchor.x*0.5+0.5)*w, y=(-anchor.y*0.5+0.5)*h;
+      el.style.left=x+'px'; el.style.top=y+'px';
+      el.style.opacity = explodeVis;
+    }
+    place(labelEls.outer, meshes.outer, W*0.42);
+    place(labelEls.pvb,   meshes.pvb,  -W*0.42);
+    place(labelEls.inner, meshes.inner, W*0.42);
+    place(labelEls.adas,  adas,        -1.4);
+  }
+
+  // ---------- scroll state ----------
+  const state = {progress:0};
+  let lenis;
+  function initScroll(){
+    gsap.registerPlugin(ScrollTrigger);
+    lenis = new Lenis({lerp:0.09, smoothWheel:true, wheelMultiplier:1});
+    window.__lenis = lenis;
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t=> lenis.raf(t*1000));
+    gsap.ticker.lagSmoothing(0);
+
+    ScrollTrigger.create({
+      trigger:'#hero', start:'top top', end:'+=320%', pin:true, scrub:1,
+      onUpdate:self=> state.progress=self.progress
+    });
+
+    // hero headline in
+    const split = new SplitText('#h1', {type:'chars'});
+    gsap.from(split.chars, {yPercent:120, opacity:0, stagger:0.03, duration:1, ease:'power4.out', delay:0.15});
+    gsap.from('.eyebrow', {y:18,opacity:0,duration:1,delay:0.1,ease:'power3.out'});
+    gsap.from('.sub', {y:18,opacity:0,duration:1,delay:0.5,ease:'power3.out'});
+
+    // fade the top nav out as the CTA section rises (avoids wordmark/headline collision)
+    gsap.to('.nav', {autoAlpha:0, ease:'none',
+      scrollTrigger:{trigger:'#reveal', start:'top 70%', end:'top 40%', scrub:true}});
+
+    // reveal section
+    gsap.to('#reveal', {clipPath:'inset(0 0 0 0 round 0 0 0 0)', ease:'none',
+      scrollTrigger:{trigger:'#reveal', start:'top 80%', end:'top 30%', scrub:true}});
+    const h2split = new SplitText('#h2', {type:'lines'});
+    gsap.from(h2split.lines, {yPercent:110, opacity:0, stagger:0.12, duration:1, ease:'power4.out',
+      scrollTrigger:{trigger:'#reveal', start:'top 62%'}});
+    gsap.from('.cta .ey, .cta .sub2, .cta .row, .cta .trust', {y:26,opacity:0,stagger:0.12,duration:.9,ease:'power3.out',
+      scrollTrigger:{trigger:'#reveal', start:'top 55%'}});
+  }
+
+  // ---------- render loop ----------
+  const stamp = document.getElementById('stamp');
+  const clock = new THREE.Clock();
+  function tick(){
+    const t = clock.getElapsedTime();
+    const p = state.progress;
+
+    // explode envelope: out 0.16->0.46, hold to 0.66, back to 0.86
+    const out = smooth(0.16,0.46,p);
+    const back = smooth(0.66,0.86,p);
+    const explode = out*(1-back);
+
+    // layer separation along view axis + slight vertical fan
+    const spread = 2.5;
+    meshes.outer.position.z = lerp(layers[0].z, layers[0].z+spread, explode);
+    meshes.pvb.position.z   = lerp(layers[1].z, layers[1].z+spread*0.34, explode);
+    meshes.inner.position.z = lerp(layers[2].z, layers[2].z-spread*0.55, explode);
+    adas.position.z         = lerp(-0.02, -spread*1.05, explode);
+    meshes.outer.position.y = lerp(0, 0.5, explode);
+    meshes.inner.position.y = lerp(0, -0.5, explode);
+    adas.position.y         = lerp(H*0.30, H*0.30+0.7, explode);
+
+    // alive rotation + scroll tilt; fan layers into depth while exploded
+    group.rotation.y = Math.sin(t*0.3)*0.1 + p*0.32 + explode*0.5;
+    group.rotation.x = -0.16 + Math.sin(t*0.4)*0.025 - explode*0.13;
+    const zoom = lerp(9, 7.2, smooth(0.7,0.92,p)*(1-smooth(0.95,1,p)));
+    camera.position.z = zoom;
+    camera.position.y = lerp(0, H*0.18, smooth(0.7,0.9,p));
+    camera.lookAt(0, camera.position.y*0.6, 0);
+
+    // led pulse
+    led.material.emissiveIntensity = 2.4 + Math.sin(t*4)*1.4;
+
+    // labels + calibration stamp
+    projectLabels(Math.min(1,explode*1.4));
+    const stampV = smooth(0.80,0.9,p)*(1-smooth(0.96,1,p));
+    stamp.style.opacity = stampV;
+    stamp.style.transform = `translate(-50%,-50%) scale(${lerp(0.9,1,stampV)})`;
+
+    // fade hero copy as we leave
+    const heroFade = 1-smooth(0.12,0.34,p);
+    document.querySelector('.hero-copy').style.opacity = heroFade;
+    document.querySelector('.scrollcue').style.opacity = heroFade;
+
+    composer.render();
+    requestAnimationFrame(tick);
+  }
+
+  // boot
+  Promise.resolve().then(()=>{
+    initScroll();
+    tick();
+    requestAnimationFrame(()=> document.getElementById('load').classList.add('done'));
+  });
+  </script>
+</body>
+</html>
