@@ -26,44 +26,52 @@
   .kicker{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);font-weight:700;
     display:inline-flex;align-items:center;gap:12px;margin-bottom:18px}
   .kicker::before{content:"";width:26px;height:1px;background:var(--green)}
-  h2.sec{font-family:var(--display);font-weight:700;font-size:clamp(32px,5.2vw,68px);line-height:1.0;letter-spacing:-.02em;max-width:17ch}
+  h2.sec{font-family:var(--display);font-weight:700;font-size:clamp(32px,5.2vw,68px);line-height:1.0;letter-spacing:-.02em;max-width:17ch;text-shadow:0 2px 28px rgba(0,0,0,.55)}
 
   /* ===== LIQUID GLASS ===== */
-  .glass{position:relative;border-radius:20px;
-    background:linear-gradient(135deg, rgba(255,255,255,.13), rgba(255,255,255,.035) 34%, rgba(255,255,255,.015) 60%, rgba(255,255,255,.085));
-    border:1px solid rgba(255,255,255,.12);
-    -webkit-backdrop-filter:blur(24px) saturate(1.7) brightness(1.06);
-    backdrop-filter:blur(24px) saturate(1.7) brightness(1.06);
+  /* liquid-glass LOOK without live backdrop-filter (which tanks scroll on weak GPUs):
+     translucent gradient + bright rim highlight + depth, plus a faint top sheen */
+  .glass{position:relative;border-radius:20px;overflow:hidden;
+    background:linear-gradient(135deg, rgba(28,36,64,.62), rgba(12,17,36,.52) 45%, rgba(20,27,52,.6));
+    border:1px solid rgba(255,255,255,.13);
     box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.32),
+      inset 0 1px 0 rgba(255,255,255,.30),
       inset 0 0 0 1px rgba(255,255,255,.03),
-      inset 0 -18px 36px -24px rgba(0,0,0,.6),
-      0 24px 52px -24px rgba(0,0,0,.62);
+      inset 0 -18px 36px -24px rgba(0,0,0,.55),
+      0 24px 52px -24px rgba(0,0,0,.6);
     transition:transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s, border-color .5s}
+  .glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+    background:linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,0) 32%);}
+  .glass>*{position:relative}
   .glass.lift:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.2);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.4), inset 0 -18px 36px -24px rgba(0,0,0,.55), 0 34px 60px -22px rgba(0,0,0,.7)}
 
   /* ===== header ===== */
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
     padding:14px clamp(16px,4vw,40px);transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
-  header.nav.solid{background:rgba(5,7,17,.62);-webkit-backdrop-filter:blur(20px) saturate(1.5);backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--line)}
+  header.nav.solid{background:rgba(5,7,17,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   header.nav img{height:46px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))}
   .nav-right{display:flex;align-items:center;gap:16px}
   .nav-phone{font-family:var(--display);font-weight:600;font-size:15px;color:#dbe4ff}
   .pill{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:100px;font-family:var(--display);font-weight:600;font-size:14.5px;cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s,box-shadow .35s}
   .pill.primary{background:linear-gradient(180deg,#62ee27,#46c512);color:#05210a;box-shadow:0 8px 26px rgba(84,224,26,.30),inset 0 1px 0 rgba(255,255,255,.4)}
   .pill.primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(84,224,26,.45),inset 0 1px 0 rgba(255,255,255,.5)}
-  .pill.glass2{background:rgba(255,255,255,.08);border:1px solid var(--line);color:var(--ink);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+  .pill.glass2{background:rgba(255,255,255,.10);border:1px solid var(--line);color:var(--ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
   .pill.glass2:hover{background:rgba(255,255,255,.15)}
   .pill .dot{width:8px;height:8px;border-radius:50%;background:#05210a;opacity:.7}
   @media(max-width:620px){.nav-phone{display:none}header.nav img{height:38px}}
 
   /* ===== hero ===== */
-  .stage{position:fixed;inset:0;z-index:0;background:#04060f;overflow:hidden}
+  .stage{position:fixed;inset:0;z-index:0;background:#04060f;overflow:hidden;transition:opacity .6s ease}
   .stage video{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%) scale(1.05);object-fit:cover}
-  .vign{position:fixed;inset:0;z-index:1;pointer-events:none;background:
+  .vign{position:fixed;inset:0;z-index:1;pointer-events:none;transition:opacity .6s ease;background:
     radial-gradient(130% 100% at 50% 30%, transparent 40%, rgba(4,6,15,.55) 80%, rgba(4,6,15,.95) 100%),
     linear-gradient(180deg, rgba(4,6,15,.5) 0%, transparent 24%, transparent 56%, rgba(4,6,15,.96) 100%)}
+  /* looping background video for the sections below the hero (lighter, branded Mercedes drone shot) */
+  .bgstage{position:fixed;inset:0;z-index:0;overflow:hidden;opacity:0;transition:opacity .6s ease;background:#05081a}
+  .bgstage video{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%) scale(1.04);object-fit:cover}
+  .bgscrim{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .6s ease;
+    background:linear-gradient(180deg, rgba(6,10,26,.62) 0%, rgba(6,10,26,.56) 42%, rgba(5,8,22,.76) 100%)}
   .hero{position:relative;z-index:10;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(20px,6vw,80px)}
   .hero .eyebrow{font-size:clamp(11px,1.1vw,13px);letter-spacing:.3em;text-transform:uppercase;color:#c7d2ff;font-weight:700;margin-bottom:18px}
   .hero .eyebrow b{color:var(--green)}
@@ -77,7 +85,7 @@
   .scrollcue i{width:1px;height:38px;background:linear-gradient(#fff,transparent);animation:cue 1.8s ease-in-out infinite;transform-origin:top}
   @keyframes cue{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
 
-  .below{position:relative;z-index:5;background:linear-gradient(180deg,transparent 0,#04060f 9%, #05081a 100%)}
+  .below{position:relative;z-index:5;background:transparent}
 
   /* ===== trust marquee ===== */
   .trustbar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.025);overflow:hidden}
@@ -103,7 +111,7 @@
   .ba{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:3/2;user-select:none;border:1px solid var(--line);cursor:ew-resize;touch-action:pan-y;box-shadow:0 30px 60px -28px rgba(0,0,0,.7)}
   .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
   .ba .after{clip-path:inset(0 0 0 var(--pos,50%))}
-  .ba .lbl{position:absolute;bottom:16px;z-index:4;font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;border-radius:100px;background:rgba(4,6,15,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--line)}
+  .ba .lbl{position:absolute;bottom:16px;z-index:4;font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;border-radius:100px;background:rgba(4,6,15,.7);border:1px solid var(--line)}
   .ba .lbl.b{left:16px;color:#ff9b9b} .ba .lbl.a{right:16px;color:#bfffb0}
   .ba .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:var(--green);box-shadow:0 0 18px var(--green);z-index:5;transform:translateX(-1px)}
   .ba .handle::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;background:var(--green);color:#05210a;display:grid;place-items:center;font-size:17px;font-weight:900;box-shadow:0 4px 18px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.5)}
@@ -162,6 +170,8 @@
 <body>
   <div class="stage"><video id="hero" muted playsinline autoplay preload="auto" poster="hero_poster.jpg"><source src="hero.mp4" type="video/mp4" /></video></div>
   <div class="vign"></div>
+  <div class="bgstage" id="bgstage"><video id="bgv" muted playsinline loop preload="auto" poster="bg_poster.jpg"><source src="bg.mp4" type="video/mp4" /></video></div>
+  <div class="bgscrim" id="bgscrim"></div>
 
   <header class="nav" id="nav">
     <a href="#top"><img src="logo.png" alt="First Class Auto Glass" /></a>
@@ -295,6 +305,21 @@
 
     const nav=document.getElementById('nav');
     ScrollTrigger.create({start:'top -80',onUpdate:s=>nav.classList.toggle('solid',s.scroll()>80)});
+
+    // crossfade hero video <-> looping background video; only one plays at a time (perf)
+    const stage=document.querySelector('.stage'), vign=document.querySelector('.vign');
+    const bgstage=document.getElementById('bgstage'), bgscrim=document.getElementById('bgscrim'), bgv=document.getElementById('bgv');
+    let bgOn=null;
+    function updateBg(scroll){
+      const past = scroll > window.innerHeight*0.55;
+      if(past===bgOn) return; bgOn=past;
+      stage.style.opacity=past?0:1; vign.style.opacity=past?0:1;
+      bgstage.style.opacity=past?1:0; bgscrim.style.opacity=past?1:0;
+      if(past){ try{v.pause()}catch(e){} const p=bgv.play(); if(p&&p.catch)p.catch(()=>{}); }
+      else { try{bgv.pause()}catch(e){} }
+    }
+    lenis.on('scroll',({scroll})=>updateBg(scroll));
+    updateBg(0);
 
     const sp=new SplitText('#h1',{type:'chars'});
     gsap.from(sp.chars,{yPercent:118,opacity:0,stagger:.045,duration:1.1,ease:'power4.out',delay:.4});
