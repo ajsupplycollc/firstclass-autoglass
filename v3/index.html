@@ -309,6 +309,8 @@
     // crossfade hero video <-> looping background video; only one plays at a time (perf)
     const stage=document.querySelector('.stage'), vign=document.querySelector('.vign');
     const bgstage=document.getElementById('bgstage'), bgscrim=document.getElementById('bgscrim'), bgv=document.getElementById('bgv');
+    // phones get the 9:16 cut, desktop the 16:9 (avoids the zoomed-in crop)
+    if(window.matchMedia('(max-width:768px)').matches){ bgv.querySelector('source').src='bg_mobile.mp4'; bgv.poster='bg_mobile_poster.jpg'; bgv.load(); }
     let bgOn=null;
     function updateBg(scroll){
       const past = scroll > window.innerHeight*0.55;
