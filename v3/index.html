@@ -3,169 +3,349 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>First Class Auto Glass — Clarity, Restored.</title>
+<title>First Class Auto Glass · Windshield Replacement & Repair · Mooresville, NC</title>
+<meta name="description" content="Expert windshield replacement & repair, ADAS calibration, and free mobile service across Mooresville, Lake Norman & Iredell County. Certified technicians, insurance handled, limited lifetime warranty. Rated 5.0 on Google." />
 <meta name="robots" content="noindex" />
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&f[]=satoshi@500,700,400&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&f[]=satoshi@500,700,400,900&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --blue:#3b73ff; --green:#45d300; --ink:#f3f6ff; --muted:#9aa6d6;
+    --green:#54e01a; --green-deep:#3bb40e; --blue:#3b73ff; --blue-deep:#0042dd;
+    --ink:#f2f6ff; --muted:#9aa6d6; --bg:#04060f;
     --display:"Clash Display", system-ui, sans-serif;
     --body:"Satoshi", system-ui, sans-serif;
-    --glass:rgba(255,255,255,.06); --glass-line:rgba(255,255,255,.14);
+    --glass:rgba(255,255,255,.055); --glass-2:rgba(255,255,255,.09); --line:rgba(255,255,255,.13);
+    --maxw:1200px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:auto}
-  body{background:#03040c;color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  section{position:relative;z-index:2}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,5vw,40px)}
+  .kicker{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);font-weight:700;
+    display:inline-flex;align-items:center;gap:12px;margin-bottom:18px}
+  .kicker::before{content:"";width:26px;height:1px;background:var(--green)}
+  h2.sec{font-family:var(--display);font-weight:700;font-size:clamp(32px,5.2vw,68px);line-height:1.0;letter-spacing:-.02em;max-width:17ch}
+  .glass{background:var(--glass);border:1px solid var(--line);-webkit-backdrop-filter:blur(16px) saturate(1.3);backdrop-filter:blur(16px) saturate(1.3);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
 
-  /* ---- hero video bg ---- */
-  .stage{position:fixed;inset:0;z-index:0;background:#03040c;overflow:hidden}
-  .stage video{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;width:auto;height:auto;
-    transform:translate(-50%,-50%) scale(1.04);object-fit:cover;filter:saturate(1.02) contrast(1.04)}
-  /* vignette: lifts text contrast + buries any corner residue */
-  .vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:
-    radial-gradient(130% 100% at 50% 32%, transparent 38%, rgba(3,4,12,.55) 78%, rgba(3,4,12,.92) 100%),
-    linear-gradient(180deg, rgba(3,4,12,.55) 0%, transparent 26%, transparent 60%, rgba(3,4,12,.85) 100%),
-    radial-gradient(40% 40% at 92% 88%, rgba(3,4,12,.9), transparent 70%)}
+  /* ===== header ===== */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+    padding:14px clamp(16px,4vw,40px);transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
+  header.nav.solid{background:rgba(5,7,17,.7);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+  header.nav img{height:46px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))}
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .nav-phone{font-family:var(--display);font-weight:600;font-size:15px;color:#dbe4ff}
+  .pill{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:100px;font-family:var(--display);font-weight:600;font-size:14.5px;cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s,box-shadow .35s}
+  .pill.primary{background:var(--green);color:#05210a;box-shadow:0 8px 26px rgba(84,224,26,.28)}
+  .pill.primary:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(84,224,26,.4)}
+  .pill.glass2{background:var(--glass-2);border:1px solid var(--line);color:var(--ink);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+  .pill.glass2:hover{background:rgba(255,255,255,.15)}
+  .pill .dot{width:8px;height:8px;border-radius:50%;background:#05210a;opacity:.7}
+  @media(max-width:620px){.nav-phone{display:none}header.nav img{height:38px}}
 
-  /* ---- top nav ---- */
-  .nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;
-    padding:20px clamp(18px,4vw,46px)}
-  .wordmark{font-family:var(--display);font-weight:700;letter-spacing:.02em;font-size:clamp(15px,1.4vw,18px);
-    mix-blend-mode:difference}
-  .wordmark span{color:var(--blue)}
-  .navloc{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#cdd6ff;mix-blend-mode:difference}
-
-  /* ---- sticky glassmorphic quote CTA ---- */
-  .quote-cta{position:fixed;z-index:50;top:16px;right:clamp(18px,4vw,46px);
-    display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:100px;
-    font-family:var(--display);font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;
-    background:var(--glass);border:1px solid var(--glass-line);
-    -webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.18), 0 10px 30px rgba(0,0,0,.35);
-    transition:transform .35s cubic-bezier(.2,.8,.2,1), background .35s}
-  .quote-cta:hover{transform:translateY(-2px);background:rgba(255,255,255,.12)}
-  .quote-cta .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
-
-  /* ---- hero copy ---- */
-  .hero{position:relative;z-index:10;height:100svh;display:flex;flex-direction:column;justify-content:center;
-    padding:0 clamp(20px,6vw,86px)}
-  .eyebrow{font-size:clamp(11px,1.1vw,13px);letter-spacing:.32em;text-transform:uppercase;color:#c7d2ff;
-    margin-bottom:20px;font-weight:700;opacity:.9}
-  .eyebrow b{color:var(--green)}
-  h1{font-family:var(--display);font-weight:700;line-height:.9;letter-spacing:-.02em;
-    font-size:clamp(58px,12vw,168px);text-shadow:0 8px 60px rgba(0,0,0,.5)}
-  .sub{margin-top:26px;max-width:36ch;font-size:clamp(15px,1.55vw,20px);color:#cdd6f4;line-height:1.5}
-  .scrollcue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
-    font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#aab3e0;display:flex;flex-direction:column;align-items:center;gap:9px}
-  .scrollcue i{width:1px;height:40px;background:linear-gradient(#fff,transparent);animation:cue 1.8s ease-in-out infinite;transform-origin:top}
+  /* ===== hero ===== */
+  .stage{position:fixed;inset:0;z-index:0;background:#04060f;overflow:hidden}
+  .stage video{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%) scale(1.05);object-fit:cover}
+  .vign{position:fixed;inset:0;z-index:1;pointer-events:none;background:
+    radial-gradient(130% 100% at 50% 30%, transparent 40%, rgba(4,6,15,.55) 80%, rgba(4,6,15,.95) 100%),
+    linear-gradient(180deg, rgba(4,6,15,.5) 0%, transparent 24%, transparent 56%, rgba(4,6,15,.96) 100%)}
+  .hero{position:relative;z-index:10;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(20px,6vw,80px)}
+  .hero .eyebrow{font-size:clamp(11px,1.1vw,13px);letter-spacing:.3em;text-transform:uppercase;color:#c7d2ff;font-weight:700;margin-bottom:18px}
+  .hero .eyebrow b{color:var(--green)}
+  .hero h1{font-family:var(--display);font-weight:700;line-height:.9;letter-spacing:-.02em;font-size:clamp(56px,12vw,164px);text-shadow:0 8px 60px rgba(0,0,0,.55)}
+  .hero .sub{margin-top:24px;max-width:40ch;font-size:clamp(15px,1.5vw,20px);color:#cdd6f4;line-height:1.5}
+  .hero .stars{margin-top:26px;display:inline-flex;align-items:center;gap:12px;font-size:14px;color:#e7ecff;padding:10px 16px;border-radius:100px}
+  .hero .stars .s{color:#ffc83d;letter-spacing:2px}
+  .hero .stars b{font-family:var(--display)}
+  .hero .cta-row{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px}
+  .scrollcue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#aab3e0;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scrollcue i{width:1px;height:38px;background:linear-gradient(#fff,transparent);animation:cue 1.8s ease-in-out infinite;transform-origin:top}
   @keyframes cue{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
 
-  /* ---- difference section (taste of the journey) ---- */
-  .diff{position:relative;z-index:10;background:linear-gradient(180deg, transparent 0%, #04060f 14%, #050a1c 100%);
-    padding:18vh clamp(20px,6vw,86px) 16vh;margin-top:100svh}
-  .diff .kicker{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:18px;
-    display:flex;align-items:center;gap:12px}
-  .diff .kicker::before{content:"";width:26px;height:1px;background:var(--green)}
-  .diff h2{font-family:var(--display);font-weight:700;font-size:clamp(34px,5.4vw,72px);line-height:1.0;letter-spacing:-.02em;max-width:16ch}
-  .cards{margin-top:54px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-  .card{padding:26px 24px 30px;border-radius:20px;background:var(--glass);border:1px solid var(--glass-line);
-    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
-  .card .n{font-family:var(--display);font-size:13px;color:var(--blue);font-weight:600;letter-spacing:.04em}
-  .card h3{font-family:var(--display);font-weight:600;font-size:22px;margin:14px 0 8px;letter-spacing:-.01em}
-  .card p{font-size:14.5px;color:var(--muted);line-height:1.5}
-  .diff .closer{margin-top:64px;display:flex;flex-wrap:wrap;align-items:center;gap:20px}
-  .btn{font-family:var(--display);font-weight:600;font-size:18px;color:#04060f;background:var(--ink);
-    padding:18px 34px;border-radius:100px;text-decoration:none;display:inline-flex;align-items:center;gap:12px;
-    transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s}
-  .btn:hover{transform:translateY(-3px);background:var(--green);color:#04210a}
-  .phone{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.3vw,28px);color:var(--ink);text-decoration:none;
-    border-bottom:2px solid rgba(255,255,255,.18);padding-bottom:3px}
-  .foot{position:relative;z-index:10;background:#050a1c;color:#8fa0dc;font-size:13px;
-    padding:26px clamp(20px,6vw,86px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid rgba(255,255,255,.07)}
-  .foot b{font-family:var(--display);color:#fff}
+  /* sections sit on solid bg below the fixed video */
+  .below{position:relative;z-index:5;margin-top:100svh;background:linear-gradient(180deg,transparent 0,#04060f 12%, #05081a 100%)}
 
-  @media (max-width:640px){
-    h1{font-size:clamp(54px,17vw,84px)}
-    .quote-cta{top:auto;bottom:18px;left:50%;right:auto;transform:translateX(-50%);padding:15px 26px;font-size:16px}
-    .quote-cta:hover{transform:translateX(-50%)}
-    .scrollcue{display:none}
-  }
+  /* ===== trust marquee ===== */
+  .trustbar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.025);overflow:hidden}
+  .trustbar .row{display:flex;gap:46px;align-items:center;padding:16px 0;white-space:nowrap;animation:marq 26s linear infinite;width:max-content}
+  .trustbar .row span{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;font-size:15px;color:#c4cdf2}
+  .trustbar .row span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ===== generic section spacing ===== */
+  .pad{padding:clamp(80px,12vh,150px) 0}
+  .sec-head{margin-bottom:54px}
+
+  /* ===== services ===== */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:18px}
+  .card{padding:30px 26px 34px;border-radius:20px}
+  .card .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;margin-bottom:20px;
+    background:linear-gradient(150deg,rgba(84,224,26,.22),rgba(59,115,255,.18));border:1px solid var(--line)}
+  .card .ic svg{width:23px;height:23px;stroke:var(--green);fill:none;stroke-width:1.8}
+  .card h3{font-family:var(--display);font-weight:600;font-size:21px;margin-bottom:9px;letter-spacing:-.01em}
+  .card p{font-size:14.5px;color:var(--muted);line-height:1.5}
+
+  /* ===== before/after ===== */
+  .ba{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:16/9;user-select:none;border:1px solid var(--line);cursor:ew-resize;touch-action:pan-y}
+  .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+  .ba .after{clip-path:inset(0 0 0 var(--pos,50%))}
+  .ba .lbl{position:absolute;bottom:16px;z-index:4;font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:7px 13px;border-radius:100px;background:rgba(4,6,15,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line)}
+  .ba .lbl.b{left:16px;color:#ff9b9b} .ba .lbl.a{right:16px;color:#bfffb0}
+  .ba .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:var(--green);box-shadow:0 0 18px var(--green);z-index:5;transform:translateX(-1px)}
+  .ba .handle::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--green);color:#05210a;display:grid;place-items:center;font-size:16px;font-weight:900;box-shadow:0 4px 18px rgba(0,0,0,.4)}
+
+  /* ===== quote tool embed ===== */
+  .quote-embed{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#05060f;height:min(86vh,760px)}
+  .quote-embed iframe{width:100%;height:100%;border:0;display:block}
+
+  /* ===== reviews ===== */
+  .rev-top{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+  .rev-score{display:flex;align-items:center;gap:18px}
+  .rev-score .num{font-family:var(--display);font-weight:700;font-size:64px;line-height:1}
+  .rev-score .s{color:#ffc83d;font-size:20px;letter-spacing:3px}
+  .rev-score .sub{color:var(--muted);font-size:14px;margin-top:4px}
+  .rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .rev{padding:24px;border-radius:18px}
+  .rev .s{color:#ffc83d;letter-spacing:2px;font-size:15px}
+  .rev p{margin:12px 0 16px;font-size:16px;line-height:1.5;color:#e7ecff}
+  .rev .who{display:flex;align-items:center;gap:11px}
+  .rev .av{width:38px;height:38px;border-radius:50%;background:linear-gradient(150deg,var(--green),var(--blue));display:grid;place-items:center;font-family:var(--display);font-weight:700;color:#05210a;font-size:15px}
+  .rev .who b{font-family:var(--display);font-weight:600;font-size:15px;display:block}
+  .rev .who span{font-size:12px;color:var(--muted)}
+
+  /* ===== why / trust cards ===== */
+  .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .why div{padding:22px;border-radius:16px;display:flex;gap:14px;align-items:flex-start}
+  .why .t{width:30px;height:30px;flex:0 0 auto;border-radius:8px;background:rgba(84,224,26,.16);border:1px solid var(--line);display:grid;place-items:center;color:var(--green);font-weight:900}
+  .why h4{font-family:var(--display);font-weight:600;font-size:16.5px;margin-bottom:4px}
+  .why p{font-size:13.5px;color:var(--muted);line-height:1.45}
+
+  /* ===== area ===== */
+  .area{border-radius:24px;padding:clamp(36px,6vw,72px);text-align:center;background:
+    radial-gradient(70% 120% at 50% 0%, rgba(59,115,255,.16), transparent 70%), var(--glass)}
+  .area h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,4.4vw,52px);letter-spacing:-.02em;margin-bottom:18px}
+  .area .pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px}
+  .area .pills span{padding:9px 16px;border-radius:100px;background:var(--glass-2);border:1px solid var(--line);font-size:14px;color:#dbe4ff}
+
+  /* ===== final cta ===== */
+  .final{text-align:center;padding:clamp(90px,14vh,170px) 0}
+  .final h2{font-family:var(--display);font-weight:700;font-size:clamp(40px,7vw,104px);line-height:.96;letter-spacing:-.02em}
+  .final p{margin:22px auto 34px;max-width:40ch;color:#cdd6f4;font-size:clamp(16px,1.7vw,20px)}
+  .final .cta-row{display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
+  .final .phone{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.3vw,28px);border-bottom:2px solid rgba(255,255,255,.18);padding-bottom:3px}
+
+  /* ===== footer ===== */
+  footer{position:relative;z-index:5;background:#070b1c;border-top:1px solid var(--line);padding:54px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px}
+  footer img.flogo{height:52px;margin-bottom:16px}
+  footer .col h5{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#aeb8e6;margin-bottom:14px}
+  footer .col a,footer .col p{display:block;color:#c4cdf2;font-size:14.5px;line-height:1.9}
+  footer .legal{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#7e8cc4;font-size:12.5px}
+  footer .legal a{color:#8fa0dc}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:26px}}
+
+  .reveal{opacity:0;transform:translateY(34px)}
 </style>
 </head>
 <body>
-  <div class="stage">
-    <video id="hero" muted playsinline autoplay preload="auto" poster="hero_poster.jpg">
-      <source src="hero.mp4" type="video/mp4" />
-    </video>
-  </div>
-  <div class="vignette"></div>
+  <!-- fixed hero video -->
+  <div class="stage"><video id="hero" muted playsinline autoplay preload="auto" poster="hero_poster.jpg"><source src="hero.mp4" type="video/mp4" /></video></div>
+  <div class="vign"></div>
 
-  <nav class="nav">
-    <div class="wordmark">FIRST&nbsp;CLASS <span>/</span> AUTO&nbsp;GLASS</div>
-    <div class="navloc">Charlotte · NC</div>
-  </nav>
-  <a class="quote-cta" href="#quote"><span class="dot"></span>Get Instant Quote</a>
-
-  <header class="hero">
-    <div class="eyebrow">Windshield replacement · <b>ADAS calibration included</b></div>
-    <h1 id="h1">Clarity,<br>Restored.</h1>
-    <p class="sub">Factory-grade glass, recalibrated to the millimeter, brought to your driveway across Charlotte.</p>
-    <div class="scrollcue">Scroll<i></i></div>
+  <header class="nav" id="nav">
+    <a href="#top"><img src="logo.png" alt="First Class Auto Glass" /></a>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+19802428339">(980) 242-8339</a>
+      <a class="pill primary" href="#quote"><span class="dot"></span>Get Instant Quote</a>
+    </div>
   </header>
 
-  <section class="diff" id="quote">
-    <div class="kicker">The First Class difference</div>
-    <h2>Most shops replace the glass. We restore the car.</h2>
-    <div class="cards">
-      <div class="card"><h3>Mobile service</h3><p>We come to your home or office anywhere in Charlotte — no waiting room, no tow.</p></div>
-      <div class="card"><h3>OEM-grade glass</h3><p>Factory-spec laminated glass, bonded and cured to manufacturer standards.</p></div>
-      <div class="card"><h3>ADAS calibration</h3><p>Lane-keep, auto-brake and cameras recalibrated so safety systems read true.</p></div>
-      <div class="card"><h3>Lifetime warranty</h3><p>Insurance approved and billed direct. Our workmanship is covered for as long as you own the car.</p></div>
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="eyebrow">First Class Auto Glass · <b>Mooresville &amp; Lake Norman, NC</b></div>
+    <h1 id="h1">Clarity,<br>Restored.</h1>
+    <p class="sub">Expert windshield replacement &amp; repair, ADAS calibration, and free mobile service, and we handle the insurance.</p>
+    <div class="stars glass"><span class="s">★★★★★</span> <b>5.0</b> · Rated on Google</div>
+    <div class="cta-row">
+      <a class="pill primary" href="#quote"><span class="dot"></span>Get Instant Quote</a>
+      <a class="pill glass2" href="tel:+19802428339">Call (980) 242-8339</a>
     </div>
-    <div class="closer">
-      <a class="btn" href="tel:+19802428339">Get your instant quote</a>
-      <a class="phone" href="tel:+19802428339">(980) 242-8339</a>
-    </div>
+    <div class="scrollcue">Scroll<i></i></div>
   </section>
-  <footer class="foot"><b>First Class Auto Glass</b><span>Charlotte, North Carolina · Windshield replacement &amp; ADAS calibration</span></footer>
 
+  <div class="below">
+    <!-- TRUST MARQUEE -->
+    <div class="trustbar">
+      <div class="row">
+        <span>5.0★ on Google</span><span>Hundreds of 5★ Reviews</span><span>AGSC-Certified Technicians</span><span>Insurance Handled</span><span>Limited Lifetime Warranty</span><span>Free Mobile Service</span><span>ADAS Calibration</span><span>Same-Day Available</span>
+        <span>5.0★ on Google</span><span>Hundreds of 5★ Reviews</span><span>AGSC-Certified Technicians</span><span>Insurance Handled</span><span>Limited Lifetime Warranty</span><span>Free Mobile Service</span><span>ADAS Calibration</span><span>Same-Day Available</span>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="pad"><div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">What we do</div>
+        <h2 class="sec">Most shops replace the glass. We restore the car.</h2>
+      </div>
+      <div class="cards">
+        <div class="card glass reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 9l3-4h12l3 4M3 9v7a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18"/></svg></div><h3>Windshield Replacement</h3><p>Factory-spec laminated glass, expertly bonded and cured. Done at your home, office, or our shop.</p></div>
+        <div class="card glass reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><h3>Chip &amp; Crack Repair</h3><p>Caught it early? A rock chip or small crack is often a fast, low-cost repair, not a full replacement.</p></div>
+        <div class="card glass reveal"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.5 5.5l2 2M16.5 16.5l2 2"/></svg></div><h3>ADAS Calibration</h3><p>New windshield? Your lane-keep and auto-brake cameras must be recalibrated to factory spec. We do it.</p></div>
+        <div class="card glass reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 11l1.5-4.5A2 2 0 018.4 5h7.2a2 2 0 011.9 1.5L19 11M5 11h14v5H5zM7 16v2M17 16v2"/></svg></div><h3>Back &amp; Door Glass</h3><p>Rear windows, door glass and quarter glass for all makes and models, sourced and installed right.</p></div>
+        <div class="card glass reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 13l2-5a2 2 0 012-1.3h10A2 2 0 0119 8l2 5v5h-3M3 13v5h3M6 18a2 2 0 104 0M14 18a2 2 0 104 0"/></svg></div><h3>Free Mobile Service</h3><p>We come to you anywhere in the Lake Norman area. No waiting room, no tow, no extra charge.</p></div>
+        <div class="card glass reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3zM9 12l2 2 4-4"/></svg></div><h3>Insurance Handled</h3><p>Most comprehensive policies cover glass with $0 deductible. We file the claim and bill them direct.</p></div>
+      </div>
+    </div></section>
+
+    <!-- BEFORE / AFTER -->
+    <section class="pad"><div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">The difference</div>
+        <h2 class="sec">Cracked windshield? Don't stress.</h2>
+      </div>
+      <div class="ba reveal" id="ba">
+        <img class="before" src="ba_before.jpg" alt="Cracked windshield" />
+        <img class="after" src="ba_after.jpg" alt="Restored windshield" />
+        <div class="lbl b">Before</div>
+        <div class="lbl a">After</div>
+        <div class="handle"></div>
+      </div>
+    </div></section>
+
+    <!-- QUOTE TOOL -->
+    <section class="pad" id="quote"><div class="wrap">
+      <div class="sec-head reveal">
+        <div class="kicker">Instant quote</div>
+        <h2 class="sec">Tap the glass that's damaged.</h2>
+      </div>
+      <div class="quote-embed reveal">
+        <iframe src="https://ajsupplycollc.github.io/firstclass-autoglass/quote/?embed=1" loading="lazy" title="Interactive instant quote" allow="accelerometer; gyroscope"></iframe>
+      </div>
+    </div></section>
+
+    <!-- REVIEWS -->
+    <section class="pad"><div class="wrap">
+      <div class="rev-top reveal">
+        <div>
+          <div class="kicker">Reviews</div>
+          <h2 class="sec">Mooresville trusts Keith.</h2>
+        </div>
+        <div class="rev-score">
+          <div><div class="num">5.0</div><div class="s">★★★★★</div><div class="sub">Verified on Google</div></div>
+        </div>
+      </div>
+      <!-- LIVE, auto-updating Google reviews, Keith's own Elfsight widget (pulled from his real site) -->
+      <div class="elfsight-app-c7a54ba6-4d40-4108-8109-f1559c0d86ed reveal" data-elfsight-app-lazy></div>
+    </div></section>
+
+    <!-- WHY -->
+    <section class="pad"><div class="wrap">
+      <div class="sec-head reveal"><div class="kicker">Why First Class</div><h2 class="sec">First-class, every pane.</h2></div>
+      <div class="why">
+        <div class="glass reveal"><div class="t">✓</div><div><h4>Certified Technicians</h4><p>Trained, AGSC-certified installers, not a rushed mobile gig.</p></div></div>
+        <div class="glass reveal"><div class="t">✓</div><div><h4>Insurance Handled</h4><p>We file the claim and bill your insurer directly. Often $0 out of pocket.</p></div></div>
+        <div class="glass reveal"><div class="t">✓</div><div><h4>Limited Lifetime Warranty</h4><p>Our workmanship is warrantied for as long as you own the vehicle.</p></div></div>
+        <div class="glass reveal"><div class="t">✓</div><div><h4>OEM-Grade Glass</h4><p>High-quality laminated glass that matches factory clarity and fit.</p></div></div>
+        <div class="glass reveal"><div class="t">✓</div><div><h4>ADAS Calibration</h4><p>Safety cameras recalibrated so lane-keep and auto-brake read true.</p></div></div>
+        <div class="glass reveal"><div class="t">✓</div><div><h4>Same-Day Mobile</h4><p>Fast, convenient scheduling, we come to you across Lake Norman.</p></div></div>
+      </div>
+    </div></section>
+
+    <!-- AREA -->
+    <section class="pad"><div class="wrap">
+      <div class="area glass reveal">
+        <div class="kicker" style="justify-content:center">Service area</div>
+        <h2>Serving Lake Norman &amp; all of Iredell County.</h2>
+        <div class="pills">
+          <span>Mooresville</span><span>Lake Norman</span><span>Statesville</span><span>Troutman</span><span>Cornelius</span><span>Huntersville</span><span>Iredell County</span>
+        </div>
+      </div>
+    </div></section>
+
+    <!-- FINAL CTA -->
+    <section class="final"><div class="wrap reveal">
+      <h2>Let's fix that glass.</h2>
+      <p>Get an instant quote in seconds, or call Keith directly. Mobile service to your driveway.</p>
+      <div class="cta-row">
+        <a class="pill primary" href="#quote"><span class="dot"></span>Get Instant Quote</a>
+        <a class="phone" href="tel:+19802428339">(980) 242-8339</a>
+      </div>
+    </div></section>
+
+    <!-- FOOTER -->
+    <footer><div class="wrap">
+      <div class="foot-grid">
+        <div class="col">
+          <img class="flogo" src="logo.png" alt="First Class Auto Glass" />
+          <p>Expert windshield replacement, repair &amp; ADAS calibration. Certified technicians, insurance handled, limited lifetime warranty.</p>
+        </div>
+        <div class="col">
+          <h5>Contact</h5>
+          <a href="tel:+19802428339">(980) 242-8339</a>
+          <p>1892 Charlotte Hwy, Unit 1<br>Mooresville, NC 28115</p>
+          <p>By appointment · same-day mobile available</p>
+        </div>
+        <div class="col">
+          <h5>Service area</h5>
+          <p>Mooresville · Lake Norman<br>Statesville · Troutman<br>Cornelius · Huntersville<br>Iredell County</p>
+        </div>
+      </div>
+      <div class="legal">
+        <span>© First Class Auto Glass · Mooresville, NC</span>
+        <span>3D model "CarConcept" © Khronos Group (CC BY 4.0)</span>
+      </div>
+    </div></footer>
+  </div>
+
+  <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script>
-    // play the reform once, slightly quicker, then hold on the flawless windshield
-    const v = document.getElementById('hero');
-    v.addEventListener('loadedmetadata', ()=>{ try{ v.playbackRate = 1.25; }catch(e){} });
-    const p = v.play(); if(p && p.catch) p.catch(()=>{});
+    // hero video: play once, hold
+    const v=document.getElementById('hero');
+    v.addEventListener('loadedmetadata',()=>{try{v.playbackRate=1.25}catch(e){}});
+    const pp=v.play(); if(pp&&pp.catch)pp.catch(()=>{});
 
+    // smooth scroll
     gsap.registerPlugin(ScrollTrigger);
-    const lenis = new Lenis({lerp:0.09, smoothWheel:true});
-    window.__lenis = lenis;
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add(t=> lenis.raf(t*1000));
-    gsap.ticker.lagSmoothing(0);
+    const lenis=new Lenis({lerp:.09,smoothWheel:true});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+    // anchor links via lenis
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+      const id=a.getAttribute('href'); if(id.length>1){e.preventDefault();const el=document.querySelector(id);if(el)lenis.scrollTo(el,{offset:-10});}
+    }));
+
+    // header solid on scroll
+    const nav=document.getElementById('nav');
+    ScrollTrigger.create({start:'top -80',onUpdate:s=>nav.classList.toggle('solid',s.scroll()>80)});
 
     // hero headline reveal
-    const split = new SplitText('#h1', {type:'chars,lines'});
-    gsap.from(split.chars, {yPercent:118, opacity:0, stagger:0.045, duration:1.1, ease:'power4.out', delay:0.5});
-    gsap.from('.eyebrow', {y:18, opacity:0, duration:1, delay:0.35, ease:'power3.out'});
-    gsap.from('.sub', {y:18, opacity:0, duration:1, delay:1.05, ease:'power3.out'});
-    gsap.from('.quote-cta', {y:-14, opacity:0, duration:.9, delay:1.3, ease:'power3.out'});
+    const sp=new SplitText('#h1',{type:'chars'});
+    gsap.from(sp.chars,{yPercent:118,opacity:0,stagger:.045,duration:1.1,ease:'power4.out',delay:.4});
+    gsap.from('.hero .eyebrow,.hero .sub,.hero .stars,.hero .cta-row',{y:18,opacity:0,stagger:.12,duration:1,delay:.3,ease:'power3.out'});
 
-    // fade the wordmark/location out leaving the hero (sticky quote CTA stays); avoids headline collision
-    gsap.to('.nav', {autoAlpha:0, ease:'none',
-      scrollTrigger:{trigger:'.diff', start:'top 88%', end:'top 58%', scrub:true}});
+    // generic reveals
+    gsap.utils.toArray('.reveal').forEach(el=>{
+      gsap.to(el,{opacity:1,y:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 86%'}});
+    });
 
-    // difference section reveals
-    gsap.from('.diff .kicker, .diff h2', {y:32, opacity:0, stagger:0.12, duration:1, ease:'power3.out',
-      scrollTrigger:{trigger:'.diff', start:'top 70%'}});
-    gsap.from('.card', {y:40, opacity:0, stagger:0.1, duration:.9, ease:'power3.out',
-      scrollTrigger:{trigger:'.cards', start:'top 80%'}});
-    gsap.from('.diff .closer', {y:26, opacity:0, duration:.9, ease:'power3.out',
-      scrollTrigger:{trigger:'.diff .closer', start:'top 90%'}});
+    // before/after slider
+    (function(){
+      const ba=document.getElementById('ba'); if(!ba)return;
+      const set=x=>{const r=ba.getBoundingClientRect();let p=(x-r.left)/r.width*100;p=Math.max(2,Math.min(98,p));ba.style.setProperty('--pos',p+'%');};
+      let drag=false;
+      const down=e=>{drag=true;set((e.touches?e.touches[0].clientX:e.clientX));};
+      const move=e=>{if(!drag)return;set((e.touches?e.touches[0].clientX:e.clientX));};
+      const up=()=>drag=false;
+      ba.addEventListener('mousedown',down);window.addEventListener('mousemove',move);window.addEventListener('mouseup',up);
+      ba.addEventListener('touchstart',down,{passive:true});window.addEventListener('touchmove',move,{passive:true});window.addEventListener('touchend',up);
+    })();
   </script>
 </body>
 </html>
