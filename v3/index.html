@@ -68,8 +68,11 @@
     radial-gradient(130% 100% at 50% 30%, transparent 40%, rgba(4,6,15,.55) 80%, rgba(4,6,15,.95) 100%),
     linear-gradient(180deg, rgba(4,6,15,.5) 0%, transparent 24%, transparent 56%, rgba(4,6,15,.96) 100%)}
   /* looping background video for the sections below the hero (lighter, branded Mercedes drone shot) */
-  .bgstage{position:fixed;inset:0;z-index:0;overflow:hidden;opacity:0;transition:opacity .6s ease;background:#05081a}
+  .bgstage{position:fixed;inset:0;z-index:0;overflow:hidden;opacity:0;transition:opacity .6s ease;background:#05081a url('bg_poster.jpg') center/cover no-repeat}
   .bgstage video{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover}
+  /* DESKTOP: a fixed full-screen VIDEO behind a scrolling page kills weak GPUs — show a static still instead.
+     MOBILE keeps the moving video (phones composite it fine). */
+  @media(min-width:769px){ .bgstage video{display:none} }
   .bgscrim{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .6s ease;
     background:linear-gradient(180deg, rgba(6,10,26,.62) 0%, rgba(6,10,26,.56) 42%, rgba(5,8,22,.76) 100%)}
   .hero{position:relative;z-index:10;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(20px,6vw,80px)}
@@ -306,15 +309,16 @@
     // crossfade hero video <-> looping background video; only one plays at a time (perf)
     const stage=document.querySelector('.stage'), vign=document.querySelector('.vign');
     const bgstage=document.getElementById('bgstage'), bgscrim=document.getElementById('bgscrim'), bgv=document.getElementById('bgv');
-    // phones get the 9:16 cut, desktop the 16:9 (avoids the zoomed-in crop)
-    if(window.matchMedia('(max-width:768px)').matches){ bgv.querySelector('source').src='bg_mobile.mp4'; bgv.poster='bg_mobile_poster.jpg'; bgv.load(); }
+    // phones play the 9:16 video; DESKTOP uses a static still image bg (no video decode = smooth scroll)
+    const bgIsVideo = window.matchMedia('(max-width:768px)').matches;
+    if(bgIsVideo){ bgv.querySelector('source').src='bg_mobile.mp4'; bgv.poster='bg_mobile_poster.jpg'; bgv.load(); }
     let bgOn=null;
     function updateBg(scroll){
       const past = scroll > window.innerHeight*0.55;
       if(past===bgOn) return; bgOn=past;
       stage.style.opacity=past?0:1; vign.style.opacity=past?0:1;
       bgstage.style.opacity=past?1:0; bgscrim.style.opacity=past?1:0;
-      if(past){ try{v.pause()}catch(e){} const p=bgv.play(); if(p&&p.catch)p.catch(()=>{}); }
+      if(past){ try{v.pause()}catch(e){} if(bgIsVideo){ const p=bgv.play(); if(p&&p.catch)p.catch(()=>{}); } }
       else { try{bgv.pause()}catch(e){} }
     }
     let bgTick=false;
