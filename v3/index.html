@@ -65,7 +65,7 @@
   @keyframes cue{0%,100%{transform:scaleY(.4);opacity:.4}50%{transform:scaleY(1);opacity:1}}
 
   /* sections sit on solid bg below the fixed video */
-  .below{position:relative;z-index:5;margin-top:100svh;background:linear-gradient(180deg,transparent 0,#04060f 12%, #05081a 100%)}
+  .below{position:relative;z-index:5;background:linear-gradient(180deg,transparent 0,#04060f 12%, #05081a 100%)}
 
   /* ===== trust marquee ===== */
   .trustbar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.025);overflow:hidden}
@@ -118,7 +118,8 @@
   /* ===== why / trust cards ===== */
   .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
   .why div{padding:22px;border-radius:16px;display:flex;gap:14px;align-items:flex-start}
-  .why .t{width:30px;height:30px;flex:0 0 auto;border-radius:8px;background:rgba(84,224,26,.16);border:1px solid var(--line);display:grid;place-items:center;color:var(--green);font-weight:900}
+  .why .t{width:46px;height:46px;flex:0 0 auto;border-radius:12px;background:linear-gradient(150deg,rgba(84,224,26,.20),rgba(59,115,255,.14));border:1px solid var(--line);display:grid;place-items:center}
+  .why .t svg{width:23px;height:23px;stroke:var(--green);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
   .why h4{font-family:var(--display);font-weight:600;font-size:16.5px;margin-bottom:4px}
   .why p{font-size:13.5px;color:var(--muted);line-height:1.45}
 
@@ -245,12 +246,12 @@
     <section class="pad"><div class="wrap">
       <div class="sec-head reveal"><div class="kicker">Why First Class</div><h2 class="sec">First-class, every pane.</h2></div>
       <div class="why">
-        <div class="glass reveal"><div class="t">✓</div><div><h4>Certified Technicians</h4><p>Trained, AGSC-certified installers, not a rushed mobile gig.</p></div></div>
-        <div class="glass reveal"><div class="t">✓</div><div><h4>Insurance Handled</h4><p>We file the claim and bill your insurer directly. Often $0 out of pocket.</p></div></div>
-        <div class="glass reveal"><div class="t">✓</div><div><h4>Limited Lifetime Warranty</h4><p>Our workmanship is warrantied for as long as you own the vehicle.</p></div></div>
-        <div class="glass reveal"><div class="t">✓</div><div><h4>OEM-Grade Glass</h4><p>High-quality laminated glass that matches factory clarity and fit.</p></div></div>
-        <div class="glass reveal"><div class="t">✓</div><div><h4>ADAS Calibration</h4><p>Safety cameras recalibrated so lane-keep and auto-brake read true.</p></div></div>
-        <div class="glass reveal"><div class="t">✓</div><div><h4>Same-Day Mobile</h4><p>Fast, convenient scheduling, we come to you across Lake Norman.</p></div></div>
+        <div class="glass reveal"><div class="t"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9.5 13.4L8 22l4-2.5L16 22l-1.5-8.6"/></svg></div><div><h4>Certified Technicians</h4><p>Trained, AGSC-certified installers, not a rushed mobile gig.</p></div></div>
+        <div class="glass reveal"><div class="t"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></div><div><h4>Insurance Handled</h4><p>We file the claim and bill your insurer directly. Often $0 out of pocket.</p></div></div>
+        <div class="glass reveal"><div class="t"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg></div><div><h4>Limited Lifetime Warranty</h4><p>Our workmanship is warrantied for as long as you own the vehicle.</p></div></div>
+        <div class="glass reveal"><div class="t"><svg viewBox="0 0 24 24"><path d="M5 8l2-3h10l2 3M5 8h14M5 8v6h14V8M9.5 8v6M14.5 8v6"/></svg></div><div><h4>OEM-Grade Glass</h4><p>High-quality laminated glass that matches factory clarity and fit.</p></div></div>
+        <div class="glass reveal"><div class="t"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5"/></svg></div><div><h4>ADAS Calibration</h4><p>Safety cameras recalibrated so lane-keep and auto-brake read true.</p></div></div>
+        <div class="glass reveal"><div class="t"><svg viewBox="0 0 24 24"><path d="M3 6.5h11v9H3zM14 9.5h3.5L21 13v2.5h-7zM7.5 17.5a1.6 1.6 0 103.2 0M16 17.5a1.6 1.6 0 103.2 0"/></svg></div><div><h4>Same-Day Mobile</h4><p>Fast, convenient scheduling, we come to you across Lake Norman.</p></div></div>
       </div>
     </div></section>
 
