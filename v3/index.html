@@ -136,9 +136,13 @@
   .why p{font-size:14px;color:var(--muted);line-height:1.5}
 
   /* ===== area ===== */
-  .area{border-radius:24px;padding:clamp(36px,6vw,72px);text-align:center;
-    background:radial-gradient(70% 120% at 50% 0%, rgba(59,115,255,.18), transparent 70%), linear-gradient(135deg, rgba(255,255,255,.10),rgba(255,255,255,.03))}
-  .area h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,4.4vw,52px);letter-spacing:-.02em;margin-bottom:18px}
+  .area{position:relative;overflow:hidden;border-radius:24px;border:1px solid var(--line);text-align:center;
+    min-height:clamp(380px,54vh,580px);display:flex;align-items:center;justify-content:center;padding:clamp(40px,7vw,80px) clamp(24px,6vw,72px);
+    box-shadow:0 30px 60px -28px rgba(0,0,0,.7)}
+  .area video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .area .ascrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(85% 95% at 50% 52%, rgba(4,6,15,.32), rgba(4,6,15,.74) 100%)}
+  .area .ainner{position:relative;z-index:2;max-width:760px;margin:0 auto}
+  .area h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,4.4vw,52px);letter-spacing:-.02em;margin-bottom:18px;text-shadow:0 3px 28px rgba(0,0,0,.6)}
   .area .pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px}
   .area .pills span{padding:9px 16px;border-radius:100px;background:rgba(255,255,255,.08);border:1px solid var(--line);font-size:14px;color:#dbe4ff;box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
 
@@ -258,9 +262,13 @@
     <!-- AREA -->
     <section class="pad"><div class="wrap">
       <div class="area reveal-s">
-        <div class="kicker" style="justify-content:center">Service area</div>
-        <h2>Serving Lake Norman &amp; all of Iredell County.</h2>
-        <div class="pills"><span>Mooresville</span><span>Lake Norman</span><span>Statesville</span><span>Troutman</span><span>Cornelius</span><span>Huntersville</span><span>Iredell County</span></div>
+        <video id="areavid" muted playsinline preload="none" poster="area_poster.jpg"><source src="area.mp4" type="video/mp4" /></video>
+        <div class="ascrim"></div>
+        <div class="ainner">
+          <div class="kicker" style="justify-content:center">Service area</div>
+          <h2>Serving Lake Norman &amp; all of Iredell County.</h2>
+          <div class="pills"><span>Mooresville</span><span>Lake Norman</span><span>Statesville</span><span>Troutman</span><span>Cornelius</span><span>Huntersville</span><span>Iredell County</span></div>
+        </div>
       </div>
     </div></section>
 
@@ -340,6 +348,14 @@
     const refresh=()=>ScrollTrigger.refresh();
     window.addEventListener('load',refresh);
     setTimeout(refresh,1500); setTimeout(refresh,3500); setTimeout(refresh,6000);
+
+    // service-area earth zoom: plays ONCE when the section scrolls into view, then holds on Mooresville (light on perf)
+    (function(){
+      const av=document.getElementById('areavid'); if(!av)return;
+      if(window.matchMedia('(max-width:768px)').matches){ av.querySelector('source').src='area_mobile.mp4'; av.poster='area_mobile_poster.jpg'; }
+      let played=false;
+      new IntersectionObserver((es)=>{es.forEach(e=>{ if(e.isIntersecting && !played){ played=true; av.load(); const p=av.play(); if(p&&p.catch)p.catch(()=>{}); } });},{threshold:0.3}).observe(av);
+    })();
 
     (function(){
       const ba=document.getElementById('ba'); if(!ba)return;
