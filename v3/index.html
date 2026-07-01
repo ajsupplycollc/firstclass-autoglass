@@ -80,9 +80,9 @@
   /* looping background video for the sections below the hero (lighter, branded Mercedes drone shot) */
   .bgstage{position:fixed;inset:0;z-index:0;overflow:hidden;opacity:0;transition:opacity .6s ease;background:#05081a url('bg_poster.jpg') center/cover no-repeat}
   .bgstage video{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover}
-  /* DESKTOP: a fixed full-screen VIDEO behind a scrolling page kills weak GPUs — show a static still instead.
-     MOBILE keeps the moving video (phones composite it fine). */
-  @media(min-width:769px){ .bgstage video{display:none} }
+  /* Background is a STATIC still image on all screens for now (bg video shelved — the AI take had artifacts).
+     A fixed full-screen video also janks weak GPUs, so the still doubles as the perf fix. */
+  .bgstage video{display:none}
   .bgscrim{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .6s ease;
     background:linear-gradient(180deg, rgba(6,10,26,.62) 0%, rgba(6,10,26,.56) 42%, rgba(5,8,22,.76) 100%)}
   .hero{position:relative;z-index:10;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(20px,6vw,80px)}
@@ -327,9 +327,8 @@
     // crossfade hero video <-> looping background video; only one plays at a time (perf)
     const stage=document.querySelector('.stage'), vign=document.querySelector('.vign');
     const bgstage=document.getElementById('bgstage'), bgscrim=document.getElementById('bgscrim'), bgv=document.getElementById('bgv');
-    // phones play the 9:16 video; DESKTOP uses a static still image bg (no video decode = smooth scroll)
-    const bgIsVideo = window.matchMedia('(max-width:768px)').matches;
-    if(bgIsVideo){ bgv.querySelector('source').src='bg_mobile.mp4'; bgv.poster='bg_mobile_poster.jpg'; bgv.load(); }
+    // background = static still image on all screens for now (bg video shelved — AI take had artifacts)
+    const bgIsVideo = false;
     let bgOn=null;
     function updateBg(scroll){
       const past = scroll > window.innerHeight*0.55;
