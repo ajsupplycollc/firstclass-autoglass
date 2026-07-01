@@ -16,19 +16,72 @@
 <meta name="twitter:title" content="First Class Auto Glass — Mooresville, NC" />
 <meta name="twitter:description" content="Windshield replacement & repair, ADAS calibration, free mobile service. 5.0★ on Google." />
 <meta name="twitter:image" content="https://ajsupplycollc.github.io/firstclass-autoglass/v3/og.jpg" />
+<link rel="icon" type="image/jpeg" href="favicon.jpg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  "@id": "https://firstclassautoglassnc.com/#business",
+  "name": "First Class Auto Glass",
+  "image": "https://firstclassautoglassnc.com/assets/logo.png",
+  "logo": "https://firstclassautoglassnc.com/assets/logo.png",
+  "url": "https://firstclassautoglassnc.com/",
+  "telephone": "+1-980-242-8339",
+  "email": "contact@firstclassautoglassnc.com",
+  "priceRange": "$$",
+  "founder": "Keith Brown",
+  "slogan": "Don't Settle for Less Than the Best.",
+  "description": "AGSC-certified auto glass repair, windshield replacement, and ADAS recalibration serving Mooresville and Iredell County, North Carolina. Mobile and in-shop service, all major insurance accepted, limited lifetime warranty.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1892 Charlotte Hwy, Unit 1",
+    "addressLocality": "Mooresville",
+    "addressRegion": "NC",
+    "postalCode": "28115",
+    "addressCountry": "US"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 35.5849, "longitude": -80.8101 },
+  "areaServed": [
+    { "@type": "City", "name": "Mooresville, NC" },
+    { "@type": "City", "name": "Statesville, NC" },
+    { "@type": "City", "name": "Lexington, NC" },
+    { "@type": "AdministrativeArea", "name": "Iredell County, NC" }
+  ],
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "11:30" }
+  ],
+  "sameAs": [
+    "https://facebook.com/firstclassautoglassnc",
+    "https://twitter.com/fcautoglass"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Auto Glass Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Windshield Chip Repair" }, "price": "80", "priceCurrency": "USD" },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Windshield Replacement" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Door Glass Replacement" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Back Window Replacement" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vent Glass Replacement" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ADAS Calibration" } }
+    ]
+  }
+}
+</script>
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&f[]=satoshi@500,700,400,900&display=swap" rel="stylesheet" />
 <style>
   :root{
     --green:#54e01a; --green-deep:#3bb40e; --blue:#3b73ff; --blue-deep:#0042dd;
-    --ink:#f2f6ff; --muted:#9aa6d6; --bg:#04060f;
+    --ink:#f2f6ff; --muted:#b8c2e8; --bg:#04060f;
     --display:"Clash Display", system-ui, sans-serif;
     --body:"Satoshi", system-ui, sans-serif;
     --line:rgba(255,255,255,.12);
     --maxw:1200px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:hidden}
   body{background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   section{position:relative;z-index:2}
@@ -69,7 +122,9 @@
   .pill.glass2{background:rgba(255,255,255,.10);border:1px solid var(--line);color:var(--ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
   .pill.glass2:hover{background:rgba(255,255,255,.15)}
   .pill .dot{width:8px;height:8px;border-radius:50%;background:#05210a;opacity:.7}
-  @media(max-width:620px){.nav-phone{display:none}header.nav img{height:38px}}
+  .callpill{display:none;width:44px;height:44px;padding:0;justify-content:center;align-items:center}
+  .callpill svg{width:19px;height:19px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  @media(max-width:620px){.nav-phone{display:none}.callpill{display:inline-flex}header.nav img{height:38px}}
 
   /* ===== hero ===== */
   .stage{position:fixed;inset:0;z-index:0;background:#04060f;overflow:hidden;transition:opacity .6s ease}
@@ -90,7 +145,7 @@
   .hero .eyebrow b{color:var(--green)}
   .hero h1{font-family:var(--display);font-weight:700;line-height:.9;letter-spacing:-.02em;font-size:clamp(56px,12vw,164px);text-shadow:0 8px 60px rgba(0,0,0,.55)}
   .hero .sub{margin-top:24px;max-width:40ch;font-size:clamp(15px,1.5vw,20px);color:#cdd6f4;line-height:1.5}
-  .hero .stars{margin-top:26px;display:inline-flex;align-items:center;gap:12px;font-size:14px;color:#e7ecff;padding:11px 18px;border-radius:100px}
+  .hero .stars{margin-top:26px;display:inline-flex;align-self:flex-start;align-items:center;gap:12px;font-size:14px;color:#e7ecff;padding:11px 18px;border-radius:100px}
   .hero .stars .s{color:#ffc83d;letter-spacing:2px}
   .hero .stars b{font-family:var(--display)}
   .hero .cta-row{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px}
@@ -139,11 +194,16 @@
   .rev-score .s{color:#ffc83d;font-size:20px;letter-spacing:3px}
   .rev-score .sub{color:var(--muted);font-size:14px;margin-top:4px}
 
-  /* ===== why (vertical cards, big icons) ===== */
-  .why{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-  .why .card{display:flex;flex-direction:column}
-  .why h4{font-family:var(--display);font-weight:600;font-size:19px;margin-bottom:8px;letter-spacing:-.01em}
-  .why p{font-size:14px;color:var(--muted);line-height:1.5}
+  /* ===== why (single manifesto panel — deliberately NOT another card grid) ===== */
+  .manifesto{padding:clamp(34px,5vw,58px)}
+  .mani-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(26px,4vw,52px)}
+  .mani-grid>div+div{border-left:1px solid var(--line);padding-left:clamp(26px,4vw,52px)}
+  .mani-grid h4{font-family:var(--display);font-weight:600;font-size:20px;margin:18px 0 8px;letter-spacing:-.01em}
+  .mani-grid p{font-size:14.5px;color:var(--muted);line-height:1.55}
+  .mani-stats{display:flex;flex-wrap:wrap;gap:clamp(24px,5vw,64px);margin-top:clamp(30px,4vw,46px);padding-top:clamp(22px,3vw,32px);border-top:1px solid var(--line)}
+  .mani-stats b{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.4vw,30px);display:block;line-height:1.15}
+  .mani-stats i{font-style:normal;font-size:13px;color:var(--muted)}
+  @media(max-width:760px){.mani-grid{grid-template-columns:1fr}.mani-grid>div+div{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:24px}}
 
   /* ===== area ===== */
   .area{position:relative;overflow:hidden;border-radius:24px;border:1px solid var(--line);text-align:center;
@@ -177,23 +237,34 @@
   footer .legal{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:#7e8cc4;font-size:12.5px}
   @media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:26px}}
 
-  /* ===== reveal variants ===== */
-  .reveal{opacity:0;transform:translateY(42px)}
-  .reveal-l{opacity:0;transform:translateX(-70px)}
-  .reveal-r{opacity:0;transform:translateX(70px)}
-  .reveal-s{opacity:0;transform:scale(.9)}
+  /* ===== reveal variants =====
+     hidden ONLY under .js-anim, which JS adds after confirming GSAP loaded —
+     if GSAP ever fails, every section stays visible (no blank page) */
+  .js-anim .reveal{opacity:0;transform:translateY(42px)}
+  .js-anim .reveal-l{opacity:0;transform:translateX(-70px)}
+  .js-anim .reveal-r{opacity:0;transform:translateX(70px)}
+  .js-anim .reveal-s{opacity:0;transform:scale(.9)}
+
+  .trustbar .set{display:contents}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .trustbar .row{animation:none}
+    .scrollcue i{animation:none}
+    .glass,.pill{transition:none}
+  }
 </style>
 </head>
 <body>
   <div class="stage"><video id="hero" muted playsinline autoplay preload="auto" poster="hero_poster.jpg"><source src="hero.mp4" type="video/mp4" /></video></div>
   <div class="vign"></div>
-  <div class="bgstage" id="bgstage"><video id="bgv" muted playsinline loop preload="auto" poster="bg_poster.jpg"><source src="bg.mp4" type="video/mp4" /></video></div>
+  <div class="bgstage" id="bgstage"><video id="bgv" muted playsinline loop preload="none" poster="bg_poster.jpg"><source src="bg.mp4" type="video/mp4" /></video></div>
   <div class="bgscrim" id="bgscrim"></div>
 
   <header class="nav" id="nav">
     <a href="#top"><img src="logo.png" alt="First Class Auto Glass" /></a>
     <div class="nav-right">
       <a class="nav-phone" href="tel:+19802428339">(980) 242-8339</a>
+      <a class="pill glass2 callpill" href="tel:+19802428339" aria-label="Call (980) 242-8339"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg></a>
       <a class="pill primary" href="#quote"><span class="dot"></span>Get Instant Quote</a>
     </div>
   </header>
@@ -212,8 +283,8 @@
 
   <div class="below">
     <div class="trustbar"><div class="row">
-      <span>5.0★ on Google</span><span>AGSC-Certified Technicians</span><span>Insurance Handled</span><span>Limited Lifetime Warranty</span><span>Free Mobile Service</span><span>ADAS Calibration</span><span>Same-Day Available</span>
-      <span>5.0★ on Google</span><span>AGSC-Certified Technicians</span><span>Insurance Handled</span><span>Limited Lifetime Warranty</span><span>Free Mobile Service</span><span>ADAS Calibration</span><span>Same-Day Available</span>
+      <div class="set"><span>5.0★ on Google</span><span>AGSC-Certified Technicians</span><span>Insurance Handled</span><span>Limited Lifetime Warranty</span><span>Free Mobile Service</span><span>ADAS Calibration</span><span>Same-Day Available</span></div>
+      <div class="set" aria-hidden="true"><span>5.0★ on Google</span><span>AGSC-Certified Technicians</span><span>Insurance Handled</span><span>Limited Lifetime Warranty</span><span>Free Mobile Service</span><span>ADAS Calibration</span><span>Same-Day Available</span></div>
     </div></div>
 
     <!-- SERVICES -->
@@ -221,7 +292,7 @@
       <div class="sec-head reveal"><div class="kicker">What we do</div><h2 class="sec">Most shops replace the glass. We restore the car.</h2></div>
       <div class="cards">
         <div class="card glass lift reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 9l3-4h12l3 4M3 9v7a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18"/></svg></div><h3>Windshield Replacement</h3><p>Factory-spec laminated glass, expertly bonded and cured. At your home, office, or our shop.</p></div>
-        <div class="card glass lift reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><h3>Chip &amp; Crack Repair</h3><p>Caught it early? A rock chip or small crack is often a fast, low-cost repair, not a replacement.</p></div>
+        <div class="card glass lift reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><h3>Chip &amp; Crack Repair</h3><p>Caught it early? One or a few rock chips is a flat $80 repair — fast, and far cheaper than replacement.</p></div>
         <div class="card glass lift reveal"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.5 5.5l2 2M16.5 16.5l2 2"/></svg></div><h3>ADAS Calibration</h3><p>New windshield? Lane-keep and auto-brake cameras must be recalibrated to factory spec. We do it.</p></div>
         <div class="card glass lift reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 11l1.5-4.5A2 2 0 018.4 5h7.2a2 2 0 011.9 1.5L19 11M5 11h14v5H5zM7 16v2M17 16v2"/></svg></div><h3>Back &amp; Door Glass</h3><p>Rear windows, door glass and quarter glass for all makes and models, sourced and installed right.</p></div>
         <div class="card glass lift reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 13l2-5a2 2 0 012-1.3h10A2 2 0 0119 8l2 5v5h-3M3 13v5h3M6 18a2 2 0 104 0M14 18a2 2 0 104 0"/></svg></div><h3>Free Mobile Service</h3><p>We come to you anywhere in the Lake Norman area. No waiting room, no tow, no extra charge.</p></div>
@@ -231,8 +302,8 @@
 
     <!-- BEFORE / AFTER (real photos of his work) -->
     <section class="pad"><div class="wrap">
-      <div class="sec-head reveal"><div class="kicker">The difference</div><h2 class="sec">Cracked windshield? Don't stress.</h2></div>
-      <div class="ba reveal-l" id="ba">
+      <div class="sec-head reveal"><h2 class="sec">Cracked windshield? Don't stress.</h2></div>
+      <div class="ba reveal-l" id="ba" tabindex="0" role="slider" aria-label="Before and after comparison — arrow keys to move" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
         <img class="before" src="ba_before.jpg" alt="Shattered windshield before repair" />
         <img class="after" src="ba_after.jpg" alt="Crystal-clear windshield after replacement" />
         <div class="lbl b">Before</div>
@@ -259,13 +330,18 @@
     <!-- WHY -->
     <section class="pad"><div class="wrap">
       <div class="sec-head reveal"><div class="kicker">Why First Class</div><h2 class="sec">First-class, every pane.</h2></div>
-      <div class="why">
-        <div class="card glass lift reveal-l"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9.5 13.4L8 22l4-2.5L16 22l-1.5-8.6"/></svg></div><h4>Certified Technicians</h4><p>Trained, AGSC-certified installers, not a rushed mobile gig.</p></div>
-        <div class="card glass lift reveal-r"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></div><h4>Insurance Handled</h4><p>We file the claim and bill your insurer directly. Often $0 out of pocket.</p></div>
-        <div class="card glass lift reveal-l"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg></div><h4>Limited Lifetime Warranty</h4><p>Our workmanship is warrantied for as long as you own the vehicle.</p></div>
-        <div class="card glass lift reveal-r"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 8l2-3h10l2 3M5 8h14M5 8v6h14V8M9.5 8v6M14.5 8v6"/></svg></div><h4>OEM-Grade Glass</h4><p>High-quality laminated glass that matches factory clarity and fit.</p></div>
-        <div class="card glass lift reveal-l"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5"/></svg></div><h4>ADAS Calibration</h4><p>Safety cameras recalibrated so lane-keep and auto-brake read true.</p></div>
-        <div class="card glass lift reveal-r"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 6.5h11v9H3zM14 9.5h3.5L21 13v2.5h-7zM7.5 17.5a1.6 1.6 0 103.2 0M16 17.5a1.6 1.6 0 103.2 0"/></svg></div><h4>Same-Day Mobile</h4><p>Fast, convenient scheduling. We come to you across Lake Norman.</p></div>
+      <div class="glass manifesto reveal">
+        <div class="mani-grid">
+          <div><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9.5 13.4L8 22l4-2.5L16 22l-1.5-8.6"/></svg></div><h4>Certified Technicians</h4><p>Trained, AGSC-certified installers — not a rushed mobile gig. The bond holding your windshield is a safety part; we treat it like one.</p></div>
+          <div><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg></div><h4>Limited Lifetime Warranty</h4><p>Our workmanship is warrantied for as long as you own the vehicle. If it leaks or lifts, we make it right.</p></div>
+          <div><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 8l2-3h10l2 3M5 8h14M5 8v6h14V8M9.5 8v6M14.5 8v6"/></svg></div><h4>OEM-Grade Glass</h4><p>High-quality laminated glass that matches factory clarity and fit — never bargain panes that distort at highway speed.</p></div>
+        </div>
+        <div class="mani-stats">
+          <div><b>5.0★</b><i>300+ Google reviews</i></div>
+          <div><b>15+ yrs</b><i>in auto glass</i></div>
+          <div><b>Same-day</b><i>mobile service</i></div>
+          <div><b>$0</b><i>out of pocket on most claims</i></div>
+        </div>
       </div>
     </div></section>
 
@@ -275,7 +351,6 @@
         <video id="areavid" muted playsinline preload="none" poster="area_poster.jpg"><source src="area.mp4" type="video/mp4" /></video>
         <div class="ascrim"></div>
         <div class="ainner">
-          <div class="kicker" style="justify-content:center">Service area</div>
           <h2>Serving Lake Norman &amp; all of Iredell County.</h2>
           <div class="pills"><span>Mooresville</span><span>Lake Norman</span><span>Statesville</span><span>Troutman</span><span>Cornelius</span><span>Huntersville</span><span>Iredell County</span></div>
         </div>
@@ -286,7 +361,6 @@
     <section class="final"><div class="wrap">
       <div class="final-card glass reveal-s">
         <div class="glow"></div>
-        <div class="kicker" style="justify-content:center">Get it handled</div>
         <h2>Cracked, chipped,<br>or shattered?</h2>
         <p>Get an instant quote in seconds, or call our team. Free mobile service to your driveway across Lake Norman.</p>
         <div class="cta-row">
@@ -307,74 +381,94 @@
   </div>
 
   <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <!-- GSAP self-hosted: a CDN outage can no longer take the animations (or the page) down -->
+  <script src="gsap.min.js"></script>
+  <script src="ScrollTrigger.min.js"></script>
+  <script src="SplitText.min.js"></script>
   <script>
+    /* ============ plain JS — everything here runs even if GSAP is missing ============ */
+    const REDUCED=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const v=document.getElementById('hero');
-    v.addEventListener('loadedmetadata',()=>{try{v.playbackRate=1.25}catch(e){}});
-    const pp=v.play(); if(pp&&pp.catch)pp.catch(()=>{});
+    if(REDUCED){ try{v.removeAttribute('autoplay');v.pause()}catch(e){} }
+    else{
+      v.addEventListener('loadedmetadata',()=>{try{v.playbackRate=1.25}catch(e){}});
+      const pp=v.play(); if(pp&&pp.catch)pp.catch(()=>{});
+    }
 
-    gsap.registerPlugin(ScrollTrigger);
     // NATIVE scroll (no smooth-scroll library) — hardware-accelerated, no jank/jumping on weak GPUs
     document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
-      const id=a.getAttribute('href'); if(id.length>1){e.preventDefault();const el=document.querySelector(id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
+      const id=a.getAttribute('href'); if(id.length>1){e.preventDefault();const el=document.querySelector(id);
+        if(el){el.scrollIntoView({behavior:REDUCED?'auto':'smooth',block:'start'});history.pushState(null,'',id);}}
     }));
 
+    // crossfade hero video <-> bg still + nav solid state, one rAF-throttled scroll handler
     const nav=document.getElementById('nav');
-    ScrollTrigger.create({start:'top -80',onUpdate:s=>nav.classList.toggle('solid',s.scroll()>80)});
-
-    // crossfade hero video <-> looping background video; only one plays at a time (perf)
     const stage=document.querySelector('.stage'), vign=document.querySelector('.vign');
     const bgstage=document.getElementById('bgstage'), bgscrim=document.getElementById('bgscrim'), bgv=document.getElementById('bgv');
     // background = static still image on all screens for now (bg video shelved — AI take had artifacts)
     const bgIsVideo = false;
     let bgOn=null;
     function updateBg(scroll){
+      nav.classList.toggle('solid',scroll>80);
       const past = scroll > window.innerHeight*0.55;
       if(past===bgOn) return; bgOn=past;
       stage.style.opacity=past?0:1; vign.style.opacity=past?0:1;
       bgstage.style.opacity=past?1:0; bgscrim.style.opacity=past?1:0;
-      if(past){ try{v.pause()}catch(e){} if(bgIsVideo){ const p=bgv.play(); if(p&&p.catch)p.catch(()=>{}); } }
-      else { try{bgv.pause()}catch(e){} }
+      if(past){ try{v.pause()}catch(e){} if(bgIsVideo && !REDUCED){ const p=bgv.play(); if(p&&p.catch)p.catch(()=>{}); } }
+      else { try{bgv.pause()}catch(e){} if(!past && !REDUCED && v.paused && !v.ended){ const p=v.play(); if(p&&p.catch)p.catch(()=>{}); } }
     }
     let bgTick=false;
     window.addEventListener('scroll',()=>{ if(bgTick)return; bgTick=true; requestAnimationFrame(()=>{ updateBg(window.scrollY||window.pageYOffset); bgTick=false; }); },{passive:true});
-    updateBg(0);
-
-    const sp=new SplitText('#h1',{type:'chars'});
-    gsap.from(sp.chars,{yPercent:118,opacity:0,stagger:.045,duration:1.1,ease:'power4.out',delay:.4});
-    gsap.from('.hero .eyebrow,.hero .sub,.hero .stars,.hero .cta-row',{y:18,opacity:0,stagger:.12,duration:1,delay:.3,ease:'power3.out'});
-
-    // varied scroll reveals
-    const mk=(sel,vars)=>gsap.utils.toArray(sel).forEach(el=>gsap.to(el,Object.assign({scrollTrigger:{trigger:el,start:'top 86%'},duration:1,ease:'power3.out'},vars)));
-    mk('.reveal',{opacity:1,y:0});
-    mk('.reveal-l',{opacity:1,x:0});
-    mk('.reveal-r',{opacity:1,x:0});
-    mk('.reveal-s',{opacity:1,scale:1});
-
-    // recompute trigger positions once late-loading content (reviews widget, 3D iframe) changes page height
-    const refresh=()=>ScrollTrigger.refresh();
-    window.addEventListener('load',refresh);
-    setTimeout(refresh,1500); setTimeout(refresh,3500); setTimeout(refresh,6000);
+    updateBg(window.scrollY||0);
 
     // service-area earth zoom: plays ONCE when the section scrolls into view, then holds on Mooresville (light on perf)
     (function(){
-      const av=document.getElementById('areavid'); if(!av)return;
-      if(window.matchMedia('(max-width:768px)').matches){ av.querySelector('source').src='area_mobile.mp4'; av.poster='area_mobile_poster.jpg'; }
+      const av=document.getElementById('areavid'); if(!av||REDUCED)return;
       let played=false;
       new IntersectionObserver((es)=>{es.forEach(e=>{ if(e.isIntersecting && !played){ played=true; av.load(); const p=av.play(); if(p&&p.catch)p.catch(()=>{}); } });},{threshold:0.3}).observe(av);
     })();
 
+    // before/after slider — drag, touch, and keyboard
     (function(){
       const ba=document.getElementById('ba'); if(!ba)return;
-      const set=x=>{const r=ba.getBoundingClientRect();let p=(x-r.left)/r.width*100;p=Math.max(2,Math.min(98,p));ba.style.setProperty('--pos',p+'%');};
+      let pos=50;
+      const apply=p=>{pos=Math.max(2,Math.min(98,p));ba.style.setProperty('--pos',pos+'%');ba.setAttribute('aria-valuenow',Math.round(pos));};
+      const set=x=>{const r=ba.getBoundingClientRect();apply((x-r.left)/r.width*100);};
       let drag=false;
       const down=e=>{drag=true;set(e.touches?e.touches[0].clientX:e.clientX);};
       const move=e=>{if(drag)set(e.touches?e.touches[0].clientX:e.clientX);};
       ba.addEventListener('mousedown',down);window.addEventListener('mousemove',move);window.addEventListener('mouseup',()=>drag=false);
       ba.addEventListener('touchstart',down,{passive:true});window.addEventListener('touchmove',move,{passive:true});window.addEventListener('touchend',()=>drag=false);
+      ba.addEventListener('keydown',e=>{
+        if(e.key==='ArrowLeft'){apply(pos-4);e.preventDefault();}
+        else if(e.key==='ArrowRight'){apply(pos+4);e.preventDefault();}
+      });
     })();
+
+    /* ============ GSAP block — reveals/intro run ONLY when the library is confirmed present ============ */
+    if(!REDUCED && window.gsap && window.ScrollTrigger && window.SplitText){
+      document.documentElement.classList.add('js-anim'); // CSS hides .reveal* only under this class
+      gsap.registerPlugin(ScrollTrigger,SplitText);
+
+      // split after fonts load so char metrics are correct
+      document.fonts.ready.then(()=>{
+        const sp=new SplitText('#h1',{type:'chars'});
+        gsap.from(sp.chars,{yPercent:118,opacity:0,stagger:.045,duration:1.1,ease:'power4.out',delay:.4});
+      });
+      gsap.from('.hero .eyebrow,.hero .sub,.hero .stars,.hero .cta-row',{y:18,opacity:0,stagger:.12,duration:1,delay:.3,ease:'power3.out'});
+
+      // varied scroll reveals
+      const mk=(sel,vars)=>gsap.utils.toArray(sel).forEach(el=>gsap.to(el,Object.assign({scrollTrigger:{trigger:el,start:'top 86%'},duration:1,ease:'power3.out'},vars)));
+      mk('.reveal',{opacity:1,y:0});
+      mk('.reveal-l',{opacity:1,x:0});
+      mk('.reveal-r',{opacity:1,x:0});
+      mk('.reveal-s',{opacity:1,scale:1});
+
+      // recompute trigger positions once late-loading content (reviews widget, 3D iframe) changes page height
+      const refresh=()=>ScrollTrigger.refresh();
+      window.addEventListener('load',refresh);
+      setTimeout(refresh,1500); setTimeout(refresh,3500); setTimeout(refresh,6000);
+    }
   </script>
 </body>
 </html>
