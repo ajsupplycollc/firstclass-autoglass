@@ -137,11 +137,10 @@
     radial-gradient(130% 100% at 50% 30%, transparent 40%, rgba(4,6,15,.55) 80%, rgba(4,6,15,.95) 100%),
     linear-gradient(180deg, rgba(4,6,15,.5) 0%, transparent 24%, transparent 56%, rgba(4,6,15,.96) 100%)}
   /* looping background video for the sections below the hero (lighter, branded Mercedes drone shot) */
-  .bgstage{position:fixed;inset:0;z-index:0;overflow:hidden;opacity:0;transition:opacity .6s ease;background:#05081a url('bg_poster.jpg') center/cover no-repeat}
+  .bgstage{position:fixed;inset:0;z-index:0;overflow:hidden;opacity:0;transition:opacity .6s ease;background:#05081a url('bg2_poster.jpg') center/cover no-repeat}
   .bgstage video{position:absolute;left:50%;top:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);object-fit:cover}
-  /* Background is a STATIC still image on all screens for now (bg video shelved — the AI take had artifacts).
-     A fixed full-screen video also janks weak GPUs, so the still doubles as the perf fix. */
-  .bgstage video{display:none}
+  /* bg video re-enabled 7/2 with Jereme's new desparkled take (bg2.mp4, 16:9 only —
+     phones get a center crop via object-fit:cover; judge on device and adjust) */
   .bgscrim{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .6s ease;
     background:linear-gradient(180deg, rgba(6,10,26,.62) 0%, rgba(6,10,26,.56) 42%, rgba(5,8,22,.76) 100%)}
   .hero{position:relative;z-index:10;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:0 clamp(20px,6vw,80px)}
@@ -262,7 +261,7 @@
 <body>
   <div class="stage"><video id="hero" muted playsinline autoplay preload="auto" poster="hero_poster.jpg"><source src="hero.mp4" type="video/mp4" /></video></div>
   <div class="vign"></div>
-  <div class="bgstage" id="bgstage"><video id="bgv" muted playsinline loop preload="none" poster="bg_poster.jpg"><source src="bg.mp4" type="video/mp4" /></video></div>
+  <div class="bgstage" id="bgstage"><video id="bgv" muted playsinline loop preload="none" poster="bg2_poster.jpg"><source src="bg2.mp4" type="video/mp4" /></video></div>
   <div class="bgscrim" id="bgscrim"></div>
 
   <header class="nav" id="nav">
@@ -411,8 +410,8 @@
     const nav=document.getElementById('nav');
     const stage=document.querySelector('.stage'), vign=document.querySelector('.vign');
     const bgstage=document.getElementById('bgstage'), bgscrim=document.getElementById('bgscrim'), bgv=document.getElementById('bgv');
-    // background = static still image on all screens for now (bg video shelved — AI take had artifacts)
-    const bgIsVideo = false;
+    // bg video re-enabled 7/2 (Jereme's new desparkled take)
+    const bgIsVideo = true;
     let bgOn=null;
     function updateBg(scroll){
       nav.classList.toggle('solid',scroll>80);
