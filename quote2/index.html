@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>First Class Auto Glass NC — Instant Quote</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&f[]=satoshi@500,700,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green:#54e01a; --green-deep:#3bb40e; --blue:#3b73ff;
+    --ink:#f2f6ff; --muted:#b8c2e8; --bg:#05060f;
+    --display:"Clash Display",system-ui,sans-serif;
+    --body:"Satoshi",system-ui,sans-serif;
+    --line:rgba(255,255,255,.13);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow:hidden}
+  #app{position:relative;height:100%;display:flex;flex-direction:column}
+
+  /* 3D stage */
+  #stage{position:absolute;inset:0}
+  #stage canvas{display:block;touch-action:none}
+
+  /* header strip */
+  .top{position:relative;z-index:5;padding:14px 18px 0;display:flex;align-items:center;justify-content:space-between;pointer-events:none}
+  .top .t{font-family:var(--display);font-weight:600;font-size:15px;color:#dbe4ff}
+  .dots{display:flex;gap:6px}
+  .dots i{width:22px;height:4px;border-radius:4px;background:rgba(255,255,255,.15);transition:background .3s}
+  .dots i.on{background:var(--green)}
+
+  /* bottom sheet */
+  .sheet{position:absolute;left:0;right:0;bottom:0;z-index:6;padding:14px 16px calc(14px + env(safe-area-inset-bottom));
+    display:flex;flex-direction:column;gap:10px;max-height:62%;overflow:auto}
+  .glass{background:linear-gradient(135deg,rgba(28,36,64,.78),rgba(12,17,36,.72) 45%,rgba(20,27,52,.76));
+    border:1px solid var(--line);border-radius:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 18px 44px -18px rgba(0,0,0,.7)}
+  .card{padding:16px}
+  .hint{font-size:13.5px;color:var(--muted);text-align:center}
+  .hint b{color:var(--ink)}
+  h2.q{font-family:var(--display);font-weight:700;font-size:clamp(19px,4.6vw,24px);letter-spacing:-.01em;margin-bottom:10px}
+  .sub{font-size:13px;color:var(--muted);margin-top:-6px;margin-bottom:10px}
+
+  .pill{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:13px 20px;border-radius:100px;
+    font-family:var(--display);font-weight:600;font-size:15px;cursor:pointer;border:0;width:100%;
+    transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,opacity .3s}
+  .pill.primary{background:linear-gradient(180deg,#62ee27,#46c512);color:#05210a;box-shadow:0 8px 24px rgba(84,224,26,.3),inset 0 1px 0 rgba(255,255,255,.4)}
+  .pill.primary:not(:disabled):hover{transform:translateY(-1px)}
+  .pill.primary:disabled{opacity:.45;cursor:not-allowed}
+  .pill.ghost{background:rgba(255,255,255,.09);border:1px solid var(--line);color:var(--ink);width:auto;padding:10px 16px;font-size:13.5px}
+
+  .choice{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .choice button{padding:13px 10px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.06);
+    color:var(--ink);font-family:var(--display);font-weight:600;font-size:14px;cursor:pointer;transition:background .25s,border-color .25s}
+  .choice button:hover{background:rgba(255,255,255,.12)}
+  .choice button.full{grid-column:1/-1}
+
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .fields .full{grid-column:1/-1}
+  input,select{width:100%;padding:13px 14px;border-radius:13px;border:1px solid var(--line);background:rgba(4,6,15,.55);
+    color:var(--ink);font-family:var(--body);font-size:15px;outline:none;transition:border-color .25s;appearance:none;-webkit-appearance:none}
+  select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23b8c2e8' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+  input:focus,select:focus{border-color:var(--green)}
+  input.err{border-color:#ff6b6b}
+  label{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:#93a0d3;font-weight:700;display:block;margin:2px 0 5px}
+  select:disabled{opacity:.4}
+
+  .selbadge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:100px;background:rgba(84,224,26,.13);
+    border:1px solid rgba(84,224,26,.4);font-family:var(--display);font-weight:600;font-size:13px;color:#c9ffb2}
+  .selbadge i{font-style:normal;color:var(--green)}
+
+  .price{font-family:var(--display);font-weight:700;font-size:clamp(36px,9vw,52px);line-height:1;color:var(--green)}
+  .row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+  .back{background:none;border:0;color:#93a0d3;font-size:13px;cursor:pointer;padding:6px 2px;font-family:var(--body)}
+  .back:hover{color:var(--ink)}
+  .step{display:none}
+  .step.on{display:block;animation:up .45s cubic-bezier(.2,.8,.2,1)}
+  @keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  .spin{width:16px;height:16px;border:2px solid rgba(5,33,10,.35);border-top-color:#05210a;border-radius:50%;display:inline-block;animation:sp .7s linear infinite;vertical-align:-3px}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  #fallback{display:none}
+  .errline{color:#ff9b9b;font-size:13px;margin-top:6px;display:none}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="stage"></div>
+  <div class="top">
+    <span class="t">First Class <span style="color:var(--green)">/</span> Auto Glass NC</span>
+    <div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div>
+  </div>
+
+  <div class="sheet" id="sheet">
+
+    <!-- STEP 1: pick glass on the 3D car -->
+    <div class="step on" id="s1">
+      <div class="glass card">
+        <h2 class="q">Tap the glass that's damaged.</h2>
+        <p class="hint" id="hint1">Drag to spin the car · pinch to zoom · <b>tap a window</b></p>
+        <div id="fallback">
+          <div class="choice" id="fbBtns" style="margin-top:10px"></div>
+        </div>
+        <div class="row" id="pickedRow" style="display:none;margin-top:12px;justify-content:space-between">
+          <span class="selbadge"><i>✓</i> <span id="pickedName"></span></span>
+          <button class="pill primary" id="toStep2" style="width:auto;padding:12px 22px">Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: windshield damage fork ($80 repair fast-path) -->
+    <div class="step" id="s2">
+      <div class="glass card">
+        <button class="back" data-back="1">← Back</button>
+        <h2 class="q">How bad is the damage?</h2>
+        <div class="choice">
+          <button id="chipBtn">Chip — smaller<br>than a quarter</button>
+          <button id="crackBtn">Crack or<br>bigger damage</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2b: instant $80 repair -->
+    <div class="step" id="s2b">
+      <div class="glass card" style="text-align:center">
+        <button class="back" data-back="2" style="float:left">← Back</button>
+        <div style="clear:both"></div>
+        <p class="sub" style="margin-top:4px">Good news: that's a flat-rate repair.</p>
+        <div class="price">$80</div>
+        <p class="hint" style="margin:10px 0 14px">Chip repair, done at your driveway or our shop.<br>No hidden fees. About 30 minutes.</p>
+        <a class="pill primary" href="tel:+19802428339" style="text-decoration:none;color:#05210a">Call now — (980) 242-8339</a>
+        <p class="hint" style="margin-top:10px"><button class="back" id="notChip">Actually, it might be bigger →</button></p>
+      </div>
+    </div>
+
+    <!-- STEP 3: contact gate -->
+    <div class="step" id="s3">
+      <div class="glass card">
+        <button class="back" data-back="dyn">← Back</button>
+        <h2 class="q">Where do we send your quote?</h2>
+        <p class="sub">Your instant price is on the next screen — this is for your written copy.</p>
+        <div class="fields">
+          <div><label for="fname">First name</label><input id="fname" autocomplete="given-name" /></div>
+          <div><label for="zip">ZIP code</label><input id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" /></div>
+          <div class="full"><label for="phone">Phone</label><input id="phone" inputmode="tel" autocomplete="tel" placeholder="704-555-0123" /></div>
+          <div class="full"><label for="email">Email</label><input id="email" inputmode="email" autocomplete="email" /></div>
+        </div>
+        <div class="errline" id="err3">Please fill in every field (valid phone, email &amp; 5-digit ZIP).</div>
+        <button class="pill primary" id="toStep4" style="margin-top:12px">Continue</button>
+      </div>
+    </div>
+
+    <!-- STEP 4: vehicle (Omega NAGS cascade) -->
+    <div class="step" id="s4">
+      <div class="glass card">
+        <button class="back" data-back="3">← Back</button>
+        <h2 class="q">Your vehicle.</h2>
+        <div class="fields">
+          <div><label for="year">Year</label><select id="year" disabled><option>Loading…</option></select></div>
+          <div><label for="make">Make</label><select id="make" disabled><option>Make</option></select></div>
+          <div class="full"><label for="model">Model</label><select id="model" disabled><option>Model</option></select></div>
+          <div class="full" id="bodyWrap" style="display:none"><label for="body">Body style / trim</label><select id="body"><option>Body style</option></select></div>
+        </div>
+        <div class="errline" id="err4">Couldn't reach the vehicle database. Call us and we'll quote you by phone: (980) 242-8339.</div>
+        <button class="pill primary" id="go" disabled style="margin-top:12px">See my instant quote</button>
+        <p class="hint" style="margin-top:9px">Real price, real availability, online scheduling.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="importmap">
+{"imports":{
+  "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const RELAY = 'https://omega-relay.strange-advanced-marketing.workers.dev';
+const OMEGA = 'https://app.omegaedi.com';
+
+/* glass mesh name → Omega NAGS position code + label */
+const GLASS = {
+  Windshield:  { code:'W',            label:'Front Windshield' },
+  DoorL:       { code:'D_FRONT_LEFT', label:'Door - Front Driver' },
+  DoorR:       { code:'D_FRONT_RIGHT',label:'Door - Front Passenger' },
+  RearDoorL:   { code:'D_REAR_LEFT',  label:'Door - Rear Driver' },
+  RearDoorR:   { code:'D_REAR_RIGHT', label:'Door - Rear Passenger' },
+  Rearwindow:  { code:'B',            label:'Rear Window' },
+  RearSides:   { code:'Q',            label:'Quarter Glass' },
+};
+
+const state = { glass:null, fname:'', phone:'', email:'', zip:'', vehicle_id:null };
+const $ = id => document.getElementById(id);
+const steps = { 1:$('s1'), 2:$('s2'), '2b':$('s2b'), 3:$('s3'), 4:$('s4') };
+let cameFromFork = false;
+
+function show(n){
+  Object.values(steps).forEach(s=>s.classList.remove('on'));
+  steps[n].classList.add('on');
+  const idx = n==='2b' ? 2 : Math.min(4, Number(n)||1);
+  [...$('dots').children].forEach((d,i)=>d.classList.toggle('on', i < (n==='2b'?2:idx)));
+  if(n===4) initCascade();
+}
+document.querySelectorAll('.back').forEach(b=>b.addEventListener('click',()=>{
+  const t = b.dataset.back;
+  if(!t) return;
+  if(t==='dyn') show(cameFromFork ? 2 : 1);
+  else show(t==='2'?2:Number(t));
+}));
+
+/* ---------- STEP 1: 3D picker ---------- */
+const stage = $('stage');
+let renderer, scene, camera, controls, raycaster, pointer, glassMeshes = [], selected = null, autorotate = true;
+
+function pickable(){ return glassMeshes; }
+
+function highlight(mesh){
+  glassMeshes.forEach(m=>{ m.material.emissive?.set(0x000000); m.material.opacity = m.userData.baseOpacity; });
+  if(mesh){ mesh.material.emissive?.set(0x2f9e0e); mesh.material.opacity = Math.min(1, mesh.userData.baseOpacity + .35); }
+}
+
+function onPick(mesh){
+  selected = mesh;
+  highlight(mesh);
+  autorotate = false;
+  const g = GLASS[mesh.name];
+  state.glass = g;
+  $('pickedName').textContent = g.label;
+  $('pickedRow').style.display = 'flex';
+  $('hint1').style.display = 'none';
+}
+
+function fallbackUI(){
+  $('fallback').style.display = 'block';
+  $('hint1').innerHTML = 'Pick the damaged glass:';
+  const box = $('fbBtns');
+  Object.entries(GLASS).forEach(([k,g])=>{
+    const b = document.createElement('button');
+    b.textContent = g.label;
+    if(g.code==='W') b.classList.add('full');
+    b.onclick = ()=>{ state.glass = g; $('pickedName').textContent = g.label; $('pickedRow').style.display='flex'; };
+    box.appendChild(b);
+  });
+}
+
+try{
+  renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.setSize(innerWidth, innerHeight);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  stage.appendChild(renderer.domElement);
+
+  scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x05060f);
+  scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), .04).texture;
+
+  camera = new THREE.PerspectiveCamera(42, innerWidth/innerHeight, .1, 100);
+  camera.position.set(4.4, 1.7, 5.2);
+
+  controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.enablePan = false;
+  controls.minDistance = 3; controls.maxDistance = 9;
+  controls.maxPolarAngle = Math.PI/1.9;
+  controls.target.set(0, .6, 0);
+  controls.addEventListener('start', ()=> autorotate = false);
+
+  const ground = new THREE.Mesh(
+    new THREE.CircleGeometry(9, 48),
+    new THREE.MeshStandardMaterial({ color:0x0a0f22, roughness:.9, metalness:0 })
+  );
+  ground.rotation.x = -Math.PI/2;
+  scene.add(ground);
+  scene.add(new THREE.AmbientLight(0xffffff, .25));
+  const key = new THREE.DirectionalLight(0xffffff, 1.4); key.position.set(4,6,3); scene.add(key);
+
+  raycaster = new THREE.Raycaster();
+  pointer = new THREE.Vector2();
+
+  new GLTFLoader().load('MercedesGLC4.glb', gltf=>{
+    const car = gltf.scene;
+    const box = new THREE.Box3().setFromObject(car);
+    const size = box.getSize(new THREE.Vector3());
+    const scale = 4.6 / Math.max(size.x, size.z);
+    car.scale.setScalar(scale);
+    box.setFromObject(car);
+    const c = box.getCenter(new THREE.Vector3());
+    car.position.sub(c); car.position.y += size.y*scale/2 - box.min.y*0 ;
+    const box2 = new THREE.Box3().setFromObject(car);
+    car.position.y -= box2.min.y;
+    scene.add(car);
+    car.traverse(o=>{
+      if(o.isMesh && GLASS[o.name]){
+        o.material = o.material.clone();
+        o.material.transparent = true;
+        o.userData.baseOpacity = o.material.opacity ?? 1;
+        glassMeshes.push(o);
+      }
+    });
+    if(!glassMeshes.length) fallbackUI();
+  }, undefined, ()=> fallbackUI());
+
+  let downAt = null;
+  renderer.domElement.addEventListener('pointerdown', e=> downAt = [e.clientX, e.clientY]);
+  renderer.domElement.addEventListener('pointerup', e=>{
+    if(!downAt) return;
+    const moved = Math.hypot(e.clientX-downAt[0], e.clientY-downAt[1]);
+    downAt = null;
+    if(moved > 8) return; // was a drag, not a tap
+    pointer.x = (e.clientX/innerWidth)*2-1;
+    pointer.y = -(e.clientY/innerHeight)*2+1;
+    raycaster.setFromCamera(pointer, camera);
+    const hit = raycaster.intersectObjects(pickable(), false)[0];
+    if(hit) onPick(hit.object);
+  });
+
+  addEventListener('resize', ()=>{
+    camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth, innerHeight);
+  });
+
+  (function loop(){
+    requestAnimationFrame(loop);
+    if(autorotate) scene.rotation.y += .0032;
+    controls.update();
+    renderer.render(scene, camera);
+  })();
+}catch(e){ fallbackUI(); }
+
+/* ---------- flow ---------- */
+$('toStep2').onclick = ()=>{
+  if(state.glass.code === 'W'){ cameFromFork = true; show(2); }
+  else { cameFromFork = false; show(3); }
+};
+$('chipBtn').onclick = ()=> show('2b');
+$('crackBtn').onclick = ()=> show(3);
+$('notChip').onclick = ()=> show(3);
+
+/* STEP 3 validation */
+$('phone').addEventListener('input', e=>{
+  const d = e.target.value.replace(/\D/g,'').slice(0,10);
+  e.target.value = d.replace(/^(\d{3})(\d{1,3})?(\d{1,4})?$/, (m,a,b,c)=> c?`${a}-${b}-${c}` : b?`${a}-${b}` : a);
+});
+$('toStep4').onclick = ()=>{
+  const f = $('fname').value.trim(), z = $('zip').value.trim(),
+        p = $('phone').value.trim(), m = $('email').value.trim();
+  const ok = f.length>0 && /^\d{5}$/.test(z) && /^\d{3}-\d{3}-\d{4}$/.test(p) && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m);
+  ['fname','zip','phone','email'].forEach(id=>$(id).classList.remove('err'));
+  if(!ok){
+    if(!f) $('fname').classList.add('err');
+    if(!/^\d{5}$/.test(z)) $('zip').classList.add('err');
+    if(!/^\d{3}-\d{3}-\d{4}$/.test(p)) $('phone').classList.add('err');
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)) $('email').classList.add('err');
+    $('err3').style.display = 'block';
+    return;
+  }
+  $('err3').style.display = 'none';
+  Object.assign(state, { fname:f, zip:z, phone:p, email:m });
+  show(4);
+};
+
+/* STEP 4: Omega NAGS cascade through the relay */
+let cascadeInit = false;
+async function relay(path){
+  const r = await fetch(RELAY + path);
+  if(!r.ok) throw new Error('relay ' + r.status);
+  return r.json();
+}
+function fill(sel, items, placeholder, val, txt){
+  sel.innerHTML = `<option value="" disabled selected>${placeholder}</option>`;
+  items.forEach(it=>{
+    const o = document.createElement('option');
+    o.value = val(it); o.textContent = txt(it);
+    sel.appendChild(o);
+  });
+  sel.disabled = false;
+}
+async function initCascade(){
+  if(cascadeInit) return; cascadeInit = true;
+  try{
+    const years = await relay('/nags');
+    fill($('year'), years, 'Year', y=>y, y=>y);
+  }catch(e){ $('err4').style.display='block'; }
+}
+$('year').onchange = async e=>{
+  $('make').disabled = $('model').disabled = true; $('bodyWrap').style.display='none'; $('go').disabled = true;
+  try{
+    const makes = await relay('/nags/'+e.target.value);
+    fill($('make'), makes, 'Make', m=>m.make_id, m=>m.make_name);
+  }catch(err){ $('err4').style.display='block'; }
+};
+$('make').onchange = async e=>{
+  $('model').disabled = true; $('bodyWrap').style.display='none'; $('go').disabled = true;
+  try{
+    const models = await relay(`/nags/${$('year').value}/${e.target.value}`);
+    fill($('model'), models, 'Model',
+      m=> m.model_id + (m.modifier_id ? '_'+m.modifier_id : ''),
+      m=> m.model_name + (m.modifier_dsc ? ' '+m.modifier_dsc : ''));
+  }catch(err){ $('err4').style.display='block'; }
+};
+$('model').onchange = async e=>{
+  $('go').disabled = true;
+  const [model_id, modifier_id] = e.target.value.split('_');
+  try{
+    const vs = await relay(`/nags/${$('year').value}/${$('make').value}/${model_id}` + (modifier_id?`?modifier_id=${modifier_id}`:''));
+    if(vs.length === 1){
+      state.vehicle_id = vs[0].vehicle_id;
+      $('bodyWrap').style.display='none';
+      $('go').disabled = false;
+    }else{
+      fill($('body'), vs, 'Body style', v=>v.vehicle_id, v=>v.body_style_dsc);
+      $('bodyWrap').style.display='block';
+    }
+  }catch(err){ $('err4').style.display='block'; }
+};
+$('body').onchange = e=>{ state.vehicle_id = e.target.value; $('go').disabled = false; };
+
+/* hand off to Keith's Omega account: real instant quote + scheduling */
+$('go').onclick = ()=>{
+  if(!state.vehicle_id || !state.glass) return;
+  $('go').innerHTML = '<span class="spin"></span>&nbsp;Building your quote…';
+  const q = new URLSearchParams({
+    folder:'firstclassagnc', smart:'true', lead_type:'web_lead',
+    medium:'', source:'website_3d', referrer: document.referrer || '', campaign:'', campid:'',
+    Tags:'', template_id:'', disable_scheduling:'',
+    NagsVehicle_year: $('year').value, NagsVehicle_make: $('make').value,
+    NagsVehicle_model: $('model').value, NagsVehicle_vehicle: state.vehicle_id,
+    NagsVehicle_glass: state.glass.code,
+    customer_fname: state.fname, customer_phone: state.phone,
+    customer_email: state.email, customer_zip: state.zip, customer_sms:'1',
+  });
+  const url = `${OMEGA}/api/2.0/Quotes/${state.vehicle_id}/${state.glass.code}?${q}`;
+  (window.top === window ? window : window.top).location.href = url;
+};
+</script>
+</body>
+</html>
