@@ -171,18 +171,8 @@
   </div>
 </div>
 
-<script type="importmap">
-{"imports":{
-  "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-}}
-</script>
-<script type="module">
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-
+<!-- ALL funnel logic is a classic script: the flow works even if the 3D module/CDN fails -->
+<script>
 const RELAY = 'https://omega-relay.strange-advanced-marketing.workers.dev';
 const OMEGA = 'https://app.omegaedi.com';
 
@@ -216,11 +206,49 @@ document.querySelectorAll('.back').forEach(b=>b.addEventListener('click',()=>{
   else show(t==='2'?2:Number(t));
 }));
 
-/* ---------- STEP 1: 3D picker ---------- */
-const stage = $('stage');
-let renderer, scene, camera, controls, raycaster, pointer, glassMeshes = [], selected = null, autorotate = true;
+function pickGlass(g){
+  state.glass = g;
+  $('pickedName').textContent = g.label;
+  $('pickedRow').style.display = 'flex';
+  $('hint1').style.display = 'none';
+}
 
-function pickable(){ return glassMeshes; }
+let fallbackDone = false;
+function fallbackUI(){
+  if(fallbackDone) return; fallbackDone = true;
+  $('fallback').style.display = 'block';
+  $('hint1').style.display = '';
+  $('hint1').innerHTML = 'Pick the damaged glass:';
+  const box = $('fbBtns');
+  Object.values(GLASS).forEach(g=>{
+    const b = document.createElement('button');
+    b.textContent = g.label;
+    if(g.code==='W') b.classList.add('full');
+    b.onclick = ()=> pickGlass(g);
+    box.appendChild(b);
+  });
+}
+/* the 3D module signals readiness; if it never does (CDN blocked, WebGL dead, GLB 404), buttons appear */
+window.__q2 = { carUp:false, pickGlass, fallbackUI };
+setTimeout(()=>{ if(!window.__q2.carUp) fallbackUI(); }, 6000);
+</script>
+
+<script type="importmap">
+{"imports":{
+  "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+/* ---------- 3D picker (decoration layer — funnel never depends on it) ---------- */
+const GLASS3D = window.__q2 ? GLASS : {};
+const stage = document.getElementById('stage');
+let renderer, scene, camera, controls, raycaster, pointer, glassMeshes = [], autorotate = true;
 
 function highlight(mesh){
   glassMeshes.forEach(m=>{ m.material.emissive?.set(0x000000); m.material.opacity = m.userData.baseOpacity; });
@@ -228,27 +256,9 @@ function highlight(mesh){
 }
 
 function onPick(mesh){
-  selected = mesh;
   highlight(mesh);
   autorotate = false;
-  const g = GLASS[mesh.name];
-  state.glass = g;
-  $('pickedName').textContent = g.label;
-  $('pickedRow').style.display = 'flex';
-  $('hint1').style.display = 'none';
-}
-
-function fallbackUI(){
-  $('fallback').style.display = 'block';
-  $('hint1').innerHTML = 'Pick the damaged glass:';
-  const box = $('fbBtns');
-  Object.entries(GLASS).forEach(([k,g])=>{
-    const b = document.createElement('button');
-    b.textContent = g.label;
-    if(g.code==='W') b.classList.add('full');
-    b.onclick = ()=>{ state.glass = g; $('pickedName').textContent = g.label; $('pickedRow').style.display='flex'; };
-    box.appendChild(b);
-  });
+  window.__q2.pickGlass(GLASS3D[mesh.name]);
 }
 
 try{
@@ -305,8 +315,9 @@ try{
         glassMeshes.push(o);
       }
     });
-    if(!glassMeshes.length) fallbackUI();
-  }, undefined, ()=> fallbackUI());
+    if(glassMeshes.length) window.__q2.carUp = true;
+    else window.__q2.fallbackUI();
+  }, undefined, ()=> window.__q2.fallbackUI());
 
   let downAt = null;
   renderer.domElement.addEventListener('pointerdown', e=> downAt = [e.clientX, e.clientY]);
@@ -318,7 +329,7 @@ try{
     pointer.x = (e.clientX/innerWidth)*2-1;
     pointer.y = -(e.clientY/innerHeight)*2+1;
     raycaster.setFromCamera(pointer, camera);
-    const hit = raycaster.intersectObjects(pickable(), false)[0];
+    const hit = raycaster.intersectObjects(glassMeshes, false)[0];
     if(hit) onPick(hit.object);
   });
 
@@ -333,8 +344,11 @@ try{
     controls.update();
     renderer.render(scene, camera);
   })();
-}catch(e){ fallbackUI(); }
+}catch(e){ window.__q2.fallbackUI(); }
+</script>
 
+<!-- flow logic: classic script, survives any 3D/CDN failure -->
+<script>
 /* ---------- flow ---------- */
 $('toStep2').onclick = ()=>{
   if(state.glass.code === 'W'){ cameFromFork = true; show(2); }
@@ -383,31 +397,33 @@ function fill(sel, items, placeholder, val, txt){
   });
   sel.disabled = false;
 }
+const ok4 = ()=> $('err4').style.display='none';
+const loading = sel=>{ sel.innerHTML='<option value="" disabled selected>Loading…</option>'; sel.disabled = true; };
 async function initCascade(){
   if(cascadeInit) return; cascadeInit = true;
   try{
     const years = await relay('/nags');
-    fill($('year'), years, 'Year', y=>y, y=>y);
-  }catch(e){ $('err4').style.display='block'; }
+    fill($('year'), years, 'Year', y=>y, y=>y); ok4();
+  }catch(e){ cascadeInit = false; $('err4').style.display='block'; }
 }
 $('year').onchange = async e=>{
-  $('make').disabled = $('model').disabled = true; $('bodyWrap').style.display='none'; $('go').disabled = true;
+  loading($('make')); loading($('model')); $('bodyWrap').style.display='none'; $('go').disabled = true; state.vehicle_id = null;
   try{
     const makes = await relay('/nags/'+e.target.value);
-    fill($('make'), makes, 'Make', m=>m.make_id, m=>m.make_name);
+    fill($('make'), makes, 'Make', m=>m.make_id, m=>m.make_name); ok4();
   }catch(err){ $('err4').style.display='block'; }
 };
 $('make').onchange = async e=>{
-  $('model').disabled = true; $('bodyWrap').style.display='none'; $('go').disabled = true;
+  loading($('model')); $('bodyWrap').style.display='none'; $('go').disabled = true; state.vehicle_id = null;
   try{
     const models = await relay(`/nags/${$('year').value}/${e.target.value}`);
     fill($('model'), models, 'Model',
       m=> m.model_id + (m.modifier_id ? '_'+m.modifier_id : ''),
-      m=> m.model_name + (m.modifier_dsc ? ' '+m.modifier_dsc : ''));
+      m=> m.model_name + (m.modifier_dsc ? ' '+m.modifier_dsc : '')); ok4();
   }catch(err){ $('err4').style.display='block'; }
 };
 $('model').onchange = async e=>{
-  $('go').disabled = true;
+  $('go').disabled = true; state.vehicle_id = null;
   const [model_id, modifier_id] = e.target.value.split('_');
   try{
     const vs = await relay(`/nags/${$('year').value}/${$('make').value}/${model_id}` + (modifier_id?`?modifier_id=${modifier_id}`:''));
@@ -419,6 +435,7 @@ $('model').onchange = async e=>{
       fill($('body'), vs, 'Body style', v=>v.vehicle_id, v=>v.body_style_dsc);
       $('bodyWrap').style.display='block';
     }
+    ok4();
   }catch(err){ $('err4').style.display='block'; }
 };
 $('body').onchange = e=>{ state.vehicle_id = e.target.value; $('go').disabled = false; };
