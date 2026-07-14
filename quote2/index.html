@@ -444,15 +444,21 @@ $('body').onchange = e=>{ state.vehicle_id = e.target.value; $('go').disabled = 
 $('go').onclick = ()=>{
   if(!state.vehicle_id || !state.glass) return;
   $('go').innerHTML = '<span class="spin"></span>&nbsp;Building your quote…';
+  /* URL shape matters: smart MUST be empty (smart=true forces Omega's vin.php step whose
+     "estimate without VIN" button is broken on THEIR side — reads input[name=position]
+     that vin.php never renders → /undefined → $0.00). Empty smart + blank vin/plate params
+     renders the real instant estimate directly. Verified live 7/13 ($367.90, quote #12185). */
   const q = new URLSearchParams({
-    folder:'firstclassagnc', smart:'true', lead_type:'web_lead',
-    medium:'', source:'website_3d', referrer: document.referrer || '', campaign:'', campid:'',
+    vehicle_plate_no:'', vehicle_plate_state:'',
+    folder:'firstclassagnc', lead_type:'web_lead',
+    medium:'web_quote', source:'website_3d', referrer: document.referrer || '', campaign:'', campid:'',
     Tags:'', template_id:'', disable_scheduling:'',
     NagsVehicle_year: $('year').value, NagsVehicle_make: $('make').value,
     NagsVehicle_model: $('model').value, NagsVehicle_vehicle: state.vehicle_id,
     NagsVehicle_glass: state.glass.code,
     customer_fname: state.fname, customer_phone: state.phone,
     customer_email: state.email, customer_zip: state.zip, customer_sms:'1',
+    vehicle_id: state.vehicle_id, opening: state.glass.code, vehicle_vin:'', smart:'',
   });
   const url = `${OMEGA}/api/2.0/Quotes/${state.vehicle_id}/${state.glass.code}?${q}`;
   (window.top === window ? window : window.top).location.href = url;
