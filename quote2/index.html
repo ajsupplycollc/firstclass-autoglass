@@ -168,6 +168,52 @@
       </div>
     </div>
 
+    <!-- STEP 5: branded instant price -->
+    <div class="step" id="s5">
+      <div class="glass card" style="text-align:center">
+        <button class="back" data-back="4" style="float:left">← Back</button>
+        <div style="clear:both"></div>
+        <p class="sub" style="margin-top:4px" id="r-quoteno"></p>
+        <div class="price" id="r-price"></div>
+        <p class="hint" style="margin:10px 0 4px"><b id="r-glass"></b></p>
+        <p class="hint" id="r-vehicle" style="margin-bottom:12px"></p>
+        <button class="pill primary" id="r-schedule">Schedule my service</button>
+        <p class="hint" style="margin-top:10px"><a href="tel:+19802428339" style="color:#c9ffb2">or call (980) 242-8339</a></p>
+        <p class="hint" style="margin-top:10px;font-size:11.5px">Price may not include required calibrations, moldings, clips, or other attachments. Quote valid for 48 hours.</p>
+      </div>
+    </div>
+
+    <!-- STEP 6: branded scheduler -->
+    <div class="step" id="s6">
+      <div class="glass card">
+        <button class="back" data-back="5">← Back</button>
+        <h2 class="q">Pick your day.</h2>
+        <p class="sub">Keith's team confirms your exact time window by phone.</p>
+        <div class="fields">
+          <div class="full"><label for="sdate">Requested date</label><select id="sdate"><option value="" disabled selected>Choose a date</option></select></div>
+          <div class="full" style="display:flex;align-items:center;gap:10px;padding:4px 2px">
+            <input type="checkbox" id="smobile" checked style="width:20px;height:20px;accent-color:var(--green)" />
+            <label for="smobile" style="margin:0;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink);font-weight:500">Come to my address (mobile service, no extra charge)</label>
+          </div>
+          <div class="full saddr"><label for="saddress">Address</label><input id="saddress" autocomplete="street-address" /></div>
+          <div class="saddr"><label for="scity">City</label><input id="scity" autocomplete="address-level2" /></div>
+          <div class="saddr"><label for="sstate">State</label><input id="sstate" value="NC" autocomplete="address-level1" /></div>
+        </div>
+        <div class="errline" id="err6">Pick a date (and address for mobile service).</div>
+        <button class="pill primary" id="sgo" style="margin-top:12px">Request my appointment</button>
+      </div>
+    </div>
+
+    <!-- STEP 7: confirmation -->
+    <div class="step" id="s7">
+      <div class="glass card" style="text-align:center">
+        <div class="selbadge" style="margin-bottom:12px"><i>✓</i> Request received</div>
+        <h2 class="q" id="c-head">You're on the books.</h2>
+        <p class="hint" id="c-body" style="margin-bottom:14px"></p>
+        <a class="pill primary" href="tel:+19802428339" style="text-decoration:none;color:#05210a">Questions? Call (980) 242-8339</a>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -189,7 +235,7 @@ const GLASS = {
 
 const state = { glass:null, fname:'', phone:'', email:'', zip:'', vehicle_id:null };
 const $ = id => document.getElementById(id);
-const steps = { 1:$('s1'), 2:$('s2'), '2b':$('s2b'), 3:$('s3'), 4:$('s4') };
+const steps = { 1:$('s1'), 2:$('s2'), '2b':$('s2b'), 3:$('s3'), 4:$('s4'), 5:$('s5'), 6:$('s6'), 7:$('s7') };
 let cameFromFork = false;
 
 function show(n){
@@ -440,10 +486,75 @@ $('model').onchange = async e=>{
 };
 $('body').onchange = e=>{ state.vehicle_id = e.target.value; $('go').disabled = false; };
 
-/* hand off to Keith's Omega account: real instant quote + scheduling */
-$('go').onclick = ()=>{
+/* ---------- branded scheduler (steps 6-7) ---------- */
+const fmtDay = iso=>{
+  const d = new Date(iso + 'T12:00:00');
+  return d.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
+};
+$('r-schedule').onclick = ()=>{
+  const sel = $('sdate');
+  sel.innerHTML = '<option value="" disabled selected>Choose a date</option>';
+  state.quote.dates.forEach(iso=>{
+    const o = document.createElement('option');
+    o.value = iso; o.textContent = fmtDay(iso);
+    sel.appendChild(o);
+  });
+  show(6);
+};
+$('smobile').onchange = e=>{
+  document.querySelectorAll('.saddr').forEach(el=> el.style.display = e.target.checked ? '' : 'none');
+};
+$('sgo').onclick = async ()=>{
+  const date = $('sdate').value, mobile = $('smobile').checked;
+  const addr = $('saddress').value.trim(), city = $('scity').value.trim(), st = $('sstate').value.trim();
+  if(!date || (mobile && !addr)){ $('err6').style.display='block'; return; }
+  $('err6').style.display='none';
+  $('sgo').disabled = true;
+  $('sgo').innerHTML = '<span class="spin"></span>&nbsp;Requesting…';
+  try{
+    const qp = new URLSearchParams({
+      guid: state.quote.guid, date, fname: state.fname, phone: state.phone, email: state.email,
+      mobile: mobile ? '1' : '0', address: addr, city, state: st,
+    });
+    const r = await fetch(`${RELAY}/schedule?${qp}`);
+    const d = await r.json();
+    if(!d.ok) throw new Error('schedule failed');
+    $('c-head').textContent = `See you ${fmtDay(date)}.`;
+    $('c-body').textContent = `Quote #${state.quote.quote_no || ''} — Keith's team will call ${state.phone} to confirm your exact time window${mobile ? ` at ${addr}` : ' at the shop'}.`;
+    show(7);
+  }catch(e){
+    $('sgo').disabled = false; $('sgo').textContent = 'Request my appointment';
+    $('err6').textContent = "Couldn't send the request — call us and we'll book you by phone: (980) 242-8339.";
+    $('err6').style.display = 'block';
+  }
+};
+
+/* fetch the Omega quote through the relay and render it BRANDED (step 5).
+   Falls back to direct Omega navigation only if the relay call fails. */
+$('go').onclick = async ()=>{
   if(!state.vehicle_id || !state.glass) return;
+  $('go').disabled = true;
   $('go').innerHTML = '<span class="spin"></span>&nbsp;Building your quote…';
+  try{
+    const qp = new URLSearchParams({
+      vehicle_id: state.vehicle_id, glass: state.glass.code,
+      year: $('year').value, make: $('make').value, model: $('model').value,
+      fname: state.fname, phone: state.phone, email: state.email, zip: state.zip,
+      sms: '1', source: 'website_3d',
+    });
+    const r = await fetch(`${RELAY}/quote?${qp}`);
+    const d = await r.json();
+    if(!d.ok || !d.price) throw new Error('no price');
+    $('r-quoteno').textContent = d.quote_no ? `Online Quote #${d.quote_no} · ${state.fname}` : 'Your instant quote';
+    $('r-price').textContent = d.price;
+    $('r-glass').textContent = d.glass_desc || state.glass.label;
+    $('r-vehicle').textContent = `${$('year').value} ${$('make').options[$('make').selectedIndex].text} ${$('model').options[$('model').selectedIndex].text}`;
+    state.quote = d;
+    $('r-schedule').style.display = (d.guid && d.dates.length) ? '' : 'none';
+    $('go').disabled = false; $('go').textContent = 'See my instant quote';
+    show(5);
+    return;
+  }catch(e){ /* relay down → old direct path below so the customer still gets a price */ }
   /* URL shape matters: smart MUST be empty (smart=true forces Omega's vin.php step whose
      "estimate without VIN" button is broken on THEIR side — reads input[name=position]
      that vin.php never renders → /undefined → $0.00). Empty smart + blank vin/plate params
