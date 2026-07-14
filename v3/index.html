@@ -128,7 +128,7 @@
   header.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
     padding:max(14px,env(safe-area-inset-top)) clamp(16px,4vw,40px) 14px;transition:background .4s,backdrop-filter .4s,border-color .4s;border-bottom:1px solid transparent}
   header.nav.solid{background:rgba(5,7,17,.86);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-  header.nav img{height:46px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))}
+  header.nav img{height:56px;width:auto;display:block;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))}
   .nav-right{display:flex;align-items:center;gap:16px}
   .nav-phone{font-family:var(--display);font-weight:600;font-size:15px;color:#dbe4ff}
   .pill{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:100px;font-family:var(--display);font-weight:600;font-size:14.5px;cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .35s,box-shadow .35s}
@@ -139,22 +139,22 @@
   .pill .dot{width:8px;height:8px;border-radius:50%;background:#05210a;opacity:.7}
   .callpill{display:none;width:44px;height:44px;padding:0;justify-content:center;align-items:center}
   .callpill svg{width:19px;height:19px;stroke:var(--ink);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-  @media(max-width:620px){.nav-phone{display:none}.callpill{display:inline-flex}header.nav img{height:38px}}
+  @media(max-width:620px){.nav-phone{display:none}.callpill{display:inline-flex}header.nav img{height:44px}}
 
   /* ===== hamburger + menu ===== */
   .nav-left{display:flex;align-items:center;gap:14px}
-  .burger{width:48px;height:48px;border-radius:50%;cursor:pointer;display:grid;place-items:center;gap:0;padding:0;
+  .burger{width:38px;height:38px;border-radius:50%;cursor:pointer;display:grid;place-items:center;gap:0;padding:0;
     background:linear-gradient(150deg,rgba(84,224,26,.22),rgba(59,115,255,.16));
-    border:2px solid rgba(255,255,255,.65);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 2px 12px rgba(0,0,0,.35);
+    border:1.5px solid rgba(255,255,255,.65);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 2px 12px rgba(0,0,0,.35);
     transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s}
-  .burger span{display:block;width:18px;height:2.5px;background:#fff;border-radius:3px;margin:2.5px 0;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s,width .3s}
-  .burger span:nth-child(1),.burger span:nth-child(3){width:13px}
-  body.menu-open .burger span{width:18px}
+  .burger span{display:block;width:15px;height:2px;background:#fff;border-radius:3px;margin:2px 0;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s,width .3s}
+  .burger span:nth-child(1),.burger span:nth-child(3){width:11px}
+  body.menu-open .burger span{width:15px}
   .burger:hover{transform:scale(1.07);border-color:var(--green)}
-  @media(max-width:620px){.burger{width:42px;height:42px}.nav-left{gap:10px}}
-  body.menu-open .burger span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  @media(max-width:620px){.burger{width:34px;height:34px}.nav-left{gap:10px}}
+  body.menu-open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
   body.menu-open .burger span:nth-child(2){opacity:0}
-  body.menu-open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+  body.menu-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
   .menu{position:fixed;inset:0;z-index:40;background:rgba(4,6,15,.92);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
     opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;overflow-y:auto;-webkit-overflow-scrolling:touch}
   @media(max-height:700px){.menu-inner{padding-top:84px;align-items:flex-start}}
@@ -285,13 +285,14 @@
   footer .col p b{color:#e7ecff;font-family:var(--display);font-weight:600}
   .socials-label{font-family:var(--display);font-weight:600;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#aeb8e6;margin:22px 0 12px}
   .socials{display:flex;gap:12px;flex-wrap:wrap}
-  .socials a{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;
+  /* .foot-grid prefix outranks the generic footer .col a{display:block} rule */
+  .foot-grid .socials a{width:52px;height:52px;border-radius:15px;display:grid;place-items:center;
     background:linear-gradient(150deg,rgba(84,224,26,.28),rgba(59,115,255,.20));
     border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.3);
     transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s}
-  .socials a:hover{transform:translateY(-3px);border-color:rgba(84,224,26,.55);
+  .foot-grid .socials a:hover{transform:translateY(-3px);border-color:rgba(84,224,26,.55);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 10px 24px -8px rgba(84,224,26,.35)}
-  .socials svg{width:24px;height:24px;stroke:#eafff0;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;color:#eafff0}
+  .foot-grid .socials svg{width:32px;height:32px;stroke:#eafff0;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;color:#eafff0;display:block}
 
   /* ===== reveal variants =====
      hidden ONLY under .js-anim, which JS adds after confirming GSAP loaded —
