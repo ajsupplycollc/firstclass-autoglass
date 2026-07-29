@@ -119,6 +119,10 @@
 </script>
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
 <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&f[]=satoshi@500,700,400,900&display=swap" rel="stylesheet" />
+<!-- shared: button trace/wobble only. Reveal rules inside are scoped to
+     html.io-anim, which only inner pages set — this page's GSAP timeline
+     (html.js-anim) is unaffected. -->
+<link rel="stylesheet" href="motion.css" />
 <style>
   :root{
     --green:#54e01a; --green-deep:#3bb40e; --blue:#3b73ff; --blue-deep:#0042dd;
