@@ -117,13 +117,26 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700,500&f[]=satoshi@500,700,400,900&display=swap" rel="stylesheet" />
+<!-- Fonts self-hosted (142 KB, 7 woff2). The Fontshare <link> was a RENDER-BLOCKING third-party
+     stylesheet costing 1,163 ms — measured as the single largest remaining barrier to first paint
+     (FCP was 4.2 s with nothing on the main thread). Same reasoning that already put GSAP on our
+     own origin below: a third party can no longer delay, or take down, this page.
+     Preload only the two the hero actually needs — Clash Display 700 (#h1) and Satoshi 400 (body). -->
+<link rel="preload" href="fonts/clash-display-700.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin />
 <!-- shared: button trace/wobble only. Reveal rules inside are scoped to
      html.io-anim, which only inner pages set — this page's GSAP timeline
      (html.js-anim) is unaffected. -->
 <link rel="stylesheet" href="motion.css" />
 <style>
+@font-face{font-family:'Clash Display';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/clash-display-500.woff2') format('woff2')}
+@font-face{font-family:'Clash Display';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/clash-display-600.woff2') format('woff2')}
+@font-face{font-family:'Clash Display';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/clash-display-700.woff2') format('woff2')}
+@font-face{font-family:'Satoshi';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/satoshi-400.woff2') format('woff2')}
+@font-face{font-family:'Satoshi';font-style:normal;font-weight:500;font-display:swap;src:url('fonts/satoshi-500.woff2') format('woff2')}
+@font-face{font-family:'Satoshi';font-style:normal;font-weight:700;font-display:swap;src:url('fonts/satoshi-700.woff2') format('woff2')}
+@font-face{font-family:'Satoshi';font-style:normal;font-weight:900;font-display:swap;src:url('fonts/satoshi-900.woff2') format('woff2')}
   :root{
     --green:#54e01a; --green-deep:#3bb40e; --blue:#3b73ff; --blue-deep:#0042dd;
     --ink:#f2f6ff; --muted:#b8c2e8; --bg:#04060f;
@@ -226,6 +239,32 @@
   .hero .eyebrow .brandline i{font-style:normal;color:var(--green)}
   .hero .eyebrow .locline{font-size:clamp(11px,1.1vw,13px);letter-spacing:.3em;color:#c7d2ff;font-weight:700}
   .hero #h1{font-family:var(--display);font-weight:700;line-height:.9;letter-spacing:-.02em;font-size:clamp(56px,12vw,164px);text-shadow:0 8px 60px rgba(0,0,0,.55)}
+  /* Masked line-rise. transform ONLY — never opacity: per web.dev/articles/lcp, elements at
+     opacity 0 are EXCLUDED from LCP, so a fade-in postpones the metric until it finishes.
+     Transform is not excluded, so the headline counts as painted on frame 1 and still moves.
+     Pure CSS, so it starts at first paint instead of waiting on GSAP to download + evaluate.
+     The padding/negative-margin pair widens the mask box so the 60px text-shadow glow isn't
+     clipped, while keeping layout metrics identical to the old single-div markup. */
+  .hero #h1 .ln{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+  .hero #h1 .ln>span{display:block;transform:translateY(110%);
+                     animation:h1rise .9s cubic-bezier(.16,1,.3,1) .05s forwards}
+  .hero #h1 .ln:nth-child(2)>span{animation-delay:.14s}
+  @keyframes h1rise{to{transform:translateY(0)}}
+  /* Same rule for the rest of the hero intro: these were gsap.from(...,{opacity:0}), which
+     disqualified whichever one happened to be the largest painted element (measured: the
+     .brandline eyebrow became LCP at 7.0s once #h1 was fixed). Transform-only keeps the
+     staggered rise with zero LCP cost and no GSAP dependency. */
+  .hero .eyebrow,.hero .sub,.hero .stars,.hero .cta-row{
+    transform:translateY(18px);animation:heroin .9s cubic-bezier(.16,1,.3,1) forwards}
+  .hero .eyebrow{animation-delay:.06s}
+  .hero .sub{animation-delay:.18s}
+  .hero .stars{animation-delay:.30s}
+  .hero .cta-row{animation-delay:.42s}
+  @keyframes heroin{to{transform:translateY(0)}}
+  @media (prefers-reduced-motion:reduce){
+    .hero #h1 .ln>span,
+    .hero .eyebrow,.hero .sub,.hero .stars,.hero .cta-row{animation:none;transform:none}
+  }
   .hero .sub{margin-top:24px;max-width:40ch;font-size:clamp(15px,1.5vw,20px);font-weight:400;color:#cdd6f4;line-height:1.5}
   .hero .stars{margin-top:26px;display:inline-flex;align-self:flex-start;align-items:center;gap:12px;font-size:14px;color:#e7ecff;padding:11px 18px;border-radius:100px}
   .hero .stars .s{color:#ffc83d;letter-spacing:2px}
@@ -404,7 +443,7 @@
 
   <section class="hero" id="top">
     <div class="eyebrow"><span class="brandline">First Class <i>/</i> Auto Glass NC</span><span class="locline">Mooresville &amp; Lexington, NC</span></div>
-    <div id="h1" role="heading" aria-level="2">Clarity,<br>Restored.</div>
+    <div id="h1" role="heading" aria-level="2" aria-label="Clarity, Restored."><span class="ln"><span>Clarity,</span></span><span class="ln"><span>Restored.</span></span></div>
     <h1 class="sub">Expert windshield repair &amp; replacement, ADAS calibration, and mobile service at no extra charge. All major insurance accepted.</h1>
     <div class="stars glass"><span class="s">★★★★★</span> <b>5.0</b> · Rated on Google</div>
     <div class="cta-row">
@@ -545,9 +584,8 @@
 
   <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
   <!-- GSAP self-hosted: a CDN outage can no longer take the animations (or the page) down -->
-  <script src="gsap.min.js"></script>
-  <script src="ScrollTrigger.min.js"></script>
-  <script src="SplitText.min.js"></script>
+  <script src="gsap.min.js" defer></script>
+  <script src="ScrollTrigger.min.js" defer></script>
   <script>
     /* ============ plain JS — everything here runs even if GSAP is missing ============ */
     const REDUCED=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -619,17 +657,21 @@
       });
     })();
 
-    /* ============ GSAP block — reveals/intro run ONLY when the library is confirmed present ============ */
-    if(!REDUCED && window.gsap && window.ScrollTrigger && window.SplitText){
+    /* ============ GSAP block — reveals/intro run ONLY when the library is confirmed present ============
+       Libraries are deferred (they cost ~4.5s of main-thread eval under mobile CPU throttling and
+       were blocking first paint). Deferred scripts finish BEFORE DOMContentLoaded fires, so waiting
+       for that event is what keeps the window.gsap guard below truthful. Without this wrapper the
+       guard runs first, reads undefined, and every animation silently never starts. */
+    document.addEventListener('DOMContentLoaded',()=>{
+    if(!REDUCED && window.gsap && window.ScrollTrigger){
       document.documentElement.classList.add('js-anim'); // CSS hides .reveal* only under this class
-      gsap.registerPlugin(ScrollTrigger,SplitText);
+      gsap.registerPlugin(ScrollTrigger);
 
-      // split after fonts load so char metrics are correct
-      document.fonts.ready.then(()=>{
-        const sp=new SplitText('#h1',{type:'chars'});
-        gsap.from(sp.chars,{yPercent:118,opacity:0,stagger:.045,duration:1.1,ease:'power4.out',delay:.4});
-      });
-      gsap.from('.hero .eyebrow,.hero .sub,.hero .stars,.hero .cta-row',{y:18,opacity:0,stagger:.12,duration:1,delay:.3,ease:'power3.out'});
+      /* The #h1 intro is now pure CSS (see .hero #h1 .ln). It used to be a SplitText char
+         reveal gated on document.fonts.ready — that put a third-party font round trip AND
+         ~4.5s of GSAP evaluation in front of the LCP element, and its opacity:0 disqualified
+         the headline from being counted as painted at all. Do not reintroduce it here. */
+      /* hero intro is CSS now (.hero .eyebrow/.sub/.stars/.cta-row) — transform-only, no opacity. */
 
       // varied scroll reveals
       const mk=(sel,vars)=>gsap.utils.toArray(sel).forEach(el=>gsap.to(el,Object.assign({scrollTrigger:{trigger:el,start:'top 86%'},duration:1,ease:'power3.out'},vars)));
@@ -643,6 +685,7 @@
       window.addEventListener('load',refresh);
       setTimeout(refresh,1500); setTimeout(refresh,3500); setTimeout(refresh,6000);
     }
+    });
   </script>
 </body>
 </html>
