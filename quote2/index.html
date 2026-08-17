@@ -161,7 +161,9 @@
           <div><label for="make">Make</label><select id="make" disabled><option>Make</option></select></div>
           <div class="full"><label for="model">Model</label><select id="model" disabled><option>Model</option></select></div>
           <div class="full" id="bodyWrap" style="display:none"><label for="body">Body style / trim</label><select id="body"><option>Body style</option></select></div>
+          <div class="full"><label for="vin">VIN or license plate <span style="text-transform:none;letter-spacing:0;opacity:.7;font-weight:500">(optional — pins your exact glass)</span></label><input id="vin" autocomplete="off" placeholder="VIN, or plate + state (e.g. ABC1234 NC)" maxlength="40" /></div>
         </div>
+        <p class="hint" style="margin:8px 0 0">Many models share a body style but take different windshields (rain sensor, safety camera, acoustic). Your VIN or plate lets us confirm the exact one — otherwise we verify it on a quick call.</p>
         <div class="errline" id="err4">Couldn't reach the vehicle database. Call us and we'll quote you by phone: (980) 242-8339.</div>
         <button class="pill primary" id="go" disabled style="margin-top:12px">See my instant quote</button>
         <p class="hint" style="margin-top:9px">Real price, real availability, online scheduling.</p>
@@ -179,7 +181,7 @@
         <p class="hint" id="r-vehicle" style="margin-bottom:12px"></p>
         <button class="pill primary" id="r-schedule">Schedule my service</button>
         <p class="hint" style="margin-top:10px"><a href="tel:+19802428339" style="color:#c9ffb2">or call (980) 242-8339</a></p>
-        <p class="hint" style="margin-top:10px;font-size:11.5px">Price may not include required calibrations, moldings, clips, or other attachments. Quote valid for 48 hours.</p>
+        <p class="hint" style="margin-top:10px;font-size:11.5px">Shown for the glass listed above — we confirm your exact windshield from your VIN or plate on a quick call, so your final price may adjust. Price may not include required calibrations, moldings, clips, or other attachments. Quote valid for 48 hours.</p>
       </div>
     </div>
 
@@ -219,7 +221,7 @@
 
 <!-- ALL funnel logic is a classic script: the flow works even if the 3D module/CDN fails -->
 <script>
-const RELAY = 'https://omega-relay.strange-advanced-marketing.workers.dev';
+const RELAY = 'https://omega-relay.sam-947.workers.dev';
 const OMEGA = 'https://app.omegaedi.com';
 
 /* glass mesh name → Omega NAGS position code + label */
@@ -233,7 +235,7 @@ const GLASS = {
   RearSides:   { code:'Q',            label:'Quarter Glass' },
 };
 
-const state = { glass:null, fname:'', phone:'', email:'', zip:'', vehicle_id:null };
+const state = { glass:null, fname:'', phone:'', email:'', zip:'', vehicle_id:null, vin:'' };
 const $ = id => document.getElementById(id);
 const steps = { 1:$('s1'), 2:$('s2'), '2b':$('s2b'), 3:$('s3'), 4:$('s4'), 5:$('s5'), 6:$('s6'), 7:$('s7') };
 let cameFromFork = false;
@@ -536,11 +538,12 @@ $('go').onclick = async ()=>{
   $('go').disabled = true;
   $('go').innerHTML = '<span class="spin"></span>&nbsp;Building your quote…';
   try{
+    state.vin = ($('vin').value || '').trim();
     const qp = new URLSearchParams({
       vehicle_id: state.vehicle_id, glass: state.glass.code,
       year: $('year').value, make: $('make').value, model: $('model').value,
       fname: state.fname, phone: state.phone, email: state.email, zip: state.zip,
-      sms: '1', source: 'website_3d',
+      vin: state.vin, sms: '1', source: 'website_3d',
     });
     const r = await fetch(`${RELAY}/quote?${qp}`);
     const d = await r.json();
