@@ -141,10 +141,10 @@
         <h2 class="q">Where do we send your quote?</h2>
         <p class="sub">Your instant price is on the next screen — this is for your written copy.</p>
         <div class="fields">
-          <div><label for="fname">First name</label><input id="fname" autocomplete="given-name" /></div>
-          <div><label for="zip">ZIP code</label><input id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" /></div>
-          <div class="full"><label for="phone">Phone</label><input id="phone" inputmode="tel" autocomplete="tel" placeholder="704-555-0123" /></div>
-          <div class="full"><label for="email">Email</label><input id="email" inputmode="email" autocomplete="email" /></div>
+          <div><label for="fname">First name</label><input id="fname" autocomplete="given-name" enterkeyhint="next" /></div>
+          <div><label for="zip">ZIP code</label><input id="zip" inputmode="numeric" autocomplete="postal-code" maxlength="5" enterkeyhint="next" /></div>
+          <div class="full"><label for="phone">Phone</label><input id="phone" inputmode="tel" autocomplete="tel" placeholder="704-555-0123" enterkeyhint="next" /></div>
+          <div class="full"><label for="email">Email</label><input id="email" inputmode="email" autocomplete="email" enterkeyhint="go" /></div>
         </div>
         <div class="errline" id="err3">Please fill in every field (valid phone, email &amp; 5-digit ZIP).</div>
         <button class="pill primary" id="toStep4" style="margin-top:12px">Continue</button>
@@ -411,6 +411,11 @@ $('phone').addEventListener('input', e=>{
   const d = e.target.value.replace(/\D/g,'').slice(0,10);
   e.target.value = d.replace(/^(\d{3})(\d{1,3})?(\d{1,4})?$/, (m,a,b,c)=> c?`${a}-${b}-${c}` : b?`${a}-${b}` : a);
 });
+// mobile keyboard covers the Continue button (email is the last field) — let the keyboard's
+// go/next key advance so the user never has to reach the occluded button
+['fname','zip','phone','email'].forEach(id=>$(id).addEventListener('keydown', e=>{
+  if(e.key==='Enter'){ e.preventDefault(); $('toStep4').click(); }
+}));
 $('toStep4').onclick = ()=>{
   const f = $('fname').value.trim(), z = $('zip').value.trim(),
         p = $('phone').value.trim(), m = $('email').value.trim();
