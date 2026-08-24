@@ -1,0 +1,231 @@
+/* ============================================================
+   First Class Auto Glass — v3 shared motion
+
+   TWO INDEPENDENT HALVES:
+
+   1. BUTTON MICRO-INTERACTIONS — safe on every page including the
+      home page. Unscoped, pure CSS, no JS.
+   2. SCROLL REVEALS — inner pages only. Scoped to `html.io-anim`,
+      a class ONLY motion.js sets. The home page runs its own GSAP
+      timeline off `html.js-anim`; keying on a different class means
+      linking this file there can never fight that timeline.
+
+   ponytail: reveals are CSS transitions + IntersectionObserver rather
+   than GSAP + ScrollTrigger (114KB) on all 14 inner pages. Easing is
+   matched to the home page's power3.out so the feel is identical.
+   ============================================================ */
+
+
+/* ============================================================
+   1. BUTTONS — ported from strangeadvancedmarketing.com
+   (sam-website/index.html: traceIgnite + softJelly, shipped 7/21),
+   recolored to Keith's green. Safe to load anywhere.
+   ============================================================ */
+
+@property --trace-a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes traceIgnite{to{--trace-a:360deg}}
+
+/* the ::before needs a positioned parent; does not affect layout */
+.pill{position:relative}
+
+/* circuit light runs the button border on hover */
+.pill::before{
+  content:"";position:absolute;inset:-2px;border-radius:100px;padding:2px;
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask-composite:exclude;
+  opacity:0;transition:opacity .25s;pointer-events:none;
+}
+/* white light on the green button, green light on the dark glass button */
+.pill.primary::before{
+  background:conic-gradient(from var(--trace-a,0deg), transparent 0 70%, rgba(255,255,255,.95) 84%, transparent 94%);
+}
+.pill.glass2::before{
+  background:conic-gradient(from var(--trace-a,0deg), transparent 0 70%, #54e01a 84%, transparent 94%);
+}
+.pill:hover::before,
+.pill:focus-visible::before{opacity:1;animation:traceIgnite 1s linear 2}
+
+/* soft spring on the secondary button */
+@keyframes softJelly{
+  0%{transform:scale(1,1)}
+  25%{transform:scale(1.045,.965)}
+  50%{transform:scale(.975,1.025)}
+  75%{transform:scale(1.015,.99)}
+  100%{transform:scale(1,1)}
+}
+.pill.glass2:hover{animation:softJelly .55s ease}
+
+
+/* ============================================================
+   2. SCROLL REVEALS — inner pages only (html.io-anim)
+   ============================================================ */
+
+.io-anim .reveal,
+.io-anim .reveal-d,
+.io-anim .reveal-l,
+.io-anim .reveal-r,
+.io-anim .reveal-s{
+  opacity:0;
+  transition:opacity 1s cubic-bezier(.215,.61,.355,1), transform 1s cubic-bezier(.215,.61,.355,1);
+}
+.io-anim .reveal  {transform:translateY(42px)}   /* up from below   */
+.io-anim .reveal-d{transform:translateY(-38px)}  /* down from above */
+.io-anim .reveal-l{transform:translateX(-70px)}  /* in from left    */
+.io-anim .reveal-r{transform:translateX(70px)}   /* in from right   */
+.io-anim .reveal-s{transform:scale(.94)}         /* scales up       */
+
+.io-anim .reveal.in,
+.io-anim .reveal-d.in,
+.io-anim .reveal-l.in,
+.io-anim .reveal-r.in,
+.io-anim .reveal-s.in{opacity:1;transform:none}
+
+/* The 70px lateral travel is fine at desktop width, but on a phone any
+   positive translateX parks a full-width element outside the viewport
+   until it reveals (measured: body scrollWidth 390 -> 441). At this size
+   the sideways throw is imperceptible anyway, so go vertical only — no
+   overflow at any viewport, one rule instead of a padding-dependent
+   magic number. Alternating up/down keeps the directional variety. */
+@media (max-width:700px){
+  .io-anim .reveal,
+  .io-anim .reveal-r{transform:translateY(30px)}
+  .io-anim .reveal-d,
+  .io-anim .reveal-l{transform:translateY(-26px)}
+}
+
+
+/* ============================================================
+   3. PHOTO HERO BAND — inner pages
+   ============================================================ */
+
+.page-hero.photo{overflow:hidden;isolation:isolate}
+
+.page-hero.photo .ph-bg{
+  position:absolute;inset:-7% -3%;z-index:0;
+  background-size:cover;background-position:center;
+  filter:saturate(.90) contrast(1.04) brightness(1.06);
+  /* Per-page, because the images vary a lot in how bright they are. A photo with
+     lit areas (the shop tech on /about/) reads fine at .58; a low-key one (the
+     glass rack on /services/) disappears under the scrim and wants ~.80.
+     Override inline on .ph-bg: style="--ph-op:.80" */
+  opacity:var(--ph-op, .58);
+  transform:scale(1.06);
+  animation:phdrift 30s ease-in-out infinite alternate;
+}
+
+.page-hero.photo::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(60% 55% at 80% 8%, rgba(59,115,255,.20), transparent 70%),
+    radial-gradient(50% 45% at 10% 35%, rgba(84,224,26,.12), transparent 72%),
+    /* seats the headline on a clean dark field and lets the photo breathe right */
+    linear-gradient(90deg, rgba(4,6,15,.84) 0%, rgba(4,6,15,.58) 34%, rgba(4,6,15,.12) 62%, transparent 78%),
+    linear-gradient(180deg, rgba(4,6,15,.38) 0%, rgba(4,6,15,.70) 52%, rgba(4,6,15,.93) 82%, var(--bg) 100%);
+}
+.page-hero.photo > .wrap{position:relative;z-index:2}
+
+/* hairline where the band meets the page, same weight as the nav border */
+.page-hero.photo::before{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;z-index:3;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.14) 22%,rgba(255,255,255,.14) 78%,transparent);
+}
+
+@keyframes phdrift{
+  from{transform:scale(1.06) translate3d(0,0,0)}
+  to  {transform:scale(1.14) translate3d(-1.6%,-1.4%,0)}
+}
+
+/* MOBILE CROP — the whole reason a desktop background survives on a phone.
+   Measured: the hero band is 3.48:1 at 1920 but 0.72:1 at 360. Stretching one
+   landscape photo across both with `cover` means a phone sees a narrow vertical
+   slice of it — only ~40% of a 16:9 source survives, which is the "too zoomed in
+   to make sense" problem. So on small screens the photo stops filling the band
+   and sits in the top portion instead, giving it a near-square crop box, then
+   masks out into the page. Same single image file, no second export. */
+@media (max-width:700px){
+  .page-hero.photo .ph-bg{
+    inset:-7% -3% auto;
+    height:72%;
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 56%,transparent 100%);
+            mask-image:linear-gradient(180deg,#000 0%,#000 56%,transparent 100%);
+  }
+  /* lighten the vertical scrim to match — the photo no longer runs full height */
+  .page-hero.photo::after{
+    background:
+      radial-gradient(70% 50% at 80% 6%, rgba(59,115,255,.20), transparent 70%),
+      radial-gradient(60% 40% at 10% 28%, rgba(84,224,26,.12), transparent 72%),
+      linear-gradient(180deg, rgba(4,6,15,.34) 0%, rgba(4,6,15,.62) 44%, rgba(4,6,15,.90) 72%, var(--bg) 100%);
+  }
+}
+
+/* hero copy entrance (above the fold — runs on load, not on scroll) */
+.io-anim .page-hero .kicker,
+.io-anim .page-hero h1,
+.io-anim .page-hero .sub,
+.io-anim .page-hero .cta-row{
+  opacity:0;animation:heroIn .95s cubic-bezier(.215,.61,.355,1) forwards;
+}
+.io-anim .page-hero .kicker {animation-delay:.10s}
+.io-anim .page-hero h1      {animation-delay:.20s}
+.io-anim .page-hero .sub    {animation-delay:.32s}
+.io-anim .page-hero .cta-row{animation-delay:.44s}
+
+@keyframes heroIn{
+  from{opacity:0;transform:translateY(22px)}
+  to  {opacity:1;transform:none}
+}
+
+/* counting stats must not jitter as digits change width */
+.stat b{font-variant-numeric:tabular-nums}
+
+
+/* ============================================================
+   3b. LEGAL PAGES — privacy + terms
+   These two run a stripped template of their own: no nav, no
+   .page-hero, their own small stylesheet. Rather than pull the full
+   site chrome onto them (that would be a redesign, not a dressing-up),
+   they get a photo band behind the title and reveals on the headings.
+   ============================================================ */
+body:has(.legal-band){position:relative}
+
+.legal-band{
+  position:absolute;top:0;left:0;right:0;
+  height:min(46vh,360px);z-index:0;pointer-events:none;overflow:hidden;
+}
+.legal-band i{
+  position:absolute;inset:-6% -3%;display:block;
+  background-size:cover;background-position:center;
+  opacity:var(--ph-op,.30);
+  filter:saturate(.9) contrast(1.04);
+  animation:phdrift 30s ease-in-out infinite alternate;
+}
+.legal-band::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(4,6,15,.42) 0%, rgba(4,6,15,.80) 58%, var(--bg) 100%);
+}
+body:has(.legal-band) .wrap{position:relative;z-index:1}
+
+
+/* ============================================================
+   4. REDUCED MOTION — everything static, nothing hidden
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  /* must restate the :hover/:focus selectors — .pill::before alone loses
+     the specificity contest to .pill:hover::before even inside this query */
+  .pill::before,
+  .pill:hover::before,
+  .pill:focus-visible::before{animation:none;opacity:0}
+  .pill.glass2:hover{animation:none}
+  .page-hero.photo .ph-bg{animation:none;transform:scale(1.06)}
+  .io-anim .reveal,
+  .io-anim .reveal-d,
+  .io-anim .reveal-l,
+  .io-anim .reveal-r,
+  .io-anim .reveal-s{opacity:1;transform:none;transition:none}
+  .io-anim .page-hero .kicker,
+  .io-anim .page-hero h1,
+  .io-anim .page-hero .sub,
+  .io-anim .page-hero .cta-row{opacity:1;animation:none}
+}
