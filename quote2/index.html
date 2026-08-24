@@ -161,9 +161,10 @@
           <div><label for="make">Make</label><select id="make" disabled><option>Make</option></select></div>
           <div class="full"><label for="model">Model</label><select id="model" disabled><option>Model</option></select></div>
           <div class="full" id="bodyWrap" style="display:none"><label for="body">Body style / trim</label><select id="body"><option>Body style</option></select></div>
-          <div class="full"><label for="vin">VIN or license plate <span style="text-transform:none;letter-spacing:0;opacity:.7;font-weight:500">(optional — pins your exact glass)</span></label><input id="vin" autocomplete="off" placeholder="VIN, or plate + state (e.g. ABC1234 NC)" maxlength="40" /></div>
+          <div class="full"><label for="vin">VIN <span style="text-transform:none;letter-spacing:0;opacity:.7;font-weight:500">(required — 17 characters)</span></label><input id="vin" autocomplete="off" placeholder="17-character VIN (dashboard or driver's door jamb)" maxlength="25" required /></div>
         </div>
-        <p class="hint" style="margin:8px 0 0">Many models share a body style but take different windshields (rain sensor, safety camera, acoustic). Your VIN or plate lets us confirm the exact one — otherwise we verify it on a quick call.</p>
+        <p class="hint" style="margin:8px 0 0">Many models share a body style but take different windshields (rain sensor, safety camera, acoustic). Your VIN pins the exact one — it's on the driver's-side dashboard (visible through the windshield) or the driver's door jamb sticker.</p>
+        <div class="errline" id="errvin">Please enter your full 17-character VIN — we need it to quote the right windshield.</div>
         <div class="errline" id="err4">Couldn't reach the vehicle database. Call us and we'll quote you by phone: (980) 242-8339.</div>
         <button class="pill primary" id="go" disabled style="margin-top:12px">See my instant quote</button>
         <p class="hint" style="margin-top:9px">Real price, real availability, online scheduling.</p>
@@ -181,7 +182,7 @@
         <p class="hint" id="r-vehicle" style="margin-bottom:12px"></p>
         <button class="pill primary" id="r-schedule">Schedule my service</button>
         <p class="hint" style="margin-top:10px"><a href="tel:+19802428339" style="color:#c9ffb2">or call (980) 242-8339</a></p>
-        <p class="hint" style="margin-top:10px;font-size:11.5px">Shown for the glass listed above — we confirm your exact windshield from your VIN or plate on a quick call, so your final price may adjust. Price may not include required calibrations, moldings, clips, or other attachments. Quote valid for 48 hours.</p>
+        <p class="hint" style="margin-top:10px;font-size:11.5px">Shown for the glass listed above — we confirm your exact windshield from your VIN on a quick call, so your final price may adjust. Price may not include required calibrations, moldings, clips, or other attachments. Quote valid for 48 hours.</p>
       </div>
     </div>
 
@@ -540,10 +541,15 @@ $('sgo').onclick = async ()=>{
    Falls back to direct Omega navigation only if the relay call fails. */
 $('go').onclick = async ()=>{
   if(!state.vehicle_id || !state.glass) return;
+  /* Keith 8/24: VIN is mandatory, VIN only — no quote without a valid 17-char VIN */
+  state.vin = ($('vin').value || '').toUpperCase().replace(/[^A-Z0-9]/g,'');
+  if(!/^[A-HJ-NPR-Z0-9]{17}$/.test(state.vin)){
+    $('errvin').style.display='block'; $('vin').focus(); return;
+  }
+  $('errvin').style.display='none';
   $('go').disabled = true;
   $('go').innerHTML = '<span class="spin"></span>&nbsp;Building your quote…';
   try{
-    state.vin = ($('vin').value || '').trim();
     const qp = new URLSearchParams({
       vehicle_id: state.vehicle_id, glass: state.glass.code,
       year: $('year').value, make: $('make').value, model: $('model').value,
