@@ -82,6 +82,17 @@
   @keyframes sp{to{transform:rotate(360deg)}}
   #fallback{display:none}
   .errline{color:#ff9b9b;font-size:13px;margin-top:6px;display:none}
+  /* Embedded/short viewports (homepage iframe is ~440px tall): 62% strangles the form
+     steps — let the sheet use the full height minus the header strip so Email/Continue
+     are reachable. Full-screen /quote2 keeps the 62% car view. */
+  @media (max-height:600px){
+    .sheet{max-height:calc(100% - 50px)}
+    .card{padding:12px}
+    .fields{gap:7px}
+    h2.q{font-size:18px;margin-bottom:6px}
+    input,select{padding:10px 12px}
+    .pill{padding:11px 18px}
+  }
 </style>
 </head>
 <body>
@@ -588,6 +599,12 @@ $('go').onclick = async ()=>{
   const url = `${OMEGA}/api/2.0/Quotes/${state.vehicle_id}/${state.glass.code}?${q}`;
   (window.top === window ? window : window.top).location.href = url;
 };
+
+// Mobile keyboard covers the focused field inside the short homepage iframe —
+// nudge the active input into view once the keyboard has opened.
+document.querySelectorAll('input,select').forEach(el=>{
+  el.addEventListener('focus',()=>setTimeout(()=>el.scrollIntoView({block:'center',behavior:'smooth'}),300));
+});
 </script>
 </body>
 </html>
