@@ -464,6 +464,12 @@ function fill(sel, items, placeholder, val, txt){
 }
 const ok4 = ()=> $('err4').style.display='none';
 const loading = sel=>{ sel.innerHTML='<option value="" disabled selected>Loading…</option>'; sel.disabled = true; };
+/* 9/2: cascade race guard — if the customer changes year/make/model before an earlier lookup
+   returns, the stale response must NOT repopulate the selectors (it could pin a vehicle_id that
+   doesn't match what's on screen). Each change bumps the ticket; only the newest ticket fills. */
+let cascadeTicket = 0;
+const ticket = ()=> ++cascadeTicket;
+const current = t => t === cascadeTicket;
 async function initCascade(){
   if(cascadeInit) return; cascadeInit = true;
   try{
@@ -473,15 +479,19 @@ async function initCascade(){
 }
 $('year').onchange = async e=>{
   loading($('make')); loading($('model')); $('bodyWrap').style.display='none'; $('go').disabled = true; state.vehicle_id = null;
+  const t = ticket();
   try{
     const makes = await relay('/nags/'+e.target.value);
+    if(!current(t)) return;
     fill($('make'), makes, 'Make', m=>m.make_id, m=>m.make_name); ok4();
   }catch(err){ $('err4').style.display='block'; }
 };
 $('make').onchange = async e=>{
   loading($('model')); $('bodyWrap').style.display='none'; $('go').disabled = true; state.vehicle_id = null;
+  const t = ticket();
   try{
     const models = await relay(`/nags/${$('year').value}/${e.target.value}`);
+    if(!current(t)) return;
     fill($('model'), models, 'Model',
       m=> m.model_id + (m.modifier_id ? '_'+m.modifier_id : ''),
       m=> m.model_name + (m.modifier_dsc ? ' '+m.modifier_dsc : '')); ok4();
@@ -490,8 +500,10 @@ $('make').onchange = async e=>{
 $('model').onchange = async e=>{
   $('go').disabled = true; state.vehicle_id = null;
   const [model_id, modifier_id] = e.target.value.split('_');
+  const t = ticket();
   try{
     const vs = await relay(`/nags/${$('year').value}/${$('make').value}/${model_id}` + (modifier_id?`?modifier_id=${modifier_id}`:''));
+    if(!current(t)) return;
     if(vs.length === 1){
       state.vehicle_id = vs[0].vehicle_id;
       $('bodyWrap').style.display='none';
@@ -526,7 +538,11 @@ $('smobile').onchange = e=>{
 $('sgo').onclick = async ()=>{
   const date = $('sdate').value, mobile = $('smobile').checked;
   const addr = $('saddress').value.trim(), city = $('scity').value.trim(), st = $('sstate').value.trim();
-  if(!date || (mobile && !addr)){ $('err6').style.display='block'; return; }
+  /* 9/2: a mobile job needs street AND city — a bare street is not a place Keith's team can drive to */
+  if(!date || (mobile && (!addr || !city))){
+    $('err6').textContent = mobile && addr && !city ? 'Please add the city for your mobile appointment.' : 'Please pick a date' + (mobile ? ' and enter your street address and city.' : '.');
+    $('err6').style.display='block'; return;
+  }
   $('err6').style.display='none';
   $('sgo').disabled = true;
   $('sgo').innerHTML = '<span class="spin"></span>&nbsp;Requesting…';
@@ -535,7 +551,8 @@ $('sgo').onclick = async ()=>{
       guid: state.quote.guid, date, fname: state.fname, phone: state.phone, email: state.email,
       mobile: mobile ? '1' : '0', address: addr, city, state: st,
     });
-    const r = await fetch(`${RELAY}/schedule?${qp}`);
+    /* 9/2: customer details go in the POST body, never the URL (history/log exposure) */
+    const r = await fetch(`${RELAY}/schedule`, { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: qp.toString() });
     const d = await r.json();
     if(!d.ok) throw new Error('schedule failed');
     $('c-head').textContent = `See you ${fmtDay(date)}.`;
@@ -567,7 +584,8 @@ $('go').onclick = async ()=>{
       fname: state.fname, phone: state.phone, email: state.email, zip: state.zip,
       vin: state.vin, sms: '1', source: 'website_3d',
     });
-    const r = await fetch(`${RELAY}/quote?${qp}`);
+    /* 9/2: POST body, not query string — name/phone/email/VIN stay out of URLs and logs */
+    const r = await fetch(`${RELAY}/quote`, { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: qp.toString() });
     const d = await r.json();
     if(!d.ok || !d.price) throw new Error('no price');
     $('r-quoteno').textContent = d.quote_no ? `Online Quote #${d.quote_no} · ${state.fname}` : 'Your instant quote';
