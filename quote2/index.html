@@ -252,7 +252,19 @@ const $ = id => document.getElementById(id);
 const steps = { 1:$('s1'), 2:$('s2'), '2b':$('s2b'), 3:$('s3'), 4:$('s4'), 5:$('s5'), 6:$('s6'), 7:$('s7') };
 let cameFromFork = false;
 
+/* 9/14: invisible funnel counter — step label + random per-visit id, nothing personal.
+   Answers "where do people stop?" (Keith's VIN question) without changing anything they see. */
+let VID = '';
+try{ VID = sessionStorage.getItem('q2v') || Math.random().toString(36).slice(2,10); sessionStorage.setItem('q2v', VID); }
+catch(e){ VID = Math.random().toString(36).slice(2,10); }
+function track(s){
+  try{
+    const u = `${RELAY}/ev?s=${encodeURIComponent(s)}&v=${VID}`;
+    if(!(navigator.sendBeacon && navigator.sendBeacon(u))) fetch(u, { keepalive:true }).catch(()=>{});
+  }catch(e){}
+}
 function show(n){
+  track('s' + n);
   Object.values(steps).forEach(s=>s.classList.remove('on'));
   steps[n].classList.add('on');
   const idx = n==='2b' ? 2 : Math.min(4, Number(n)||1);
@@ -557,7 +569,7 @@ $('sgo').onclick = async ()=>{
     if(!d.ok) throw new Error('schedule failed');
     $('c-head').textContent = `See you ${fmtDay(date)}.`;
     $('c-body').textContent = `Quote #${state.quote.quote_no || ''} — Keith's team will call ${state.phone} to confirm your exact time window${mobile ? ` at ${addr}` : ' at the shop'}.`;
-    show(7);
+    track('sched_ok'); show(7);
   }catch(e){
     $('sgo').disabled = false; $('sgo').textContent = 'Request my appointment';
     $('err6').textContent = "Couldn't send the request — call us and we'll book you by phone: (980) 242-8339.";
@@ -572,9 +584,9 @@ $('go').onclick = async ()=>{
   /* Keith 8/24: VIN is mandatory, VIN only — no quote without a valid 17-char VIN */
   state.vin = ($('vin').value || '').toUpperCase().replace(/[^A-Z0-9]/g,'');
   if(!/^[A-HJ-NPR-Z0-9]{17}$/.test(state.vin)){
-    $('errvin').style.display='block'; $('vin').focus(); return;
+    $('errvin').style.display='block'; $('vin').focus(); track('vinfail'); return;
   }
-  $('errvin').style.display='none';
+  $('errvin').style.display='none'; track('vinok');
   $('go').disabled = true;
   $('go').innerHTML = '<span class="spin"></span>&nbsp;Building your quote…';
   try{
@@ -592,7 +604,7 @@ $('go').onclick = async ()=>{
     $('r-price').textContent = d.price;
     $('r-glass').textContent = d.glass_desc || state.glass.label;
     $('r-vehicle').textContent = `${$('year').value} ${$('make').options[$('make').selectedIndex].text} ${$('model').options[$('model').selectedIndex].text}`;
-    state.quote = d;
+    state.quote = d; track('quote_ok');
     $('r-schedule').style.display = (d.guid && d.dates.length) ? '' : 'none';
     $('go').disabled = false; $('go').textContent = 'See my instant quote';
     show(5);
