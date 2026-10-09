@@ -168,16 +168,19 @@
         <button class="back" data-back="3">← Back</button>
         <h2 class="q">Your vehicle.</h2>
         <div class="fields">
-          <div><label for="year">Year</label><select id="year" disabled><option>Loading…</option></select></div>
-          <div><label for="make">Make</label><select id="make" disabled><option>Make</option></select></div>
-          <div class="full"><label for="model">Model</label><select id="model" disabled><option>Model</option></select></div>
-          <div class="full" id="bodyWrap" style="display:none"><label for="body">Body style / trim</label><select id="body"><option>Body style</option></select></div>
-          <div class="full"><label for="vin">VIN <span style="text-transform:none;letter-spacing:0;opacity:.7;font-weight:500">(required — 17 characters)</span></label><input id="vin" autocomplete="off" placeholder="17-character VIN (dashboard or driver's door jamb)" maxlength="25" required /></div>
+          <div class="full" style="display:flex;gap:8px"><button type="button" class="pill ghost" id="byPlate" aria-pressed="true" style="flex:1">License plate</button><button type="button" class="pill ghost" id="byVin" aria-pressed="false" style="flex:1">VIN</button></div>
+          <div class="plateRow"><label for="pstate">State</label><select id="pstate"></select></div>
+          <div class="plateRow"><label for="plate">License plate</label><input id="plate" autocomplete="off" autocapitalize="characters" placeholder="ABC1234" maxlength="10" /></div>
+          <div style="display:none"><label for="year">Year</label><select id="year" disabled><option>Loading…</option></select></div>
+          <div style="display:none"><label for="make">Make</label><select id="make" disabled><option>Make</option></select></div>
+          <div class="full" style="display:none"><label for="model">Model</label><select id="model" disabled><option>Model</option></select></div>
+          <div style="display:none"><div id="bodyWrap"><label for="body">Body style / trim</label><select id="body"><option>Body style</option></select></div></div>
+          <div class="full vinRow" style="display:none"><label for="vin">VIN <span style="text-transform:none;letter-spacing:0;opacity:.7;font-weight:500">(17 characters)</span></label><input id="vin" autocomplete="off" placeholder="17-character VIN (dashboard or driver's door jamb)" maxlength="25" required /></div>
         </div>
-        <p class="hint" style="margin:8px 0 0">Many models share a body style but take different windshields (rain sensor, safety camera, acoustic). Your VIN pins the exact one — it's on the driver's-side dashboard (visible through the windshield) or the driver's door jamb sticker.</p>
-        <div class="errline" id="errvin">Please enter your full 17-character VIN — we need it to quote the right windshield.</div>
+        <p class="hint" style="margin:8px 0 0">Your plate or VIN tells us your exact car, down to the windshield (rain sensor, safety camera, acoustic). The VIN is on the driver's-side dashboard, visible through the windshield, or the driver's door jamb sticker.</p>
+        <div class="errline" id="errvin">We couldn't find that vehicle. Check the plate and state, or try your VIN. Or call us: (980) 242-8339.</div>
         <div class="errline" id="err4">Couldn't reach the vehicle database. Call us and we'll quote you by phone: (980) 242-8339.</div>
-        <button class="pill primary" id="go" disabled style="margin-top:12px">See my instant quote</button>
+        <button class="pill primary" id="go" style="margin-top:12px">See my instant quote</button>
         <p class="hint" style="margin-top:9px">Real price, real availability, online scheduling.</p>
       </div>
     </div>
@@ -193,7 +196,7 @@
         <p class="hint" id="r-vehicle" style="margin-bottom:12px"></p>
         <button class="pill primary" id="r-schedule">Schedule my service</button>
         <p class="hint" style="margin-top:10px"><a href="tel:+19802428339" style="color:#c9ffb2">or call (980) 242-8339</a></p>
-        <p class="hint" style="margin-top:10px;font-size:11.5px">Shown for the glass listed above — we confirm your exact windshield from your VIN on a quick call, so your final price may adjust. Price may not include attachments or other required services. Quote valid for 48 hours.</p>
+        <p class="hint" style="margin-top:10px;font-size:11.5px">Shown for the glass listed above — we confirm your exact windshield from your plate or VIN on a quick call, so your final price may adjust. Price may not include attachments or other required services. Quote valid for 48 hours.</p>
       </div>
     </div>
 
@@ -269,7 +272,7 @@ function show(n){
   steps[n].classList.add('on');
   const idx = n==='2b' ? 2 : Math.min(4, Number(n)||1);
   [...$('dots').children].forEach((d,i)=>d.classList.toggle('on', i < (n==='2b'?2:idx)));
-  if(n===4) initCascade();
+  // 10/9: plate/VIN decode replaced the year/make/model cascade (aligned with Omega's new quoter)
 }
 document.querySelectorAll('.back').forEach(b=>b.addEventListener('click',()=>{
   const t = b.dataset.back;
@@ -577,22 +580,54 @@ $('sgo').onclick = async ()=>{
   }
 };
 
+let byVin = false;
+function setMode(v){
+  byVin = v;
+  $('byVin').setAttribute('aria-pressed', v); $('byPlate').setAttribute('aria-pressed', !v);
+  $('byVin').style.outline = v ? '2px solid #62ee27' : ''; $('byPlate').style.outline = v ? '' : '2px solid #62ee27';
+  document.querySelectorAll('.plateRow').forEach(el=> el.style.display = v ? 'none' : '');
+  document.querySelector('.vinRow').style.display = v ? '' : 'none';
+  $('errvin').style.display = 'none';
+}
+$('byPlate').onclick = ()=> setMode(false);
+$('byVin').onclick = ()=> setMode(true);
+'AL AK AZ AR CA CO CT DE DC FL GA HI ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY'.split(' ').forEach(c=>{
+  const o = document.createElement('option'); o.value = o.textContent = c; if(c==='NC') o.selected = true; $('pstate').appendChild(o);
+});
+setMode(false);
+['plate','vin'].forEach(id=>$(id).addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); $('go').click(); } }));
+
 /* fetch the Omega quote through the relay and render it BRANDED (step 5).
    Falls back to direct Omega navigation only if the relay call fails. */
 $('go').onclick = async ()=>{
-  if(!state.vehicle_id || !state.glass) return;
-  /* Keith 8/24: VIN is mandatory, VIN only — no quote without a valid 17-char VIN */
-  state.vin = ($('vin').value || '').toUpperCase().replace(/[^A-Z0-9]/g,'');
-  if(!/^[A-HJ-NPR-Z0-9]{17}$/.test(state.vin)){
-    $('errvin').style.display='block'; $('vin').focus(); track('vinfail'); return;
+  if(!state.glass) return;
+  /* 10/9: plate OR VIN (Keith's 8/24 rule was VIN-only; Omega's new quoter takes either) */
+  state.vin = byVin ? ($('vin').value || '').toUpperCase().replace(/[^A-Z0-9]/g,'') : '';
+  state.plate = byVin ? '' : ($('plate').value || '').toUpperCase().replace(/[^A-Z0-9]/g,'');
+  state.pstate = $('pstate').value;
+  if(byVin ? !/^[A-HJ-NPR-Z0-9]{17}$/.test(state.vin) : !state.plate){
+    $('errvin').style.display='block'; (byVin ? $('vin') : $('plate')).focus(); track('vinfail'); return;
   }
-  $('errvin').style.display='none'; track('vinok');
+  $('errvin').style.display='none';
   $('go').disabled = true;
+  $('go').innerHTML = '<span class="spin"></span>&nbsp;Finding your vehicle…';
+  try{
+    const dq = new URLSearchParams(byVin ? { vin: state.vin } : { plate: state.plate, state: state.pstate });
+    const dr = await fetch(`${RELAY}/decode`, { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: dq.toString() });
+    const dv = await dr.json();
+    if(!dv.ok) throw 0;
+    Object.assign(state, { vehicle_id: dv.carid, vyear: dv.year, vmake: dv.make, vmodel: dv.model });
+    if(dv.vin && !state.vin) state.vin = dv.vin;
+  }catch(e){
+    $('go').disabled = false; $('go').textContent = 'See my instant quote';
+    $('errvin').style.display='block'; track('vinfail'); return;
+  }
+  track('vinok');
   $('go').innerHTML = '<span class="spin"></span>&nbsp;Building your quote…';
   try{
     const qp = new URLSearchParams({
       vehicle_id: state.vehicle_id, glass: state.glass.code,
-      year: $('year').value, make: $('make').options[$('make').selectedIndex].text, model: $('model').options[$('model').selectedIndex].text,
+      year: state.vyear, make: state.vmake, model: state.vmodel, plate: state.plate, plate_state: state.plate ? state.pstate : '',
       fname: state.fname, phone: state.phone, email: state.email, zip: state.zip,
       vin: state.vin, sms: '1', source: 'website_3d',
     });
@@ -603,7 +638,7 @@ $('go').onclick = async ()=>{
     $('r-quoteno').textContent = d.quote_no ? `Online Quote #${d.quote_no} · ${state.fname}` : 'Your instant quote';
     $('r-price').textContent = d.price;
     $('r-glass').textContent = d.glass_desc || state.glass.label;
-    $('r-vehicle').textContent = `${$('year').value} ${$('make').options[$('make').selectedIndex].text} ${$('model').options[$('model').selectedIndex].text}`;
+    $('r-vehicle').textContent = `${state.vyear} ${state.vmake} ${state.vmodel}`;
     state.quote = d; track('quote_ok');
     $('r-schedule').style.display = (d.guid && d.dates.length) ? '' : 'none';
     $('go').disabled = false; $('go').textContent = 'See my instant quote';
@@ -619,8 +654,8 @@ $('go').onclick = async ()=>{
     folder:'firstclassagnc', lead_type:'web_lead',
     medium:'web_quote', source:'website_3d', referrer: document.referrer || '', campaign:'', campid:'',
     Tags:'', template_id:'', disable_scheduling:'',
-    NagsVehicle_year: $('year').value, NagsVehicle_make: $('make').value,
-    NagsVehicle_model: $('model').value, NagsVehicle_vehicle: state.vehicle_id,
+    NagsVehicle_year: state.vyear, NagsVehicle_make: state.vmake,
+    NagsVehicle_model: state.vmodel, NagsVehicle_vehicle: state.vehicle_id,
     NagsVehicle_glass: state.glass.code,
     customer_fname: state.fname, customer_phone: state.phone,
     customer_email: state.email, customer_zip: state.zip, customer_sms:'1',
