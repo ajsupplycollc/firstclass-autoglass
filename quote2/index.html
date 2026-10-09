@@ -193,7 +193,7 @@
         <p class="hint" id="r-vehicle" style="margin-bottom:12px"></p>
         <button class="pill primary" id="r-schedule">Schedule my service</button>
         <p class="hint" style="margin-top:10px"><a href="tel:+19802428339" style="color:#c9ffb2">or call (980) 242-8339</a></p>
-        <p class="hint" style="margin-top:10px;font-size:11.5px">Shown for the glass listed above — we confirm your exact windshield from your VIN on a quick call, so your final price may adjust. Price may not include required calibrations, moldings, clips, or other attachments. Quote valid for 48 hours.</p>
+        <p class="hint" style="margin-top:10px;font-size:11.5px">Shown for the glass listed above — we confirm your exact windshield from your VIN on a quick call, so your final price may adjust. Price may not include attachments or other required services. Quote valid for 48 hours.</p>
       </div>
     </div>
 
@@ -592,7 +592,7 @@ $('go').onclick = async ()=>{
   try{
     const qp = new URLSearchParams({
       vehicle_id: state.vehicle_id, glass: state.glass.code,
-      year: $('year').value, make: $('make').value, model: $('model').value,
+      year: $('year').value, make: $('make').options[$('make').selectedIndex].text, model: $('model').options[$('model').selectedIndex].text,
       fname: state.fname, phone: state.phone, email: state.email, zip: state.zip,
       vin: state.vin, sms: '1', source: 'website_3d',
     });
